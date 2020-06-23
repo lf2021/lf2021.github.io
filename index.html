@@ -176,7 +176,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/06/23/MAC%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AASSH/" class="post-title-link" itemprop="url">MAC管理多个SSH</a>
+            <a href="/2020/06/23/MAC%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AASSH/" class="post-title-link" itemprop="url">Hexo 搭建博客填坑</a>
         </h2>
 
         <div class="post-meta">
@@ -186,7 +186,16 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-06-23 13:20:30" itemprop="dateCreated datePublished" datetime="2020-06-23T13:20:30+08:00">2020-06-23</time>
+              <time title="创建时间：2020-06-23 00:00:00" itemprop="dateCreated datePublished" datetime="2020-06-23T00:00:00+08:00">2020-06-23</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
+                </span>
             </span>
 
           
@@ -200,64 +209,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="MAC配置SSH密钥"><a href="#MAC配置SSH密钥" class="headerlink" title="MAC配置SSH密钥"></a>MAC配置SSH密钥</h1><p>众所周知，我们可以将代码托管到线上很多平台，gitee / github / gitlab 等等。<br>在企业中我们可能会遇到这种情况：</p>
+          <h2 id="MAC配置SSH密钥"><a href="#MAC配置SSH密钥" class="headerlink" title="MAC配置SSH密钥"></a>MAC配置SSH密钥</h2><p>众所周知，我们可以将代码托管到线上很多平台，gitee / github / gitlab 等等。<br>在企业中我们可能会遇到这种情况：</p>
 <blockquote>
 <p>企业的项目是放在gitlab上托管的，我需要为gitlab配置一个SSH密钥，但是我自己的项目是放到github上的，我需要为github也配置一个SSH密钥，这就涉及到了管理多个SSH密钥的问题，下面我分别介绍了配置单个和多个SSH密钥的方式。</p>
 </blockquote>
-<h2 id="一、配置单个SSH密钥"><a href="#一、配置单个SSH密钥" class="headerlink" title="一、配置单个SSH密钥"></a>一、配置单个SSH密钥</h2><p>例如：为企业gitlab配置SSH密钥<br>在终端中依次输入如下命令：</p>
-<ol>
-<li><p>注意这里邮箱是你公司的地址，敲完一路回车就好</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"yourmail@gmail.com"</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>切换到.ssh目录下，查看一下目录下的文件</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> .ssh</span><br><span class="line">ls</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看公钥（id_rsa.pub），复制下来，打开gitlab的Settings里的SSH Keys将复制的添加进去，会自动生成Title为你的邮箱。</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat id_rsa.pub</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>将私钥（id_rsa）添加到SSH-agent</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SSH-add ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h2 id="二、配置多个SSH密钥"><a href="#二、配置多个SSH密钥" class="headerlink" title="二、配置多个SSH密钥"></a>二、配置多个SSH密钥</h2><p>在这里我需要再为github配置一下SSH，如果重复上面的步骤，会出现密钥覆盖的情况，所以我们需要为新的密钥文件设置新的名字，步骤如下：</p>
-<ol>
-<li><p>这里邮箱是你注册github的邮箱，<strong>注意第一次回车之后需要为生成的密钥自定义名字</strong>，输入一个id_rsa_github，输入完之后一路回车</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"yourmail@gmail.com"</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看一下自己生成的SSH</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> .ssh</span><br><span class="line">ls</span><br></pre></td></tr></table></figure>
-
-<p> 目录下的文件应该有这些：</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id_rsa.pub        id_rsa_github.pub        id_rsa            id_rsa_github     known_hosts</span><br></pre></td></tr></table></figure>
-
-<p> 这里id_rsa和id_rsa.pub是我的gitlab的私钥和公钥，id_rsa_github和id_rsa_github.pub是我的github的私钥和公钥。</p>
-</li>
-<li><p>查看公钥（id_rsa_github.pub）,打开github的Settings里的SSH and GPG keys，New SSH key，将公钥复制进去，设置Title为你的邮箱名。</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat id_rsa_github.pub</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>添加私钥</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-add ~/.ssh/id_rsa_github</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>添加配置文件</p>
-</li>
-</ol>
-<ul>
-<li><p>在.ssh/下创建config文件</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch config</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>用vim编辑器打开config，输入i切换到插入模式进行修改</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim config</span><br></pre></td></tr></table></figure>
-
-<p>  在config中输入一下内容</p>
-<blockquote>
-<p>注意：如果Gitlab是用的公司的服务器，需要在HostName中指定公司的域名。</p>
-</blockquote>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#gitlab</span></span><br><span class="line">Host gitlab.com</span><br><span class="line">HostName gitlab.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/id_rsa</span><br><span class="line"><span class="comment">#github</span></span><br><span class="line">Host github.com</span><br><span class="line">HostName github.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/id_rsa_github</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="三、至此大功告成"><a href="#三、至此大功告成" class="headerlink" title="三、至此大功告成"></a>三、至此大功告成</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/06/23/MAC%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AASSH/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -497,13 +460,13 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
