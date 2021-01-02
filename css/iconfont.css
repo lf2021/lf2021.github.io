@@ -1,0 +1,25 @@
+@font-face {font-family: "iconfont";
+  src: url('//at.alicdn.com/t/font_2304885_muea2lro2bm.eot?t=1609565400642'); /* IE9 */
+  src: url('//at.alicdn.com/t/font_2304885_muea2lro2bm.eot?t=1609565400642#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAANIAAsAAAAAB0QAAAL7AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDBgqCLIIRATYCJAMMCwgABCAFhG0HOBtZBhHVm0PIfiTYuMXF+hzJLdKbIB79+29OkosvoVqQqLYCXAJ8AbD/2zrxkhYSFnmd69q/7IsBY2cGXE5/is8DeqdvrGlj0pwUYIKB7oFRlGiBBKgxN4xd0BJvQwBv4slFqtWo1wwXg7lIAOnXu2dn3Iwb01AuuAh2xU4zRBZh4arZ6gqwMPi8vKFYXFBYGnNlox7Vu1HpuTyvpyd5JtHOI9BMFwTYPtBALmBAOlSGW6GjbC4ab9VotHqwMQhqqoTHQ6DWjLb1hwcKAbExS30ByEQ5Bc/FUSeWelB71aUaADsqag2MxLSGBi8UVFUnYOydO83u3m2+fGW43LkWveJA+Io1GdtPh+2/m7F2bcS9ey3uV1yxJWHy2frn51a/fp71m0J3H6b9b1y+HyYtj7h/v+W9e0NH7vAOnpM6fMQuzOa71UPO30+xJmcn6pxj5uNHc0zmrns0Le/TU6dRA59T1crMfHDv6OTF8W2e1qZsytuZtc2w5mqEVF9Xq+8fPfNEg/4Vzo/Qf/rWqt4rVY0Y1ryOOW3Hj/C68mlq/rqHMtcc+/iRvQnNm4+OrhvVq8W1VSsL0r47desOqjupTl3ne2o8nQDwvNR7dQ7MT7Ja6El/4DvMDumxo2NAuW+ujwHgSXjaA6jtVgwuCjpr3neH1Rw8HqsF15kebRQTjWojqqk6MKgAKjyGBzMezLPh9rB7ygsuYQkUDnHQuKSShs2FhQ+lsHGpCG9yqLnfhxCGoBHjBWQzHUAI5CAU/pyBJpCrpGGfwiKcd7AJFA1vWkjIiT6kC9j7UpVQMGqQf/BqLMb28SUsv6F9J0FpXcC9kBafgLZq8oUrFqQp1iwf2zEbMDRmGMB9mNIIE40BFVeOeerr2lQ9qVJjXl2oSigYNcg/eDUW443nS+H9N7TvJKihryp/IS1+cmirpgN5NZdOfbfyyPKxHbMBQ2OGAQQxWdkRpuppARVXbkB66ms0ynQ1V8tb8wtUsSHMS7Uo0WKwe3p2b7nvnoVPqxUA') format('woff2'),
+  url('//at.alicdn.com/t/font_2304885_muea2lro2bm.woff?t=1609565400642') format('woff'),
+  url('//at.alicdn.com/t/font_2304885_muea2lro2bm.ttf?t=1609565400642') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('//at.alicdn.com/t/font_2304885_muea2lro2bm.svg?t=1609565400642#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-github:before {
+  content: "\e64c";
+}
+
+.icon-email:before {
+  content: "\e601";
+}
+
