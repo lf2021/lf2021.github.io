@@ -260,4 +260,29 @@
         <tag>Hexo爬坑</tag>
       </tags>
   </entry>
+  <entry>
+    <title>leetcode每日一题2020.1.3</title>
+    <url>/2021/01/02/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.3/</url>
+    <content><![CDATA[<h2 id="86-分隔链表"><a href="#86-分隔链表" class="headerlink" title="86. 分隔链表"></a><a href="https://leetcode-cn.com/problems/partition-list/" target="_blank" rel="noopener">86. 分隔链表</a></h2><h3 id="一、题目"><a href="#一、题目" class="headerlink" title="一、题目"></a>一、题目</h3><p>给你一个链表和一个特定值 x ，请你对链表进行分隔，使得所有小于 x 的节点都出现在大于或等于 x 的节点之前。</p>
+<p>你应当保留两个分区中每个节点的初始相对位置。</p>
+<a id="more"></a>
+
+<p><strong>示例：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：head &#x3D; 1-&gt;4-&gt;3-&gt;2-&gt;5-&gt;2, x &#x3D; 3</span><br><span class="line">输出：1-&gt;2-&gt;2-&gt;4-&gt;3-&gt;5</span><br></pre></td></tr></table></figure>
+
+<h3 id="二、题解"><a href="#二、题解" class="headerlink" title="二、题解"></a>二、题解</h3><h4 id="模拟法"><a href="#模拟法" class="headerlink" title="模拟法"></a>模拟法</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">题解</span><br><span class="line"></span><br><span class="line">模拟两个链表，small 表示比 x 小的，large 一个表示比 x 大的，</span><br><span class="line">然后遍历原链表，将值比 x 小的接到 small 后面，否则接到 large 后面，</span><br><span class="line">最后再把 small 链表的尾部和 large 链表的头部连起来。</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>时间复杂度：O(n)，n 是原链表的长度。</li>
+<li>空间复杂度：O(1)</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> partition = <span class="function"><span class="keyword">function</span>(<span class="params">head, x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> small = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">let</span> large = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">let</span> smallHead = small, largeHead = large;</span><br><span class="line">    <span class="keyword">while</span> (head) &#123;</span><br><span class="line">        <span class="keyword">if</span> (head.val &lt; x) &#123;</span><br><span class="line">            small.next = head;</span><br><span class="line">            small = small.next</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            large.next = head;</span><br><span class="line">            large = large.next</span><br><span class="line">        &#125;</span><br><span class="line">        head = head.next;</span><br><span class="line">    &#125;</span><br><span class="line">    large.next = <span class="literal">null</span></span><br><span class="line">    small.next = largeHead.next</span><br><span class="line">    <span class="keyword">return</span> smallHead.next</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode每日一题</tag>
+      </tags>
+  </entry>
 </search>
