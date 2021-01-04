@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"lf2021.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":18,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideLeftBigIn","post_body":"slideRightBigIn","coll_header":"slideLeftIn","sidebar":"slideLeftBigIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="509. 斐波那契数一、题目斐波那契数，通常用 F(n) 表示，形成的序列称为 斐波那契数列 。该数列由 0 和 1 开始，后面的每一项数字都是前面两项数字的和。也就是： 12F(0) &#x3D; 0，F(1) &#x3D; 1F(n) &#x3D; F(n - 1) + F(n - 2)，其中 n &gt; 1 给你 n ，请计算 F(n) 。">
+  <meta name="description" content="hexo中如何正确使用mathjax今天我在使用hexo写博客的时候，惊讶的发现md文档写的mathjax公式在vscode编辑器上预览是可以正常显示的，但是在部署到博客上时却未能正确显示，按照如下5个步骤操作，即可实现">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode每日一题2020.1.4">
-<meta property="og:url" content="https://lf2021.github.io/2021/01/04/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.4/index.html">
+<meta property="og:title" content="hexo中启用mathjax的方式">
+<meta property="og:url" content="https://lf2021.github.io/2021/01/04/hexo%E4%BD%BF%E7%94%A8mathjax/index.html">
 <meta property="og:site_name" content="Lee の 博客">
-<meta property="og:description" content="509. 斐波那契数一、题目斐波那契数，通常用 F(n) 表示，形成的序列称为 斐波那契数列 。该数列由 0 和 1 开始，后面的每一项数字都是前面两项数字的和。也就是： 12F(0) &#x3D; 0，F(1) &#x3D; 1F(n) &#x3D; F(n - 1) + F(n - 2)，其中 n &gt; 1 给你 n ，请计算 F(n) 。">
+<meta property="og:description" content="hexo中如何正确使用mathjax今天我在使用hexo写博客的时候，惊讶的发现md文档写的mathjax公式在vscode编辑器上预览是可以正常显示的，但是在部署到博客上时却未能正确显示，按照如下5个步骤操作，即可实现">
 <meta property="article:published_time" content="2021-01-03T16:00:00.000Z">
 <meta property="article:modified_time" content="2021-01-03T16:00:00.000Z">
 <meta property="article:author" content="Lee">
-<meta property="article:tag" content="leetcode每日一题">
+<meta property="article:tag" content="hexo爬坑">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://lf2021.github.io/2021/01/04/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.4/">
+<link rel="canonical" href="https://lf2021.github.io/2021/01/04/hexo%E4%BD%BF%E7%94%A8mathjax/">
 
 
 <script id="page-configurations">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>leetcode每日一题2020.1.4 | Lee の 博客</title>
+  <title>hexo中启用mathjax的方式 | Lee の 博客</title>
   
 
 
@@ -207,7 +207,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://lf2021.github.io/2021/01/04/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.4/">
+    <link itemprop="mainEntityOfPage" href="https://lf2021.github.io/2021/01/04/hexo%E4%BD%BF%E7%94%A8mathjax/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -220,7 +220,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          leetcode每日一题2020.1.4
+          hexo中启用mathjax的方式
         </h1>
 
         <div class="post-meta">
@@ -238,7 +238,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                  <a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
                 </span>
             </span>
 
@@ -258,8 +258,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/01/04/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.4/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/04/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.4/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/01/04/hexo%E4%BD%BF%E7%94%A8mathjax/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/04/hexo%E4%BD%BF%E7%94%A8mathjax/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -269,14 +269,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.4k</span>
+              <span>1.9k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -288,54 +288,40 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="509-斐波那契数"><a href="#509-斐波那契数" class="headerlink" title="509. 斐波那契数"></a><a href="https://leetcode-cn.com/problems/fibonacci-number/" target="_blank" rel="noopener">509. 斐波那契数</a></h2><h3 id="一、题目"><a href="#一、题目" class="headerlink" title="一、题目"></a>一、题目</h3><p><strong>斐波那契数</strong>，通常用 F(n) 表示，形成的序列称为 <strong>斐波那契数列</strong> 。该数列由 0 和 1 开始，后面的每一项数字都是前面两项数字的和。也就是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">F(0) &#x3D; 0，F(1) &#x3D; 1</span><br><span class="line">F(n) &#x3D; F(n - 1) + F(n - 2)，其中 n &gt; 1</span><br></pre></td></tr></table></figure>
-<p>给你 <code>n</code> ，请计算 <code>F(n)</code> 。</p>
+        <h2 id="hexo中如何正确使用mathjax"><a href="#hexo中如何正确使用mathjax" class="headerlink" title="hexo中如何正确使用mathjax"></a>hexo中如何正确使用mathjax</h2><p>今天我在使用hexo写博客的时候，惊讶的发现md文档写的mathjax公式在vscode编辑器上预览是可以正常显示的，但是在部署到博客上时却未能正确显示，按照如下5个步骤操作，即可实现</p>
 <a id="more"></a>
-<p><strong>示例1：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：2</span><br><span class="line">输出：1</span><br><span class="line">解释：F(2) &#x3D; F(1) + F(0) &#x3D; 1 + 0 &#x3D; 1</span><br></pre></td></tr></table></figure>
-<p><strong>示例 2：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：3</span><br><span class="line">输出：2</span><br><span class="line">解释：F(3) &#x3D; F(2) + F(1) &#x3D; 1 + 1 &#x3D; 2</span><br></pre></td></tr></table></figure>
-<p><strong>示例 3：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：4</span><br><span class="line">输出：3</span><br><span class="line">解释：F(4) &#x3D; F(3) + F(2) &#x3D; 2 + 1 &#x3D; 3</span><br></pre></td></tr></table></figure>
-<p><strong>提示：</strong></p>
+<h3 id="部署步骤"><a href="#部署步骤" class="headerlink" title="部署步骤"></a>部署步骤</h3><h4 id="一、使用-kramed-代替-marked"><a href="#一、使用-kramed-代替-marked" class="headerlink" title="一、使用 kramed 代替 marked"></a>一、使用 kramed 代替 marked</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo默认使用hexo-renderer-marked引擎去渲染网页，它会把利用Markdown语法写的文本去转换为相应的html标签。</span><br><span class="line"></span><br><span class="line">在利用Markdown写MathJax公式的时候，经常会用到下划线_表示下标，但是下划线_会被hexo的默认引擎hexo-renderer-marked渲染成html中的&lt;em&gt;标签，表示斜体，</span><br><span class="line"></span><br><span class="line">这样一来，我们写的MathJax公式就被错误渲染了，也就没办法正确显示出来。</span><br></pre></td></tr></table></figure>
 <ul>
-<li><code>0 ≤ n ≤ 30</code></li>
+<li><strong>卸载marked，改装kramed</strong></li>
 </ul>
-<h3 id="二、题解"><a href="#二、题解" class="headerlink" title="二、题解"></a>二、题解</h3><h4 id="方法1：通项公式"><a href="#方法1：通项公式" class="headerlink" title="方法1：通项公式"></a>方法1：通项公式</h4><p>斐波那契数 F(n) 是齐次线性递推，根据递推方程 F(n)=F(n-1)+F(n-2)，可以写出这样的特征方程：</p>
-<script type="math/tex; mode=display">x ^ 2=x+1</script><p>求得$x_1=\frac{1+\sqrt5}{2}$，$x_2=\frac{1-\sqrt5}{2}$。设通解为$F(n)=c_1x_1^n+c_2x_2^n$，代入初始条件$F(n)=0, F(1)=1$，得$c_1=\frac{1}{\sqrt5}，c_2=-\frac{1}{\sqrt5}$。因此斐波那契数得通项公式如下：</p>
-<script type="math/tex; mode=display">
-    F(n)=\frac{1}{\sqrt5}
-    \left[
-        \left(
-            \frac{1+\sqrt5}{2}
-        \right)^n-
-        \left(\frac{1-\sqrt5}{2}
-        \right)^n
-    \right]</script><p>得到通项公式之后，就可以通过公式直接求解第 n 项。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm install hexo-renderer-kramed --save</span><br></pre></td></tr></table></figure>
 <ul>
-<li>时间复杂度：O(1)</li>
-<li>空间复杂度：O(1)</li>
+<li><strong>更改相应的规则</strong></li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fib = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> sqrt5 = <span class="built_in">Math</span>.sqrt(<span class="number">5</span>);</span><br><span class="line">    <span class="keyword">const</span> fibN = <span class="built_in">Math</span>.pow((<span class="number">1</span> + sqrt5) / <span class="number">2</span>, n) - <span class="built_in">Math</span>.pow((<span class="number">1</span> - sqrt5) / <span class="number">2</span>, n);</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.round(fibN / sqrt5);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h4 id="方法2：循环法"><a href="#方法2：循环法" class="headerlink" title="方法2：循环法"></a>方法2：循环法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">斐波那契数的特点就是当前的数等于前两个树之和，那我们可以用三个变量 a b res 分别表示第一个数、第二个数、第三个数</span><br><span class="line"></span><br><span class="line">然后在循环的时候不断更新即可</span><br></pre></td></tr></table></figure>
-<ul>
-<li>时间复杂度：O(n)</li>
-<li>空间复杂度：O(1)</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fib = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> a = <span class="number">-1</span>, b = <span class="number">1</span>, res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;=n; i++) &#123;</span><br><span class="line">        res = a+b;</span><br><span class="line">        a = b;</span><br><span class="line">        b = res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h4 id="方法3：动态规划"><a href="#方法3：动态规划" class="headerlink" title="方法3：动态规划"></a>方法3：动态规划</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">dp 矩阵的定义：</span><br><span class="line">    dp[i] 定义为第 i 个数</span><br><span class="line"></span><br><span class="line">转移方程：</span><br><span class="line">    dp[i] &#x3D; dp[i-1] + dp[i-2]</span><br><span class="line"></span><br><span class="line">目标：</span><br><span class="line">    dp[n]</span><br></pre></td></tr></table></figure>
-<ul>
-<li>时间复杂度：O(n)</li>
-<li>空间复杂度：O(1)</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fib = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> dp = [<span class="number">0</span>, <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">2</span>; i&lt;=n; i++) &#123;</span><br><span class="line">        dp[i] = dp[i<span class="number">-1</span>] + dp[i<span class="number">-2</span>]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dp[n]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h4 id="方法4：递归法"><a href="#方法4：递归法" class="headerlink" title="方法4：递归法"></a>方法4：递归法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">我们要求 fib(n) ，那就是要求 fib(n-1) 和 fib(n-2)，依次下去...</span><br></pre></td></tr></table></figure>
-<ul>
-<li>时间复杂度：O($2^n$)</li>
-<li>空间复杂度：O(1)</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fib = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n===<span class="number">0</span> || n===<span class="number">1</span>) <span class="keyword">return</span> n;</span><br><span class="line">    <span class="keyword">return</span> fib(n<span class="number">-1</span>) + fib(n<span class="number">-2</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>找到根目录下的 <strong><code>/node_modules/hexo-renderer-kramed/lib/renderer.js</code></strong> 文件</p>
+<p><strong>找到以下内容</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Change inline math rule</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">formatText</span>(<span class="params">text</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Fit kramed's rule: $$ + \1 + $$</span></span><br><span class="line">  <span class="keyword">return</span> text.replace(<span class="regexp">/`\$(.*?)\$`/g</span>, <span class="string">'$$$$$1$$$$'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>改为</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Change inline math rule</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">formatText</span>(<span class="params">text</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Fit kramed's rule: $$ + \1 + $$</span></span><br><span class="line">    <span class="keyword">return</span> text;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="二、使用-hexo-renderer-mathjax-代替-hexo-math"><a href="#二、使用-hexo-renderer-mathjax-代替-hexo-math" class="headerlink" title="二、使用 hexo-renderer-mathjax 代替 hexo-math"></a>二、使用 hexo-renderer-mathjax 代替 hexo-math</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-math --save</span><br><span class="line">npm install hexo-renderer-mathjax --save</span><br></pre></td></tr></table></figure>
+<h4 id="三、更新-Mathjax-的-CDN-链接"><a href="#三、更新-Mathjax-的-CDN-链接" class="headerlink" title="三、更新 Mathjax 的 CDN 链接"></a>三、更新 Mathjax 的 CDN 链接</h4><p>找到根目录下的 <strong><code>/node_modules/hexo-renderer-mathjax/mathjax.html</code></strong> 文件，将最后的 script 标签改成如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="四、更改默认转义规则"><a href="#四、更改默认转义规则" class="headerlink" title="四、更改默认转义规则"></a>四、更改默认转义规则</h4><p>找到根目录下的 <strong><code>/node_modules/kramed/lib/rules/inline.js</code></strong> 文件</p>
+<p><strong>将第 11 行</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">escape</span>: <span class="regexp">/^\\([\\`*&#123;&#125;\[\]()#$+\-.!_&gt;])/</span>,</span><br></pre></td></tr></table></figure>
+<p><strong>改成</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">escape</span>: <span class="regexp">/^\\([`*\[\]()#$+\-.!_&gt;])/</span>,</span><br></pre></td></tr></table></figure>
+<p><strong>将第 21 行</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">em: <span class="regexp">/^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/</span>,</span><br></pre></td></tr></table></figure>
+<p><strong>改成</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">em: <span class="regexp">/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/</span>,</span><br></pre></td></tr></table></figure>
+<h4 id="五、开启mathjax"><a href="#五、开启mathjax" class="headerlink" title="五、开启mathjax"></a>五、开启mathjax</h4><p>先打开主题的配置文件，以 next 主题为例，打开<code>\theme\next\_config.yml</code>，搜索mathjax，设置成如下：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">mathjax:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">per_page:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">cdn:</span> <span class="string">//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML</span></span><br></pre></td></tr></table></figure>
+<p>在文章的 Front-matter 里打开 mathjax 开关</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">title: hexo中启用 mathjax 的方式</span><br><span class="line">date: 2021-1-4</span><br><span class="line">mathjax: true # 启用 mathjax</span><br></pre></td></tr></table></figure>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$$F(n)&#x3D;\frac&#123;1&#125;&#123;\sqrt5&#125;\left[\left(\frac&#123;1+\sqrt5&#125;&#123;2&#125;\right)^n-\left(\frac&#123;1-\sqrt5&#125;&#123;2&#125;\right)^n\right]$$</span><br></pre></td></tr></table></figure>
+<p>显示效果：</p>
+<script type="math/tex; mode=display">F(n)=\frac{1}{\sqrt5}\left[\left(\frac{1+\sqrt5}{2}\right)^n-\left(\frac{1-\sqrt5}{2}\right)^n\right]</script><p>至此大功告成！</p>
 
     </div>
 
@@ -360,7 +346,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" rel="tag"># leetcode每日一题</a>
+              <a href="/tags/hexo%E7%88%AC%E5%9D%91/" rel="tag"># hexo爬坑</a>
           </div>
 
         
@@ -369,10 +355,13 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/01/04/hexo%E4%BD%BF%E7%94%A8mathjax/" rel="prev" title="hexo中启用mathjax的方式">
-      <i class="fa fa-chevron-left"></i> hexo中启用mathjax的方式
+    <a href="/2021/01/03/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.3/" rel="prev" title="leetcode每日一题2020.1.3">
+      <i class="fa fa-chevron-left"></i> leetcode每日一题2020.1.3
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2021/01/04/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.4/" rel="next" title="leetcode每日一题2020.1.4">
+      leetcode每日一题2020.1.4 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -432,7 +421,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#509-斐波那契数"><span class="nav-number">1.</span> <span class="nav-text">509. 斐波那契数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、题目"><span class="nav-number">1.1.</span> <span class="nav-text">一、题目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、题解"><span class="nav-number">1.2.</span> <span class="nav-text">二、题解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法1：通项公式"><span class="nav-number">1.2.1.</span> <span class="nav-text">方法1：通项公式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法2：循环法"><span class="nav-number">1.2.2.</span> <span class="nav-text">方法2：循环法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法3：动态规划"><span class="nav-number">1.2.3.</span> <span class="nav-text">方法3：动态规划</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法4：递归法"><span class="nav-number">1.2.4.</span> <span class="nav-text">方法4：递归法</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo中如何正确使用mathjax"><span class="nav-number">1.</span> <span class="nav-text">hexo中如何正确使用mathjax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#部署步骤"><span class="nav-number">1.1.</span> <span class="nav-text">部署步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、使用-kramed-代替-marked"><span class="nav-number">1.1.1.</span> <span class="nav-text">一、使用 kramed 代替 marked</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、使用-hexo-renderer-mathjax-代替-hexo-math"><span class="nav-number">1.1.2.</span> <span class="nav-text">二、使用 hexo-renderer-mathjax 代替 hexo-math</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、更新-Mathjax-的-CDN-链接"><span class="nav-number">1.1.3.</span> <span class="nav-text">三、更新 Mathjax 的 CDN 链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、更改默认转义规则"><span class="nav-number">1.1.4.</span> <span class="nav-text">四、更改默认转义规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五、开启mathjax"><span class="nav-number">1.1.5.</span> <span class="nav-text">五、开启mathjax</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试"><span class="nav-number">1.2.</span> <span class="nav-text">测试</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
