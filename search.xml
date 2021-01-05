@@ -362,4 +362,35 @@
         <tag>hexo爬坑</tag>
       </tags>
   </entry>
+  <entry>
+    <title>leetcode每日一题2020.1.5</title>
+    <url>/2021/01/05/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.5/</url>
+    <content><![CDATA[<h2 id="830-较大分组的位置"><a href="#830-较大分组的位置" class="headerlink" title="830. 较大分组的位置"></a><a href="https://leetcode-cn.com/problems/positions-of-large-groups/" target="_blank" rel="noopener">830. 较大分组的位置</a></h2><h3 id="一、题目"><a href="#一、题目" class="headerlink" title="一、题目"></a>一、题目</h3><p>在一个由小写字母构成的字符串 s 中，包含由一些连续的相同字符所构成的分组。</p>
+<p>例如，在字符串 <code>s = &quot;abbxxxxzyy&quot;</code> 中，就含有 <code>&quot;a&quot;</code>, <code>&quot;bb&quot;</code>, <code>&quot;xxxx&quot;</code>, <code>&quot;z&quot;</code> 和 <code>&quot;yy&quot;</code> 这样的一些分组。</p>
+<p>分组可以用区间 <code>[start, end]</code> 表示，其中 <code>start</code> 和 <code>end</code> 分别表示该分组的起始和终止位置的下标。上例中的 <code>&quot;xxxx&quot;</code> 分组用区间表示为 <code>[3,6]</code> 。</p>
+<p>我们称所有包含大于或等于三个连续字符的分组为 <strong>较大分组</strong> 。</p>
+<p>找到每一个 <strong>较大分组</strong> 的区间，<strong>按起始位置下标递增顺序排序后</strong>，返回结果。</p>
+<a id="more"></a>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：s &#x3D; &quot;abbxxxxzzy&quot;</span><br><span class="line">输出：[[3,6]]</span><br><span class="line">解释：&quot;xxxx&quot; 是一个起始于 3 且终止于 6 的较大分组。</span><br></pre></td></tr></table></figure>
+<p><strong>示例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：s &#x3D; &quot;abc&quot;</span><br><span class="line">输出：[]</span><br><span class="line">解释：&quot;a&quot;,&quot;b&quot; 和 &quot;c&quot; 均不是符合要求的较大分组。</span><br></pre></td></tr></table></figure>
+<p><strong>示例3：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：s &#x3D; &quot;abcdddeeeeaabbbcd&quot;</span><br><span class="line">输出：[[3,5],[6,9],[12,14]]</span><br><span class="line">解释：较大分组为 &quot;ddd&quot;, &quot;eeee&quot; 和 &quot;bbb&quot;</span><br></pre></td></tr></table></figure>
+<p><strong>示例 4：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：s &#x3D; &quot;aba&quot;</span><br><span class="line">输出：[]</span><br></pre></td></tr></table></figure>
+<h3 id="二、题解"><a href="#二、题解" class="headerlink" title="二、题解"></a>二、题解</h3><h4 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">题解</span><br><span class="line"></span><br><span class="line">我们可以遍历该序列，并记录当前分组的长度。如果下一个字符与当前字符不同，或者已经枚举到字符串尾部，就说明当前字符为当前分组的尾部。</span><br><span class="line"></span><br><span class="line">每次找到当前分组的尾部时，如果该分组长度达到 3，我们就将其加入答案。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>时间复杂度：O(n)，n 是 s 的长度。</li>
+<li>空间复杂度：O(1)</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> largeGroupPositions = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> res = [];</span><br><span class="line">    <span class="keyword">const</span> n = s.length;</span><br><span class="line">    <span class="keyword">let</span> num = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i&lt;n; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i === n<span class="number">-1</span> || s[i+<span class="number">1</span>] !== s[i]) &#123;</span><br><span class="line">            <span class="keyword">if</span> (num &gt;= <span class="number">3</span>) &#123;</span><br><span class="line">                res.push([i - num + <span class="number">1</span>, i])</span><br><span class="line">            &#125;</span><br><span class="line">            num = <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            num++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode每日一题</tag>
+      </tags>
+  </entry>
 </search>
