@@ -393,4 +393,50 @@
         <tag>leetcode每日一题</tag>
       </tags>
   </entry>
+  <entry>
+    <title>leetcode每日一题2020.1.6</title>
+    <url>/2021/01/06/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.6/</url>
+    <content><![CDATA[<h2 id="399-除法求值"><a href="#399-除法求值" class="headerlink" title="399. 除法求值"></a><a href="https://leetcode-cn.com/problems/evaluate-division/" target="_blank" rel="noopener">399. 除法求值</a></h2><h3 id="一、题目"><a href="#一、题目" class="headerlink" title="一、题目"></a>一、题目</h3><p>给你一个变量对数组 <code>equations</code> 和一个实数值数组 <code>values</code> 作为已知条件，其中 <code>equations[i] = [Ai, Bi]</code> 和 <code>values[i]</code> 共同表示等式 <code>Ai / Bi = values[i]</code> 。每个 <code>Ai</code> 或 <code>Bi</code> 是一个表示单个变量的字符串。</p>
+<p>另有一些以数组 <code>queries</code> 表示的问题，其中 <code>queries[j] = [Cj, Dj]</code> 表示第 <code>j</code> 个问题，请你根据已知条件找出 <code>Cj / Dj = ?</code> 的结果作为答案。</p>
+<p>返回 所有问题的答案 。如果存在某个无法确定的答案，则用 <code>-1.0</code> 替代这个答案。</p>
+<p><strong>注意：</strong><br>输入总是有效的。你可以假设除法运算中不会出现除数为 0 的情况，且不存在任何矛盾的结果。</p>
+<a id="more"></a>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：equations &#x3D; [[&quot;a&quot;,&quot;b&quot;],[&quot;b&quot;,&quot;c&quot;]], values &#x3D; [2.0,3.0], queries &#x3D; [[&quot;a&quot;,&quot;c&quot;],[&quot;b&quot;,&quot;a&quot;],[&quot;a&quot;,&quot;e&quot;],[&quot;a&quot;,&quot;a&quot;],[&quot;x&quot;,&quot;x&quot;]]</span><br><span class="line">输出：[6.00000,0.50000,-1.00000,1.00000,-1.00000]</span><br><span class="line">解释：</span><br><span class="line">条件：a &#x2F; b &#x3D; 2.0, b &#x2F; c &#x3D; 3.0</span><br><span class="line">问题：a &#x2F; c &#x3D; ?, b &#x2F; a &#x3D; ?, a &#x2F; e &#x3D; ?, a &#x2F; a &#x3D; ?, x &#x2F; x &#x3D; ?</span><br><span class="line">结果：[6.0, 0.5, -1.0, 1.0, -1.0 ]</span><br></pre></td></tr></table></figure>
+<p><strong>示例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：equations &#x3D; [[&quot;a&quot;,&quot;b&quot;],[&quot;b&quot;,&quot;c&quot;],[&quot;bc&quot;,&quot;cd&quot;]], values &#x3D; [1.5,2.5,5.0], queries &#x3D; [[&quot;a&quot;,&quot;c&quot;],[&quot;c&quot;,&quot;b&quot;],[&quot;bc&quot;,&quot;cd&quot;],[&quot;cd&quot;,&quot;bc&quot;]]</span><br><span class="line">输出：[3.75000,0.40000,5.00000,0.20000]</span><br></pre></td></tr></table></figure>
+<p><strong>示例3：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：equations &#x3D; [[&quot;a&quot;,&quot;b&quot;]], values &#x3D; [0.5], queries &#x3D; [[&quot;a&quot;,&quot;b&quot;],[&quot;b&quot;,&quot;a&quot;],[&quot;a&quot;,&quot;c&quot;],[&quot;x&quot;,&quot;y&quot;]]</span><br><span class="line">输出：[0.50000,2.00000,-1.00000,-1.00000]</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 ≤ equations.length ≤ 20</code></li>
+<li><code>equations[i].length = 2</code></li>
+<li><code>1 ≤ Ai.length, Bi.length ≤ 5</code></li>
+<li><code>values.length = equations.length</code></li>
+<li><code>0.0 &lt; values[i] ≤ 20.0</code></li>
+<li><code>1 ≤ queries.length ≤ 20</code></li>
+<li><code>queries[i].length = 2</code></li>
+<li><code>1 ≤ Cj.length, Dj.length ≤ 5</code></li>
+<li><code>Ai, Bi, Cj, Dj 由小写英文字母与数字组成</code></li>
+</ul>
+<h3 id="二、题解"><a href="#二、题解" class="headerlink" title="二、题解"></a>二、题解</h3><h4 id="邻接表"><a href="#邻接表" class="headerlink" title="邻接表"></a>邻接表</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">题解</span><br><span class="line"></span><br><span class="line">我们将这种关系表示为存储为邻接表</span><br><span class="line"></span><br><span class="line">如下图这种关系我们将其保存为如下邻接表格式：</span><br><span class="line"></span><br><span class="line">map &#x3D; &#123;</span><br><span class="line">    a: &#123; b: 2 &#125;,</span><br><span class="line">    b: &#123; a: 1&#x2F;2, c: 3 &#125;,</span><br><span class="line">    c: &#123; b: 1&#x2F;3 &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">然后我们再扩展出所有可能的情况，例如 a&#x2F;b 和 b&#x2F;c 可以扩展到 a&#x2F;c</span><br><span class="line"></span><br><span class="line">最后只要对 queries 数组遍历得到结果即可</span><br></pre></td></tr></table></figure>
+<div align=center>
+
+![关系图](../images/leetcode2021.1.6.png)
+
+</div>
+
+<ul>
+<li>时间复杂度：O($n^3$)，n 是所有可能的字符的个数。</li>
+<li>空间复杂度：O($n$)</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> calcEquation = <span class="function"><span class="keyword">function</span> (<span class="params">equations, values, queries</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> map = &#123;&#125;;</span><br><span class="line">    <span class="comment">// 定义一个对象，map[x][y] 表示 x/y 的值</span></span><br><span class="line">    equations.forEach(<span class="function">(<span class="params">e, i</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (!map[e[<span class="number">0</span>]]) map[e[<span class="number">0</span>]] = &#123;&#125;;</span><br><span class="line">        <span class="keyword">if</span> (!map[e[<span class="number">1</span>]]) map[e[<span class="number">1</span>]] = &#123;&#125;;</span><br><span class="line">        map[e[<span class="number">0</span>]][e[<span class="number">1</span>]] = values[i]</span><br><span class="line">        map[e[<span class="number">1</span>]][e[<span class="number">0</span>]] = <span class="number">1</span> / values[i]</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">const</span> keys = <span class="built_in">Object</span>.keys(map);</span><br><span class="line">    keys.forEach(<span class="function"><span class="params">x</span> =&gt;</span> &#123;</span><br><span class="line">        keys.forEach(<span class="function"><span class="params">y</span> =&gt;</span> &#123;</span><br><span class="line">            map[x][y] &amp;&amp; keys.forEach(<span class="function"><span class="params">z</span> =&gt;</span> &#123; <span class="comment">// 如果 x/y 有值 y/z 也有值，则 x/z 的值也可以求出</span></span><br><span class="line">                <span class="keyword">if</span> (map[y][z]) &#123;</span><br><span class="line">                    map[x][z] = map[x][y] * map[y][z]</span><br><span class="line">                    map[z][x] = <span class="number">1</span> / map[x][z] <span class="comment">// 这行不加会有一个测试案例通过不了</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> queries.map(<span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> map[e[<span class="number">0</span>]] &amp;&amp; map[e[<span class="number">0</span>]][e[<span class="number">1</span>]] ? map[e[<span class="number">0</span>]][e[<span class="number">1</span>]] : <span class="number">-1</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode每日一题</tag>
+      </tags>
+  </entry>
 </search>
