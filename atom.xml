@@ -249,24 +249,23 @@
   </entry>
   
   <entry>
-    <title>webpack打包之后index.html缺少引号的问题</title>
-    <link href="https://lf2021.github.io/2020/07/06/webpack%E6%89%93%E5%8C%85%E7%BC%BA%E5%B0%91%E5%BC%95%E5%8F%B7/"/>
-    <id>https://lf2021.github.io/2020/07/06/webpack%E6%89%93%E5%8C%85%E7%BC%BA%E5%B0%91%E5%BC%95%E5%8F%B7/</id>
+    <title>浏览器console控制台不显示编译错误/警告</title>
+    <link href="https://lf2021.github.io/2020/07/06/%E6%8E%A7%E5%88%B6%E5%8F%B0%E4%B8%8D%E6%98%BE%E7%A4%BA%E8%AD%A6%E5%91%8A/"/>
+    <id>https://lf2021.github.io/2020/07/06/%E6%8E%A7%E5%88%B6%E5%8F%B0%E4%B8%8D%E6%98%BE%E7%A4%BA%E8%AD%A6%E5%91%8A/</id>
     <published>2020-07-05T16:00:00.000Z</published>
     <updated>2020-07-05T16:00:00.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="webpack打包之后index-html缺少引号的问题"><a href="#webpack打包之后index-html缺少引号的问题" class="headerlink" title="webpack打包之后index.html缺少引号的问题"></a>webpack打包之后index.html缺少引号的问题</h2><p>下面是通过webpack <code>npm run build</code>打包之后生成的index.html文件，可以看到缺少引号</p><p><img data-src="/images/loading.gif" data-original="/images/出错.png" alt="报错问题"></p><a id="more"></a><h2 id="这里给出解决方案，亲测有效"><a href="#这里给出解决方案，亲测有效" class="headerlink" title="这里给出解决方案，亲测有效"></a>这里给出解决方案，亲测有效</h2><ol><li><p>找到<code>webpack.prod.conf.js</code>，在<code>webpack.prod.conf.js</code>找到minify（可以ctrl+F搜索minify），直接将整块(也就是以下这块儿)删除</p> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">minify: &#123;</span><br><span class="line">    removeComments: <span class="literal">true</span>,</span><br><span class="line">    collapseWhitespace: <span class="literal">true</span>,</span><br><span class="line">    removeAttributeQuotes: <span class="literal">true</span></span><br><span class="line">    <span class="comment">// more options:</span></span><br><span class="line">    <span class="comment">// https://github.com/kangax/html-minifier#options-quick-reference</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></li><li><p>重新打包<code>npm run build</code> 即解决问题，重新打包的index.html文件如下</p><p> <img data-src="/images/loading.gif" data-original="/images/解决方法.png" alt="效果图"></p></li></ol>]]></content>
+    <content type="html"><![CDATA[<h2 id="浏览器console控制台误关了编译错误-警告（不显示了）"><a href="#浏览器console控制台误关了编译错误-警告（不显示了）" class="headerlink" title="浏览器console控制台误关了编译错误/警告（不显示了）"></a>浏览器console控制台误关了编译错误/警告（不显示了）</h2><a id="more"></a><p>浏览器正常显示报错应该是这样的<br><img data-src="/images/loading.gif" data-original="/images/控制台报错.jpeg" alt="控制台报错"></p><p>但是我一不小心右键给Hide message from…了，红色报错字体就没了，解决方法如下：</p><p><img data-src="/images/loading.gif" data-original="/images/控制台报错解决方法.jpeg" alt="控制台报错解决方法"></p><p>直接将红色框内的内容叉掉，恢复成filter就OK了</p>]]></content>
     
     
-    <summary type="html">&lt;h2 id=&quot;webpack打包之后index-html缺少引号的问题&quot;&gt;&lt;a href=&quot;#webpack打包之后index-html缺少引号的问题&quot; class=&quot;headerlink&quot; title=&quot;webpack打包之后index.html缺少引号的问题&quot;&gt;&lt;/a&gt;webpack打包之后index.html缺少引号的问题&lt;/h2&gt;&lt;p&gt;下面是通过webpack &lt;code&gt;npm run build&lt;/code&gt;打包之后生成的index.html文件，可以看到缺少引号&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&quot;/images/loading.gif&quot; data-original=&quot;/images/出错.png&quot; alt=&quot;报错问题&quot;&gt;&lt;/p&gt;</summary>
+    <summary type="html">&lt;h2 id=&quot;浏览器console控制台误关了编译错误-警告（不显示了）&quot;&gt;&lt;a href=&quot;#浏览器console控制台误关了编译错误-警告（不显示了）&quot; class=&quot;headerlink&quot; title=&quot;浏览器console控制台误关了编译错误/警告（不显示了）&quot;&gt;&lt;/a&gt;浏览器console控制台误关了编译错误/警告（不显示了）&lt;/h2&gt;</summary>
     
     
     
-    <category term="Webpack" scheme="https://lf2021.github.io/categories/Webpack/"/>
+    <category term="JavaScript" scheme="https://lf2021.github.io/categories/JavaScript/"/>
     
     
-    <category term="Webpack" scheme="https://lf2021.github.io/tags/Webpack/"/>
+    <category term="JavaScript" scheme="https://lf2021.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -295,27 +294,6 @@
   </entry>
   
   <entry>
-    <title>浏览器console控制台不显示编译错误/警告</title>
-    <link href="https://lf2021.github.io/2020/07/06/%E6%8E%A7%E5%88%B6%E5%8F%B0%E4%B8%8D%E6%98%BE%E7%A4%BA%E8%AD%A6%E5%91%8A/"/>
-    <id>https://lf2021.github.io/2020/07/06/%E6%8E%A7%E5%88%B6%E5%8F%B0%E4%B8%8D%E6%98%BE%E7%A4%BA%E8%AD%A6%E5%91%8A/</id>
-    <published>2020-07-05T16:00:00.000Z</published>
-    <updated>2020-07-05T16:00:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="浏览器console控制台误关了编译错误-警告（不显示了）"><a href="#浏览器console控制台误关了编译错误-警告（不显示了）" class="headerlink" title="浏览器console控制台误关了编译错误/警告（不显示了）"></a>浏览器console控制台误关了编译错误/警告（不显示了）</h2><a id="more"></a><p>浏览器正常显示报错应该是这样的<br><img data-src="/images/loading.gif" data-original="/images/控制台报错.jpeg" alt="控制台报错"></p><p>但是我一不小心右键给Hide message from…了，红色报错字体就没了，解决方法如下：</p><p><img data-src="/images/loading.gif" data-original="/images/控制台报错解决方法.jpeg" alt="控制台报错解决方法"></p><p>直接将红色框内的内容叉掉，恢复成filter就OK了</p>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;浏览器console控制台误关了编译错误-警告（不显示了）&quot;&gt;&lt;a href=&quot;#浏览器console控制台误关了编译错误-警告（不显示了）&quot; class=&quot;headerlink&quot; title=&quot;浏览器console控制台误关了编译错误/警告（不显示了）&quot;&gt;&lt;/a&gt;浏览器console控制台误关了编译错误/警告（不显示了）&lt;/h2&gt;</summary>
-    
-    
-    
-    <category term="JavaScript" scheme="https://lf2021.github.io/categories/JavaScript/"/>
-    
-    
-    <category term="JavaScript" scheme="https://lf2021.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
     <title>webpack安装node-sass出现问题</title>
     <link href="https://lf2021.github.io/2020/07/06/webpack%E5%AE%89%E8%A3%85node-sass%E5%87%BA%E7%8E%B0%E9%97%AE%E9%A2%98/"/>
     <id>https://lf2021.github.io/2020/07/06/webpack%E5%AE%89%E8%A3%85node-sass%E5%87%BA%E7%8E%B0%E9%97%AE%E9%A2%98/</id>
@@ -327,6 +305,28 @@
     
     <summary type="html">&lt;h2 id=&quot;webpack安装node-sass出现问题&quot;&gt;&lt;a href=&quot;#webpack安装node-sass出现问题&quot; class=&quot;headerlink&quot; title=&quot;webpack安装node-sass出现问题&quot;&gt;&lt;/a&gt;webpack安装node-sass出现问题&lt;/h2&gt;&lt;p&gt;我的问题反馈是这样的：&lt;/p&gt;
 &lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Downloading binary &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; https:&lt;span class=&quot;comment&quot;&gt;//github.com/sass/node-sass/releases/download/v4.14.1/win32-x64-72_binding.node&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Cannot download &lt;span class=&quot;string&quot;&gt;&quot;https://github.com/sass/node-sass/releases/download/v4.14.1/win32-x64-72_binding.node&quot;&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ESOCKETTIMEDOUT&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Hint: If github.com is not accessible &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; your location&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;try&lt;/span&gt; setting a proxy via HTTP_PROXY, e.g.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; HTTP_PROXY=http:&lt;span class=&quot;comment&quot;&gt;//example.com:1234&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;or configure npm proxy via&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      npm config &lt;span class=&quot;keyword&quot;&gt;set&lt;/span&gt; proxy http://example.com:8080&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="Webpack" scheme="https://lf2021.github.io/categories/Webpack/"/>
+    
+    
+    <category term="Webpack" scheme="https://lf2021.github.io/tags/Webpack/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>webpack打包之后index.html缺少引号的问题</title>
+    <link href="https://lf2021.github.io/2020/07/06/webpack%E6%89%93%E5%8C%85%E7%BC%BA%E5%B0%91%E5%BC%95%E5%8F%B7/"/>
+    <id>https://lf2021.github.io/2020/07/06/webpack%E6%89%93%E5%8C%85%E7%BC%BA%E5%B0%91%E5%BC%95%E5%8F%B7/</id>
+    <published>2020-07-05T16:00:00.000Z</published>
+    <updated>2020-07-05T16:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="webpack打包之后index-html缺少引号的问题"><a href="#webpack打包之后index-html缺少引号的问题" class="headerlink" title="webpack打包之后index.html缺少引号的问题"></a>webpack打包之后index.html缺少引号的问题</h2><p>下面是通过webpack <code>npm run build</code>打包之后生成的index.html文件，可以看到缺少引号</p><p><img data-src="/images/loading.gif" data-original="/images/出错.png" alt="报错问题"></p><a id="more"></a><h2 id="这里给出解决方案，亲测有效"><a href="#这里给出解决方案，亲测有效" class="headerlink" title="这里给出解决方案，亲测有效"></a>这里给出解决方案，亲测有效</h2><ol><li><p>找到<code>webpack.prod.conf.js</code>，在<code>webpack.prod.conf.js</code>找到minify（可以ctrl+F搜索minify），直接将整块(也就是以下这块儿)删除</p> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">minify: &#123;</span><br><span class="line">    removeComments: <span class="literal">true</span>,</span><br><span class="line">    collapseWhitespace: <span class="literal">true</span>,</span><br><span class="line">    removeAttributeQuotes: <span class="literal">true</span></span><br><span class="line">    <span class="comment">// more options:</span></span><br><span class="line">    <span class="comment">// https://github.com/kangax/html-minifier#options-quick-reference</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></li><li><p>重新打包<code>npm run build</code> 即解决问题，重新打包的index.html文件如下</p><p> <img data-src="/images/loading.gif" data-original="/images/解决方法.png" alt="效果图"></p></li></ol>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;webpack打包之后index-html缺少引号的问题&quot;&gt;&lt;a href=&quot;#webpack打包之后index-html缺少引号的问题&quot; class=&quot;headerlink&quot; title=&quot;webpack打包之后index.html缺少引号的问题&quot;&gt;&lt;/a&gt;webpack打包之后index.html缺少引号的问题&lt;/h2&gt;&lt;p&gt;下面是通过webpack &lt;code&gt;npm run build&lt;/code&gt;打包之后生成的index.html文件，可以看到缺少引号&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&quot;/images/loading.gif&quot; data-original=&quot;/images/出错.png&quot; alt=&quot;报错问题&quot;&gt;&lt;/p&gt;</summary>
     
     
     
