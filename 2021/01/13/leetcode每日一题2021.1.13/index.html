@@ -20,22 +20,19 @@
     var CONFIG = {"hostname":"lf2021.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":18,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideLeftBigIn","post_body":"slideRightBigIn","coll_header":"slideLeftIn","sidebar":"slideLeftBigIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="547. 省份数量一、题目有 n 个城市，其中一些彼此相连，另一些没有相连。如果城市 a 与城市 b 直接相连，且城市 b 与城市 c 直接相连，那么城市 a 与城市 c 间接相连。 省份 是一组直接或间接相连的城市，组内不含其他没有相连的城市。 给你一个 n x n 的矩阵 isConnected ，其中 isConnected[i][j] &#x3D; 1 表示第 i 个城市和第 j 个城市直接相连，而">
+  <meta name="description" content="684. 冗余连接一、题目在本问题中, 树指的是一个连通且无环的无向图。 输入一个图，该图由一个有着N个节点 (节点值不重复1, 2, ..., N) 的树及一条附加的边构成。附加的边的两个顶点包含在1到N中间，这条附加的边不属于树中已存在的边。 结果图是一个以边组成的二维数组。每一个边的元素是一对 [u, v] ，满足 u &lt; v，表示连接顶点 u 和 v的无向图的边。 返回一条可以删去的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode每日一题2020.1.7">
-<meta property="og:url" content="https://lf2021.github.io/2021/01/07/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.7/index.html">
+<meta property="og:title" content="leetcode每日一题2020.1.13">
+<meta property="og:url" content="https://lf2021.github.io/2021/01/13/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.13/index.html">
 <meta property="og:site_name" content="Lee の 博客">
-<meta property="og:description" content="547. 省份数量一、题目有 n 个城市，其中一些彼此相连，另一些没有相连。如果城市 a 与城市 b 直接相连，且城市 b 与城市 c 直接相连，那么城市 a 与城市 c 间接相连。 省份 是一组直接或间接相连的城市，组内不含其他没有相连的城市。 给你一个 n x n 的矩阵 isConnected ，其中 isConnected[i][j] &#x3D; 1 表示第 i 个城市和第 j 个城市直接相连，而">
-<meta property="og:image" content="https://lf2021.github.io/images/loading.gif">
-<meta property="og:image" content="https://lf2021.github.io/images/loading.gif">
-<meta property="article:published_time" content="2021-01-06T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-01-06T16:00:00.000Z">
+<meta property="og:description" content="684. 冗余连接一、题目在本问题中, 树指的是一个连通且无环的无向图。 输入一个图，该图由一个有着N个节点 (节点值不重复1, 2, ..., N) 的树及一条附加的边构成。附加的边的两个顶点包含在1到N中间，这条附加的边不属于树中已存在的边。 结果图是一个以边组成的二维数组。每一个边的元素是一对 [u, v] ，满足 u &lt; v，表示连接顶点 u 和 v的无向图的边。 返回一条可以删去的">
+<meta property="article:published_time" content="2021-01-12T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-01-12T16:00:00.000Z">
 <meta property="article:author" content="Lee">
 <meta property="article:tag" content="leetcode每日一题">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://lf2021.github.io/images/loading.gif">
 
-<link rel="canonical" href="https://lf2021.github.io/2021/01/07/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.7/">
+<link rel="canonical" href="https://lf2021.github.io/2021/01/13/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.13/">
 
 
 <script id="page-configurations">
@@ -48,7 +45,7 @@
   };
 </script>
 
-  <title>leetcode每日一题2020.1.7 | Lee の 博客</title>
+  <title>leetcode每日一题2020.1.13 | Lee の 博客</title>
   
 
 
@@ -210,7 +207,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://lf2021.github.io/2021/01/07/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.7/">
+    <link itemprop="mainEntityOfPage" href="https://lf2021.github.io/2021/01/13/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.13/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -223,7 +220,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          leetcode每日一题2020.1.7
+          leetcode每日一题2020.1.13
         </h1>
 
         <div class="post-meta">
@@ -233,7 +230,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-01-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-01-07T00:00:00+08:00">2021-01-07</time>
+              <time title="创建时间：2021-01-13 00:00:00" itemprop="dateCreated datePublished" datetime="2021-01-13T00:00:00+08:00">2021-01-13</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -261,8 +258,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/01/07/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.7/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/07/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.7/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/01/13/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.13/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/13/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.13/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -272,14 +269,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.9k</span>
+              <span>1.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -291,40 +288,26 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="547-省份数量"><a href="#547-省份数量" class="headerlink" title="547. 省份数量"></a><a href="https://leetcode-cn.com/problems/number-of-provinces/" target="_blank" rel="noopener">547. 省份数量</a></h2><h3 id="一、题目"><a href="#一、题目" class="headerlink" title="一、题目"></a>一、题目</h3><p>有 <code>n</code> 个城市，其中一些彼此相连，另一些没有相连。如果城市 <code>a</code> 与城市 <code>b</code> 直接相连，且城市 <code>b</code> 与城市 <code>c</code> 直接相连，那么城市 <code>a</code> 与城市 <code>c</code> 间接相连。</p>
-<p>省份 是一组直接或间接相连的城市，组内不含其他没有相连的城市。</p>
-<p>给你一个 <code>n x n</code> 的矩阵 <code>isConnected</code> ，其中 <code>isConnected[i][j] = 1</code> 表示第 <code>i</code> 个城市和第 <code>j</code> 个城市直接相连，而 <code>isConnected[i][j] = 0</code> 表示二者不直接相连。</p>
-<p>返回矩阵中 省份 的数量。</p>
+        <h2 id="684-冗余连接"><a href="#684-冗余连接" class="headerlink" title="684. 冗余连接"></a><a href="https://leetcode-cn.com/problems/redundant-connection/" target="_blank" rel="noopener">684. 冗余连接</a></h2><h3 id="一、题目"><a href="#一、题目" class="headerlink" title="一、题目"></a>一、题目</h3><p>在本问题中, 树指的是一个连通且无环的无向图。</p>
+<p>输入一个图，该图由一个有着N个节点 (节点值不重复<code>1, 2, ..., N</code>) 的树及一条附加的边构成。附加的边的两个顶点包含在1到N中间，这条附加的边不属于树中已存在的边。</p>
+<p>结果图是一个以边组成的二维数组。每一个边的元素是一对 <code>[u, v]</code> ，满足 <code>u &lt; v</code>，表示连接顶点 <code>u</code> 和 <code>v</code>的无向图的边。</p>
+<p>返回一条可以删去的边，使得结果图是一个有着<code>N</code>个节点的树。如果有多个答案，则返回二维数组中最后出现的边。答案边 <code>[u, v]</code> 应满足相同的格式 <code>u &lt; v</code>。</p>
 <a id="more"></a>
 <p><strong>示例1：</strong></p>
-<p><img data-src="/images/loading.gif" data-original="/images/202101071.jpg" alt="示例1"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：isConnected &#x3D; [[1,1,0],[1,1,0],[0,0,1]]</span><br><span class="line">输出：2</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入: [[1,2], [1,3], [2,3]]</span><br><span class="line">输出: [2,3]</span><br><span class="line">解释: 给定的无向图为:</span><br><span class="line">  1</span><br><span class="line"> &#x2F; \</span><br><span class="line">2 - 3</span><br></pre></td></tr></table></figure>
 <p><strong>示例2：</strong></p>
-<p><img data-src="/images/loading.gif" data-original="/images/202101072.jpg" alt="示例1"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：isConnected &#x3D; [[1,0,0],[0,1,0],[0,0,1]]</span><br><span class="line">输出：3</span><br></pre></td></tr></table></figure>
-<p><strong>提示：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入: [[1,2], [2,3], [3,4], [1,4], [1,5]]</span><br><span class="line">输出: [1,4]</span><br><span class="line">解释: 给定的无向图为:</span><br><span class="line">5 - 1 - 2</span><br><span class="line">    |   |</span><br><span class="line">    4 - 3</span><br></pre></td></tr></table></figure>
+<p><strong>注意：</strong></p>
 <ul>
-<li><code>1 ≤ n ≤ 200</code></li>
-<li><code>n = isConnected.length</code></li>
-<li><code>n = isConnected[i].length</code></li>
-<li><code>isConnected[i][j] 为 1 或 0</code></li>
-<li><code>isConnected[i][i] = 1</code></li>
-<li><code>isConnected[i][j] = isConnected[j][i]</code></li>
+<li>输入的二维数组大小在 3 到 1000。</li>
+<li>二维数组中的整数在1到N之间，其中N是输入数组的大小。</li>
 </ul>
-<h3 id="二、题解"><a href="#二、题解" class="headerlink" title="二、题解"></a>二、题解</h3><p>可以把 n 个城市和它们之间的相连关系看成图，城市是图中的节点，相连关系是图中的边，给定的矩阵 isConnected 即为图的邻接矩阵，省份即为图中的连通分量。</p>
-<p>计算省份总数，等价于计算图中的连通分量数，可以通过深度优先搜索或广度优先搜索实现，也可以通过并查集实现。</p>
-<h4 id="深度优先搜索"><a href="#深度优先搜索" class="headerlink" title="深度优先搜索"></a>深度优先搜索</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">题解</span><br><span class="line"></span><br><span class="line">深度优先搜索的思路是很直观的。遍历所有城市，对于每个城市，如果该城市尚未被访问过，则从该城市开始深度优先搜索，</span><br><span class="line"></span><br><span class="line">通过矩阵 isConnected 得到与该城市直接相连的城市有哪些，这些城市和该城市属于同一个连通分量，然后对这些城市继续深度优先搜索，</span><br><span class="line"></span><br><span class="line">直到同一个连通分量的所有城市都被访问到，即可得到一个省份。遍历完全部城市以后，即可得到连通分量的总数，即省份的总数。</span><br></pre></td></tr></table></figure>
+<h3 id="二、题解"><a href="#二、题解" class="headerlink" title="二、题解"></a>二、题解</h3><h4 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">题解：</span><br><span class="line"></span><br><span class="line">在一棵树中，边的数量比节点的数量少 1。如果一棵树有 N 个节点，则这棵树有 N−1 条边。这道题中的图在树的基础上多了一条附加的边，因此边的数量也是 N。</span><br><span class="line"></span><br><span class="line">树是一个连通且无环的无向图，在树中多了一条附加的边之后就会出现环，因此附加的边即为导致环出现的边。</span><br><span class="line"></span><br><span class="line">可以通过并查集寻找附加的边。初始时，每个节点都属于不同的连通分量。遍历每一条边，判断这条边连接的两个顶点是否属于相同的连通分量。</span><br><span class="line"></span><br><span class="line">    • 如果两个顶点属于不同的连通分量，则说明在遍历到当前的边之前，这两个顶点之间不连通，因此当前的边不会导致环出现，合并这两个顶点的连通分量。</span><br><span class="line"></span><br><span class="line">    • 如果两个顶点属于相同的连通分量，则说明在遍历到当前的边之前，这两个顶点之间已经连通，因此当前的边导致环出现，为附加的边，将当前的边作为答案返回。</span><br></pre></td></tr></table></figure>
 <ul>
-<li>时间复杂度：O($n^2$)，n 是城市的个数。</li>
-<li>空间复杂度：O($n$)</li>
+<li>时间复杂度：O(NlogN)，其中 N 是图中的节点个数。</li>
+<li>空间复杂度：O(N)</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> findCircleNum = <span class="function"><span class="keyword">function</span> (<span class="params">isConnected</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> n = isConnected.length;</span><br><span class="line">    <span class="keyword">const</span> visited = <span class="keyword">new</span> <span class="built_in">Set</span>();</span><br><span class="line">    <span class="comment">// 深度优先搜索</span></span><br><span class="line">    <span class="keyword">const</span> dfs = <span class="function">(<span class="params">isConnected, visited, i</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (isConnected[i][j] === <span class="number">1</span> &amp;&amp; !visited.has(j)) &#123; <span class="comment">// 城市 i 和 j 相连，并且 j 没有并访问过</span></span><br><span class="line">                visited.add(j);</span><br><span class="line">                dfs(isConnected, visited, j) <span class="comment">// 继续遍历和城市j相连的城市，标记已访问过</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!visited.has(i)) &#123; <span class="comment">// 城市 i 没有被访问过</span></span><br><span class="line">            dfs(isConnected, visited, i);</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> count</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h4 id="广度优先搜索"><a href="#广度优先搜索" class="headerlink" title="广度优先搜索"></a>广度优先搜索</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">题解</span><br><span class="line"></span><br><span class="line">通过广度优先搜索的方法得到省份的总数。对于每个城市，如果该城市尚未被访问过，则从该城市开始广度优先搜索，</span><br><span class="line"></span><br><span class="line">直到同一个连通分量中的所有城市都被访问到，即可得到一个省份。</span><br></pre></td></tr></table></figure>
-<ul>
-<li>时间复杂度：O($n^2$)，n 是城市的个数。</li>
-<li>空间复杂度：O($n$)</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> findCircleNum = <span class="function"><span class="keyword">function</span> (<span class="params">isConnected</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> n = isConnected.length;</span><br><span class="line">    <span class="keyword">const</span> visited = <span class="keyword">new</span> <span class="built_in">Set</span>();</span><br><span class="line">    <span class="keyword">const</span> queue = [];</span><br><span class="line">    <span class="keyword">let</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!visited.has(i)) &#123;</span><br><span class="line">            queue.push(i)</span><br><span class="line">            <span class="keyword">while</span> (queue.length) &#123;</span><br><span class="line">                <span class="keyword">let</span> j = queue.shift();</span><br><span class="line">                visited.add(j)</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">let</span> k = <span class="number">0</span>; k &lt; n; k++) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (isConnected[j][k] === <span class="number">1</span> &amp;&amp; !visited.has(k)) &#123;</span><br><span class="line">                        queue.push(k)</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> count;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> findRedundantConnection = <span class="function"><span class="keyword">function</span> (<span class="params">edges</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> nodesCount = edges.length;</span><br><span class="line">    <span class="keyword">const</span> parent = <span class="keyword">new</span> <span class="built_in">Array</span>(nodesCount + <span class="number">1</span>).fill(<span class="number">0</span>).map(<span class="function">(<span class="params">value, index</span>) =&gt;</span> index);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; nodesCount; i++) &#123;</span><br><span class="line">        <span class="keyword">const</span> [node1, node2] = edges[i];</span><br><span class="line">        <span class="keyword">if</span> (find(parent, node1) != find(parent, node2)) &#123;</span><br><span class="line">            union(parent, node1, node2);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> edges[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> [<span class="number">0</span>];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> union = <span class="function">(<span class="params">parent, index1, index2</span>) =&gt;</span> &#123;</span><br><span class="line">    parent[find(parent, index1)] = find(parent, index2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> find = <span class="function">(<span class="params">parent, index</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (parent[index] !== index) &#123;</span><br><span class="line">        parent[index] = find(parent, parent[index]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> parent[index];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -358,13 +341,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/01/06/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.6/" rel="prev" title="leetcode每日一题2020.1.6">
-      <i class="fa fa-chevron-left"></i> leetcode每日一题2020.1.6
+    <a href="/2021/01/10/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.10/" rel="prev" title="leetcode每日一题2020.1.10">
+      <i class="fa fa-chevron-left"></i> leetcode每日一题2020.1.10
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/01/08/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.8/" rel="next" title="leetcode每日一题2020.1.8">
-      leetcode每日一题2020.1.8 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -424,7 +404,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#547-省份数量"><span class="nav-text">547. 省份数量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、题目"><span class="nav-text">一、题目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、题解"><span class="nav-text">二、题解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#深度优先搜索"><span class="nav-text">深度优先搜索</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#广度优先搜索"><span class="nav-text">广度优先搜索</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#684-冗余连接"><span class="nav-text">684. 冗余连接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、题目"><span class="nav-text">一、题目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、题解"><span class="nav-text">二、题解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#并查集"><span class="nav-text">并查集</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
