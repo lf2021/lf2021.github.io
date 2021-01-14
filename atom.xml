@@ -6,7 +6,7 @@
   <link href="https://lf2021.github.io/atom.xml" rel="self"/>
   
   <link href="https://lf2021.github.io/"/>
-  <updated>2021-01-12T16:00:00.000Z</updated>
+  <updated>2021-01-13T16:00:00.000Z</updated>
   <id>https://lf2021.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>leetcode每日一题2020.1.14</title>
+    <link href="https://lf2021.github.io/2021/01/14/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.14/"/>
+    <id>https://lf2021.github.io/2021/01/14/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.14/</id>
+    <published>2021-01-13T16:00:00.000Z</published>
+    <updated>2021-01-13T16:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1018-可被-5-整除的二进制前缀"><a href="#1018-可被-5-整除的二进制前缀" class="headerlink" title="1018. 可被 5 整除的二进制前缀"></a><a href="https://leetcode-cn.com/problems/binary-prefix-divisible-by-5/" target="_blank" rel="noopener">1018. 可被 5 整除的二进制前缀</a></h2><h3 id="一、题目"><a href="#一、题目" class="headerlink" title="一、题目"></a>一、题目</h3><p>给定由若干 <code>0</code> 和 <code>1</code> 组成的数组 <code>A</code>。我们定义 <code>N_i</code>：从 <code>A[0]</code> 到 <code>A[i]</code> 的第 <code>i</code> 个子数组被解释为一个二进制数（从最高有效位到最低有效位）。</p><p>返回布尔值列表 <code>answer</code>，只有当 <code>N_i</code> 可以被 <code>5</code> 整除时，答案 <code>answer[i]</code> 为 <code>true</code>，否则为 <code>false</code>。</p><a id="more"></a><p><strong>示例1：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：[0,1,1]</span><br><span class="line">输出：[true,false,false]</span><br><span class="line">解释：</span><br><span class="line">输入数字为 0, 01, 011；也就是十进制中的 0, 1, 3 。只有第一个数可以被 5 整除，因此 answer[0] 为真。</span><br></pre></td></tr></table></figure><p><strong>示例2：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：[1,1,1]</span><br><span class="line">输出：[false,false,false]</span><br></pre></td></tr></table></figure><p><strong>示例3：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：[0,1,1,1,1,1]</span><br><span class="line">输出：[true,false,false,false,true,false]</span><br></pre></td></tr></table></figure><p><strong>示例4：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：[1,1,1,0,1]</span><br><span class="line">输出：[false,false,false,false,false]</span><br></pre></td></tr></table></figure><p><strong>提示：</strong></p><ol><li><code>1 ≤ A.length ≤ 30000</code></li><li><code>A[i]</code> 为 <code>0</code> 或 <code>1</code></li></ol><h3 id="二、题解"><a href="#二、题解" class="headerlink" title="二、题解"></a>二、题解</h3><h4 id="模拟法"><a href="#模拟法" class="headerlink" title="模拟法"></a>模拟法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">题解：</span><br><span class="line"></span><br><span class="line">对数组 [A[0], A[1], A[2]] 模拟一下这个过程： </span><br><span class="line"></span><br><span class="line">    第一个数N1：A[0]，然后对 5 去余判断是否为0</span><br><span class="line">    第二个数N2：A[0] * 2 + A[1]，然后对 5 去余判断是否为0</span><br><span class="line">    第三个数N3：A[0] * 4 + A[1] * 2 + A[2]，然后对 5 去余判断是否为0</span><br><span class="line"></span><br><span class="line">我们可以发现 N(i) &#x3D; N(i-1) * 2 + A[i-1]</span><br><span class="line"></span><br><span class="line">那我们可以每一轮只更新这个数对 5 取余的余数，结果不会影响</span><br></pre></td></tr></table></figure><ul><li>时间复杂度：O($n$)，其中 n 是数组 A 的长度。</li><li>空间复杂度：O(1)</li></ul><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> prefixesDivBy5 = <span class="function"><span class="keyword">function</span>(<span class="params">A</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> ret = [];</span><br><span class="line">    <span class="keyword">let</span> len = A.length;</span><br><span class="line">    <span class="keyword">let</span> prefix = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;len; i++) &#123;</span><br><span class="line">        prefix = (prefix * <span class="number">2</span> + A[i]) % <span class="number">5</span>;</span><br><span class="line">        ret.push(prefix === <span class="number">0</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;1018-可被-5-整除的二进制前缀&quot;&gt;&lt;a href=&quot;#1018-可被-5-整除的二进制前缀&quot; class=&quot;headerlink&quot; title=&quot;1018. 可被 5 整除的二进制前缀&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/binary-prefix-divisible-by-5/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;1018. 可被 5 整除的二进制前缀&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&quot;一、题目&quot;&gt;&lt;a href=&quot;#一、题目&quot; class=&quot;headerlink&quot; title=&quot;一、题目&quot;&gt;&lt;/a&gt;一、题目&lt;/h3&gt;&lt;p&gt;给定由若干 &lt;code&gt;0&lt;/code&gt; 和 &lt;code&gt;1&lt;/code&gt; 组成的数组 &lt;code&gt;A&lt;/code&gt;。我们定义 &lt;code&gt;N_i&lt;/code&gt;：从 &lt;code&gt;A[0]&lt;/code&gt; 到 &lt;code&gt;A[i]&lt;/code&gt; 的第 &lt;code&gt;i&lt;/code&gt; 个子数组被解释为一个二进制数（从最高有效位到最低有效位）。&lt;/p&gt;
+&lt;p&gt;返回布尔值列表 &lt;code&gt;answer&lt;/code&gt;，只有当 &lt;code&gt;N_i&lt;/code&gt; 可以被 &lt;code&gt;5&lt;/code&gt; 整除时，答案 &lt;code&gt;answer[i]&lt;/code&gt; 为 &lt;code&gt;true&lt;/code&gt;，否则为 &lt;code&gt;false&lt;/code&gt;。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="leetcode" scheme="https://lf2021.github.io/categories/leetcode/"/>
+    
+    
+    <category term="leetcode每日一题" scheme="https://lf2021.github.io/tags/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"/>
+    
+  </entry>
   
   <entry>
     <title>leetcode每日一题2020.1.13</title>
