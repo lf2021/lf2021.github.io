@@ -6,7 +6,7 @@
   <link href="https://lf2021.github.io/atom.xml" rel="self"/>
   
   <link href="https://lf2021.github.io/"/>
-  <updated>2021-01-13T16:00:00.000Z</updated>
+  <updated>2021-01-19T16:00:00.000Z</updated>
   <id>https://lf2021.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>leetcode每日一题2020.1.20</title>
+    <link href="https://lf2021.github.io/2021/01/20/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.20/"/>
+    <id>https://lf2021.github.io/2021/01/20/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.20/</id>
+    <published>2021-01-19T16:00:00.000Z</published>
+    <updated>2021-01-19T16:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="628-三个数的最大乘积"><a href="#628-三个数的最大乘积" class="headerlink" title="628. 三个数的最大乘积"></a><a href="https://leetcode-cn.com/problems/maximum-product-of-three-numbers/" target="_blank" rel="noopener">628. 三个数的最大乘积</a></h2><h3 id="一、题目"><a href="#一、题目" class="headerlink" title="一、题目"></a>一、题目</h3><p>给定一个整型数组，在数组中找出由三个数组成的最大乘积，并输出这个乘积。</p><a id="more"></a><p><strong>示例1：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: [1,2,3]</span><br><span class="line">输出: 6</span><br></pre></td></tr></table></figure><p><strong>示例2：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: [1,2,3,4]</span><br><span class="line">输出: 24</span><br></pre></td></tr></table></figure><p><strong>提示：</strong></p><ol><li>给定的整型数组长度范围是 <code>[3,104]</code>，数组中所有的元素范围是 <code>[-1000, 1000]</code>。</li><li>输入的数组中任意三个数的乘积不会超出 <code>32</code> 位有符号整数的范围。</li></ol><h3 id="二、题解"><a href="#二、题解" class="headerlink" title="二、题解"></a>二、题解</h3><h4 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">题解：</span><br><span class="line"></span><br><span class="line">先把数组按从小到大排个序,发现无非两种情况:</span><br><span class="line"></span><br><span class="line">1. 数组是纯负数,类似 [-4, -3, -2, -1]</span><br><span class="line">    最大乘积就应该是最大的几个数的乘积</span><br><span class="line"></span><br><span class="line">2. 数组不是纯负数,</span><br><span class="line">    (1)可能是纯正数,最大的乘积就是最大的几个数的乘积,类似于 [1, 2, 3, 4]</span><br><span class="line">    (2)可能是有正有负,那就判断一下最小的两个负数的乘积是不是要比次大的两个正数的乘积大,类似于[-5, -4, 1, 2, 3]</span><br></pre></td></tr></table></figure><ul><li>时间复杂度:O(nlogn)</li><li>空间复杂度:O(logn)</li></ul><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> maximumProduct = <span class="function"><span class="keyword">function</span> (<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> n = nums.length;</span><br><span class="line">    nums.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a - b)</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.max(nums[<span class="number">0</span>] * nums[<span class="number">1</span>] * nums[n - <span class="number">1</span>], nums[n - <span class="number">1</span>] * nums[n - <span class="number">2</span>] * nums[n - <span class="number">3</span>])</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;628-三个数的最大乘积&quot;&gt;&lt;a href=&quot;#628-三个数的最大乘积&quot; class=&quot;headerlink&quot; title=&quot;628. 三个数的最大乘积&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/maximum-product-of-three-numbers/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;628. 三个数的最大乘积&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&quot;一、题目&quot;&gt;&lt;a href=&quot;#一、题目&quot; class=&quot;headerlink&quot; title=&quot;一、题目&quot;&gt;&lt;/a&gt;一、题目&lt;/h3&gt;&lt;p&gt;给定一个整型数组，在数组中找出由三个数组成的最大乘积，并输出这个乘积。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="leetcode" scheme="https://lf2021.github.io/categories/leetcode/"/>
+    
+    
+    <category term="leetcode每日一题" scheme="https://lf2021.github.io/tags/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"/>
+    
+  </entry>
   
   <entry>
     <title>leetcode每日一题2020.1.14</title>
