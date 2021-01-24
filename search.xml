@@ -766,7 +766,7 @@
 <p><strong>提示：</strong></p>
 <ul>
 <li>0 ≤ nums.length ≤ $10^4$</li>
-<li>$10^9$ ≤ nums[i] ≤ $10^9$</li>
+<li>-$10^9$ ≤ nums[i] ≤ $10^9$</li>
 </ul>
 <h3 id="二、题解"><a href="#二、题解" class="headerlink" title="二、题解"></a>二、题解</h3><h4 id="方法1：动态规划"><a href="#方法1：动态规划" class="headerlink" title="方法1：动态规划"></a>方法1：动态规划</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">dp矩阵的定义</span><br><span class="line">    dp[i] 定义为以 nums[i] 结尾的连续递增子序列的最大长度</span><br><span class="line"></span><br><span class="line">转移方程很好理解，dp[i-1] --&gt; dp[i]</span><br><span class="line">    如果 nums[i] &gt; nums[i-1]，那么 dp[i] &#x3D; dp[i-1] + 1，也就是与前面的组成连续递增子序列</span><br><span class="line">    否则的话，nums[i] 自成一组连续递增子序列，即 dp[i] &#x3D; 1</span><br></pre></td></tr></table></figure>
 <ul>
