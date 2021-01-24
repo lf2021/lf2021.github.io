@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"lf2021.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":18,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideLeftBigIn","post_body":"slideRightBigIn","coll_header":"slideLeftIn","sidebar":"slideLeftBigIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="123. 买卖股票的最佳时机 III一、题目给定一个数组，它的第 i 个元素是一支给定的股票在第 i 天的价格。 设计一个算法来计算你所能获取的最大利润。你最多可以完成 两笔 交易。 注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。">
+  <meta name="description" content="674. 最长连续递增序列一、题目给定一个未经排序的整数数组，找到最长且 连续递增的子序列，并返回该序列的长度。 连续递增的子序列 可以由两个下标 l 和 r（l &lt; r）确定，如果对于每个 l &lt;&#x3D; i &lt; r，都有 nums[i] &lt; nums[i + 1] ，那么子序列 [nums[l], nums[l + 1], ..., nums[r - 1], nums[r]]">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode每日一题2020.1.9">
-<meta property="og:url" content="https://lf2021.github.io/2021/01/09/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.9/index.html">
+<meta property="og:title" content="leetcode每日一题2020.1.24">
+<meta property="og:url" content="https://lf2021.github.io/2021/01/24/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.24/index.html">
 <meta property="og:site_name" content="Lee の 博客">
-<meta property="og:description" content="123. 买卖股票的最佳时机 III一、题目给定一个数组，它的第 i 个元素是一支给定的股票在第 i 天的价格。 设计一个算法来计算你所能获取的最大利润。你最多可以完成 两笔 交易。 注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。">
-<meta property="article:published_time" content="2021-01-08T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-01-08T16:00:00.000Z">
+<meta property="og:description" content="674. 最长连续递增序列一、题目给定一个未经排序的整数数组，找到最长且 连续递增的子序列，并返回该序列的长度。 连续递增的子序列 可以由两个下标 l 和 r（l &lt; r）确定，如果对于每个 l &lt;&#x3D; i &lt; r，都有 nums[i] &lt; nums[i + 1] ，那么子序列 [nums[l], nums[l + 1], ..., nums[r - 1], nums[r]]">
+<meta property="article:published_time" content="2021-01-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-01-23T16:00:00.000Z">
 <meta property="article:author" content="Lee">
 <meta property="article:tag" content="leetcode每日一题">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://lf2021.github.io/2021/01/09/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.9/">
+<link rel="canonical" href="https://lf2021.github.io/2021/01/24/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.24/">
 
 
 <script id="page-configurations">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>leetcode每日一题2020.1.9 | Lee の 博客</title>
+  <title>leetcode每日一题2020.1.24 | Lee の 博客</title>
   
 
 
@@ -207,7 +207,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://lf2021.github.io/2021/01/09/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.9/">
+    <link itemprop="mainEntityOfPage" href="https://lf2021.github.io/2021/01/24/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.24/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -220,7 +220,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          leetcode每日一题2020.1.9
+          leetcode每日一题2020.1.24
         </h1>
 
         <div class="post-meta">
@@ -230,7 +230,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-01-09 00:00:00" itemprop="dateCreated datePublished" datetime="2021-01-09T00:00:00+08:00">2021-01-09</time>
+              <time title="创建时间：2021-01-24 00:00:00" itemprop="dateCreated datePublished" datetime="2021-01-24T00:00:00+08:00">2021-01-24</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -258,8 +258,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/01/09/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.9/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/09/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.9/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/01/24/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.24/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/24/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.24/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -269,14 +269,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.9k</span>
+              <span>1.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -288,66 +288,30 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="123-买卖股票的最佳时机-III"><a href="#123-买卖股票的最佳时机-III" class="headerlink" title="123. 买卖股票的最佳时机 III"></a><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/" target="_blank" rel="noopener">123. 买卖股票的最佳时机 III</a></h2><h3 id="一、题目"><a href="#一、题目" class="headerlink" title="一、题目"></a>一、题目</h3><p>给定一个数组，它的第 <code>i</code> 个元素是一支给定的股票在第 <code>i</code> 天的价格。</p>
-<p>设计一个算法来计算你所能获取的最大利润。你最多可以完成 <strong>两笔</strong> 交易。</p>
-<p><strong>注意：</strong>你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。</p>
+        <h2 id="674-最长连续递增序列"><a href="#674-最长连续递增序列" class="headerlink" title="674. 最长连续递增序列"></a><a href="https://leetcode-cn.com/problems/longest-continuous-increasing-subsequence/" target="_blank" rel="noopener">674. 最长连续递增序列</a></h2><h3 id="一、题目"><a href="#一、题目" class="headerlink" title="一、题目"></a>一、题目</h3><p>给定一个未经排序的整数数组，找到最长且 <strong>连续递增的子序列</strong>，并返回该序列的长度。</p>
+<p><strong>连续递增的子序列</strong> 可以由两个下标 <code>l</code> 和 <code>r（l &lt; r）</code>确定，如果对于每个 <code>l &lt;= i &lt; r</code>，都有 <code>nums[i] &lt; nums[i + 1]</code> ，那么子序列 <code>[nums[l], nums[l + 1], ..., nums[r - 1], nums[r]]</code> 就是连续递增子序列。</p>
 <a id="more"></a>
 <p><strong>示例1：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：prices &#x3D; [3,3,5,0,0,3,1,4]</span><br><span class="line">输出：6</span><br><span class="line">解释：在第 4 天（股票价格 &#x3D; 0）的时候买入，在第 6 天（股票价格 &#x3D; 3）的时候卖出，这笔交易所能获得利润 &#x3D; 3-0 &#x3D; 3 。</span><br><span class="line">     随后，在第 7 天（股票价格 &#x3D; 1）的时候买入，在第 8 天 （股票价格 &#x3D; 4）的时候卖出，这笔交易所能获得利润 &#x3D; 4-1 &#x3D; 3 。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：nums &#x3D; [1,3,5,4,7]</span><br><span class="line">输出：3</span><br><span class="line">解释：最长连续递增序列是 [1,3,5], 长度为3。</span><br><span class="line">尽管 [1,3,5,7] 也是升序的子序列, 但它不是连续的，因为 5 和 7 在原数组里被 4 隔开。</span><br></pre></td></tr></table></figure>
 <p><strong>示例2：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：prices &#x3D; [1,2,3,4,5]</span><br><span class="line">输出：4</span><br><span class="line">解释：在第 1 天（股票价格 &#x3D; 1）的时候买入，在第 5 天 （股票价格 &#x3D; 5）的时候卖出, 这笔交易所能获得利润 &#x3D; 5-1 &#x3D; 4 。   </span><br><span class="line">     注意你不能在第 1 天和第 2 天接连购买股票，之后再将它们卖出。   </span><br><span class="line">     因为这样属于同时参与了多笔交易，你必须在再次购买前出售掉之前的股票。</span><br></pre></td></tr></table></figure>
-<p><strong>示例 3：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：prices &#x3D; [7,6,4,3,1] </span><br><span class="line">输出：0 </span><br><span class="line">解释：在这个情况下, 没有交易完成, 所以最大利润为 0。</span><br></pre></td></tr></table></figure>
-<p><strong>示例 4：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：prices &#x3D; [1]</span><br><span class="line">输出：0</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums &#x3D; [2,2,2,2,2]</span><br><span class="line">输出：1</span><br><span class="line">解释：最长连续递增序列是 [2], 长度为1。</span><br></pre></td></tr></table></figure>
 <p><strong>提示：</strong></p>
 <ul>
-<li><code>1 ≤ prices.length ≤ 105</code></li>
-<li><code>0 ≤ prices[i] ≤ 105</code></li>
+<li>0 ≤ nums.length ≤ $10^4$</li>
+<li>$10^9$ ≤ nums[i] ≤ $10^9$</li>
 </ul>
-<h3 id="二、题解"><a href="#二、题解" class="headerlink" title="二、题解"></a>二、题解</h3><h4 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h4><p>题解：</p>
-<p>在任意一天结束后，我们会处于五种状态中的一种：</p>
+<h3 id="二、题解"><a href="#二、题解" class="headerlink" title="二、题解"></a>二、题解</h3><h4 id="方法1：动态规划"><a href="#方法1：动态规划" class="headerlink" title="方法1：动态规划"></a>方法1：动态规划</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dp矩阵的定义</span><br><span class="line">    dp[i] 定义为以 nums[i] 结尾的连续递增子序列的最大长度</span><br><span class="line"></span><br><span class="line">转移方程很好理解，dp[i-1] --&gt; dp[i]</span><br><span class="line">    如果 nums[i] &gt; nums[i-1]，那么 dp[i] &#x3D; dp[i-1] + 1，也就是与前面的组成连续递增子序列</span><br><span class="line">    否则的话，nums[i] 自成一组连续递增子序列，即 dp[i] &#x3D; 1</span><br></pre></td></tr></table></figure>
 <ul>
-<li>未进行任何操作</li>
-<li>只进行了一次买操作</li>
-<li>只进行一次买操作和一次卖操作，即完成了一笔交易</li>
-<li>在完成了一笔交易的前提下，进行了第二次买操作</li>
-<li>完成了两笔交易</li>
+<li>时间复杂度：O(n)，其中 n 是数组 nums 的长度。</li>
+<li>空间复杂度：O(n)</li>
 </ul>
-<p>由于第一个状态的利润显然为 0，因此我们可以不用将其记录。对于剩下的四个状态，我们分别将它们的最大利润记为 $buy_1$, $sell_1$, $buy_2$, $sell_2$</p>
-<p>状态转移，知道第 <code>i-1</code> 天结束后的这四个状态，第 <code>i</code> 天的状态：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> findLengthOfLCIS = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!nums.length) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">const</span> n = nums.length;</span><br><span class="line">    <span class="keyword">let</span> dp = <span class="built_in">Array</span>(n).fill(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">1</span>; i&lt;n; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[i] &gt; nums[i<span class="number">-1</span>]) &#123;</span><br><span class="line">            dp[i] = dp[i<span class="number">-1</span>] + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.max(...dp)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="方法2：贪心"><a href="#方法2：贪心" class="headerlink" title="方法2：贪心"></a>方法2：贪心</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">用一个 start 指针记录连续递增子序列的头部位置，初始时 start &#x3D; 0，然后遍历数组进行如下操作：</span><br><span class="line"></span><br><span class="line">    1. 如果下标 nums[i] ≤ nums[i−1]，则说明当前元素小于或等于上一个元素，因此 nums[i−1] 和 nums[i] 不可能属于同一个连续递增序列，</span><br><span class="line">    必须从下标 i 处开始一个新的连续递增序列，因此令 start&#x3D;i。如果下标 i&#x3D;0 或 nums[i] &gt; nums[i−1]，则不更新 start 的值。</span><br><span class="line"></span><br><span class="line">    2.此时下标范围 [start,i] 的连续子序列是递增序列，其长度为 i−start+1，使用当前连续递增序列的长度更新最长连续递增序列的长度。</span><br></pre></td></tr></table></figure>
 <ul>
-<li>对于 $buy_1$</li>
+<li>时间复杂度：O(n)，其中 n 是数组 nums 的长度。</li>
+<li>空间复杂度：O(1)</li>
 </ul>
-<p>在第 <code>i</code> 天可以不进行任何操作，保持不变，也可以在未进行任何操作的前提下以 <code>prices[i]</code> 的价格买入股票，转移方程为：</p>
-<script type="math/tex; mode=display">buy_1(i) = max\{buy_1(i-1), -prices[i]\}</script><p>其中，$buy_1(i)$ 表示 <code>i</code> 天的状态，$buy_1(i-1)$ 表示 <code>i-1</code> 天的状态，下面也是类似。</p>
-<ul>
-<li>对于 $sell_1$</li>
-</ul>
-<p>在第 <code>i</code> 天我们可以不进行任何操作，保持不变，也可以在只进行过一次买操作的前提下以 <code>prices[i]</code> 的价格卖出股票，转移方程为：</p>
-<script type="math/tex; mode=display">sell_1(i) = max\{sell_1(i-1), buy_1(i)+prices[i]\}</script><ul>
-<li>对于 $buy_2$</li>
-</ul>
-<p>同理转移方程为：</p>
-<script type="math/tex; mode=display">buy_2(i) = max\{buy_2(i-1), sell_1(i)-prices[i]\}</script><ul>
-<li>对于 $sell_2$</li>
-</ul>
-<p>同理转移方程为：</p>
-<script type="math/tex; mode=display">sell_2(i) = max\{sell_2(i-1), buy_2(i)+prices[i]\}</script><p>理论上，我们需要维护四个数组  $buy_1[i]$ , $sell_1[i]$ , $buy_2[i]$ , $sell_2[i]$ ，但是因为每个状态只与前一天的状态有关，因而我们可以进一步降低空间复杂度，我们只需维护四个变量：$buy_1$ , $sell_1$ , $buy_2$ , $sell_2$，然后不断的更新这四个变量即可。</p>
-<ul>
-<li>总的状态转移方程为：</li>
-</ul>
-<script type="math/tex; mode=display">
-\begin{cases}
-    buy_1 = max\{buy_1, -prices[i]\}\\
-    sell_1 = max\{sell_1, buy_1+prices[i]\}\\
-    buy_2 = max\{buy_2, sell_1-prices[i]\}\\
-    sell_2 = max\{sell_2, buy_2+prices[i]\}
-\end{cases}</script><ul>
-<li>时间复杂度：O($n$)，其中 n 是数组 prices 的长度。</li>
-<li>空间复杂度：O(1)。</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> maxProfit = <span class="function"><span class="keyword">function</span> (<span class="params">prices</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> n = prices.length;</span><br><span class="line">    <span class="keyword">let</span> buy1 = -prices[<span class="number">0</span>], buy2 = -prices[<span class="number">0</span>], sell1 = <span class="number">0</span>, sell2 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        buy1 = <span class="built_in">Math</span>.max(buy1, -prices[i])</span><br><span class="line">        sell1 = <span class="built_in">Math</span>.max(sell1, buy1 + prices[i])</span><br><span class="line">        buy2 = <span class="built_in">Math</span>.max(buy2, sell1 - prices[i])</span><br><span class="line">        sell2 = <span class="built_in">Math</span>.max(sell2, buy2 + prices[i])</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sell2;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> findLengthOfLCIS = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> start = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> ret = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;nums.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; nums[i] &lt;= nums[i<span class="number">-1</span>]) &#123;</span><br><span class="line">            start = i;</span><br><span class="line">        &#125;</span><br><span class="line">        ret = <span class="built_in">Math</span>.max(ret, i - start + <span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -381,13 +345,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/01/08/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.8/" rel="prev" title="leetcode每日一题2020.1.8">
-      <i class="fa fa-chevron-left"></i> leetcode每日一题2020.1.8
+    <a href="/2021/01/22/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.22/" rel="prev" title="leetcode每日一题2020.1.22">
+      <i class="fa fa-chevron-left"></i> leetcode每日一题2020.1.22
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/01/10/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.10/" rel="next" title="leetcode每日一题2020.1.10">
-      leetcode每日一题2020.1.10 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -447,7 +408,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#123-买卖股票的最佳时机-III"><span class="nav-text">123. 买卖股票的最佳时机 III</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、题目"><span class="nav-text">一、题目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、题解"><span class="nav-text">二、题解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#动态规划"><span class="nav-text">动态规划</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#674-最长连续递增序列"><span class="nav-text">674. 最长连续递增序列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、题目"><span class="nav-text">一、题目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、题解"><span class="nav-text">二、题解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法1：动态规划"><span class="nav-text">方法1：动态规划</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法2：贪心"><span class="nav-text">方法2：贪心</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

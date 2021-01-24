@@ -6,7 +6,7 @@
   <link href="https://lf2021.github.io/atom.xml" rel="self"/>
   
   <link href="https://lf2021.github.io/"/>
-  <updated>2021-01-21T16:00:00.000Z</updated>
+  <updated>2021-01-23T16:00:00.000Z</updated>
   <id>https://lf2021.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>leetcode每日一题2020.1.24</title>
+    <link href="https://lf2021.github.io/2021/01/24/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.24/"/>
+    <id>https://lf2021.github.io/2021/01/24/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.24/</id>
+    <published>2021-01-23T16:00:00.000Z</published>
+    <updated>2021-01-23T16:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="674-最长连续递增序列"><a href="#674-最长连续递增序列" class="headerlink" title="674. 最长连续递增序列"></a><a href="https://leetcode-cn.com/problems/longest-continuous-increasing-subsequence/" target="_blank" rel="noopener">674. 最长连续递增序列</a></h2><h3 id="一、题目"><a href="#一、题目" class="headerlink" title="一、题目"></a>一、题目</h3><p>给定一个未经排序的整数数组，找到最长且 <strong>连续递增的子序列</strong>，并返回该序列的长度。</p><p><strong>连续递增的子序列</strong> 可以由两个下标 <code>l</code> 和 <code>r（l &lt; r）</code>确定，如果对于每个 <code>l &lt;= i &lt; r</code>，都有 <code>nums[i] &lt; nums[i + 1]</code> ，那么子序列 <code>[nums[l], nums[l + 1], ..., nums[r - 1], nums[r]]</code> 就是连续递增子序列。</p><a id="more"></a><p><strong>示例1：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：nums &#x3D; [1,3,5,4,7]</span><br><span class="line">输出：3</span><br><span class="line">解释：最长连续递增序列是 [1,3,5], 长度为3。</span><br><span class="line">尽管 [1,3,5,7] 也是升序的子序列, 但它不是连续的，因为 5 和 7 在原数组里被 4 隔开。</span><br></pre></td></tr></table></figure><p><strong>示例2：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums &#x3D; [2,2,2,2,2]</span><br><span class="line">输出：1</span><br><span class="line">解释：最长连续递增序列是 [2], 长度为1。</span><br></pre></td></tr></table></figure><p><strong>提示：</strong></p><ul><li>0 ≤ nums.length ≤ $10^4$</li><li>$10^9$ ≤ nums[i] ≤ $10^9$</li></ul><h3 id="二、题解"><a href="#二、题解" class="headerlink" title="二、题解"></a>二、题解</h3><h4 id="方法1：动态规划"><a href="#方法1：动态规划" class="headerlink" title="方法1：动态规划"></a>方法1：动态规划</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dp矩阵的定义</span><br><span class="line">    dp[i] 定义为以 nums[i] 结尾的连续递增子序列的最大长度</span><br><span class="line"></span><br><span class="line">转移方程很好理解，dp[i-1] --&gt; dp[i]</span><br><span class="line">    如果 nums[i] &gt; nums[i-1]，那么 dp[i] &#x3D; dp[i-1] + 1，也就是与前面的组成连续递增子序列</span><br><span class="line">    否则的话，nums[i] 自成一组连续递增子序列，即 dp[i] &#x3D; 1</span><br></pre></td></tr></table></figure><ul><li>时间复杂度：O(n)，其中 n 是数组 nums 的长度。</li><li>空间复杂度：O(n)</li></ul><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> findLengthOfLCIS = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!nums.length) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">const</span> n = nums.length;</span><br><span class="line">    <span class="keyword">let</span> dp = <span class="built_in">Array</span>(n).fill(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">1</span>; i&lt;n; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[i] &gt; nums[i<span class="number">-1</span>]) &#123;</span><br><span class="line">            dp[i] = dp[i<span class="number">-1</span>] + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.max(...dp)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h4 id="方法2：贪心"><a href="#方法2：贪心" class="headerlink" title="方法2：贪心"></a>方法2：贪心</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">用一个 start 指针记录连续递增子序列的头部位置，初始时 start &#x3D; 0，然后遍历数组进行如下操作：</span><br><span class="line"></span><br><span class="line">    1. 如果下标 nums[i] ≤ nums[i−1]，则说明当前元素小于或等于上一个元素，因此 nums[i−1] 和 nums[i] 不可能属于同一个连续递增序列，</span><br><span class="line">    必须从下标 i 处开始一个新的连续递增序列，因此令 start&#x3D;i。如果下标 i&#x3D;0 或 nums[i] &gt; nums[i−1]，则不更新 start 的值。</span><br><span class="line"></span><br><span class="line">    2.此时下标范围 [start,i] 的连续子序列是递增序列，其长度为 i−start+1，使用当前连续递增序列的长度更新最长连续递增序列的长度。</span><br></pre></td></tr></table></figure><ul><li>时间复杂度：O(n)，其中 n 是数组 nums 的长度。</li><li>空间复杂度：O(1)</li></ul><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> findLengthOfLCIS = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> start = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> ret = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;nums.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; nums[i] &lt;= nums[i<span class="number">-1</span>]) &#123;</span><br><span class="line">            start = i;</span><br><span class="line">        &#125;</span><br><span class="line">        ret = <span class="built_in">Math</span>.max(ret, i - start + <span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;674-最长连续递增序列&quot;&gt;&lt;a href=&quot;#674-最长连续递增序列&quot; class=&quot;headerlink&quot; title=&quot;674. 最长连续递增序列&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/longest-continuous-increasing-subsequence/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;674. 最长连续递增序列&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&quot;一、题目&quot;&gt;&lt;a href=&quot;#一、题目&quot; class=&quot;headerlink&quot; title=&quot;一、题目&quot;&gt;&lt;/a&gt;一、题目&lt;/h3&gt;&lt;p&gt;给定一个未经排序的整数数组，找到最长且 &lt;strong&gt;连续递增的子序列&lt;/strong&gt;，并返回该序列的长度。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;连续递增的子序列&lt;/strong&gt; 可以由两个下标 &lt;code&gt;l&lt;/code&gt; 和 &lt;code&gt;r（l &amp;lt; r）&lt;/code&gt;确定，如果对于每个 &lt;code&gt;l &amp;lt;= i &amp;lt; r&lt;/code&gt;，都有 &lt;code&gt;nums[i] &amp;lt; nums[i + 1]&lt;/code&gt; ，那么子序列 &lt;code&gt;[nums[l], nums[l + 1], ..., nums[r - 1], nums[r]]&lt;/code&gt; 就是连续递增子序列。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="leetcode" scheme="https://lf2021.github.io/categories/leetcode/"/>
+    
+    
+    <category term="leetcode每日一题" scheme="https://lf2021.github.io/tags/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"/>
+    
+  </entry>
   
   <entry>
     <title>leetcode每日一题2020.1.22</title>
@@ -338,27 +360,6 @@
   </entry>
   
   <entry>
-    <title>浏览器console控制台不显示编译错误/警告</title>
-    <link href="https://lf2021.github.io/2020/07/06/%E6%8E%A7%E5%88%B6%E5%8F%B0%E4%B8%8D%E6%98%BE%E7%A4%BA%E8%AD%A6%E5%91%8A/"/>
-    <id>https://lf2021.github.io/2020/07/06/%E6%8E%A7%E5%88%B6%E5%8F%B0%E4%B8%8D%E6%98%BE%E7%A4%BA%E8%AD%A6%E5%91%8A/</id>
-    <published>2020-07-05T16:00:00.000Z</published>
-    <updated>2020-07-05T16:00:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="浏览器console控制台误关了编译错误-警告（不显示了）"><a href="#浏览器console控制台误关了编译错误-警告（不显示了）" class="headerlink" title="浏览器console控制台误关了编译错误/警告（不显示了）"></a>浏览器console控制台误关了编译错误/警告（不显示了）</h2><a id="more"></a><p>浏览器正常显示报错应该是这样的<br><img data-src="/images/loading.gif" data-original="/images/控制台报错.jpeg" alt="控制台报错"></p><p>但是我一不小心右键给Hide message from…了，红色报错字体就没了，解决方法如下：</p><p><img data-src="/images/loading.gif" data-original="/images/控制台报错解决方法.jpeg" alt="控制台报错解决方法"></p><p>直接将红色框内的内容叉掉，恢复成filter就OK了</p>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;浏览器console控制台误关了编译错误-警告（不显示了）&quot;&gt;&lt;a href=&quot;#浏览器console控制台误关了编译错误-警告（不显示了）&quot; class=&quot;headerlink&quot; title=&quot;浏览器console控制台误关了编译错误/警告（不显示了）&quot;&gt;&lt;/a&gt;浏览器console控制台误关了编译错误/警告（不显示了）&lt;/h2&gt;</summary>
-    
-    
-    
-    <category term="JavaScript" scheme="https://lf2021.github.io/categories/JavaScript/"/>
-    
-    
-    <category term="JavaScript" scheme="https://lf2021.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
     <title>webpack安装node-sass出现问题</title>
     <link href="https://lf2021.github.io/2020/07/06/webpack%E5%AE%89%E8%A3%85node-sass%E5%87%BA%E7%8E%B0%E9%97%AE%E9%A2%98/"/>
     <id>https://lf2021.github.io/2020/07/06/webpack%E5%AE%89%E8%A3%85node-sass%E5%87%BA%E7%8E%B0%E9%97%AE%E9%A2%98/</id>
@@ -427,6 +428,27 @@
   </entry>
   
   <entry>
+    <title>浏览器console控制台不显示编译错误/警告</title>
+    <link href="https://lf2021.github.io/2020/07/06/%E6%8E%A7%E5%88%B6%E5%8F%B0%E4%B8%8D%E6%98%BE%E7%A4%BA%E8%AD%A6%E5%91%8A/"/>
+    <id>https://lf2021.github.io/2020/07/06/%E6%8E%A7%E5%88%B6%E5%8F%B0%E4%B8%8D%E6%98%BE%E7%A4%BA%E8%AD%A6%E5%91%8A/</id>
+    <published>2020-07-05T16:00:00.000Z</published>
+    <updated>2020-07-05T16:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="浏览器console控制台误关了编译错误-警告（不显示了）"><a href="#浏览器console控制台误关了编译错误-警告（不显示了）" class="headerlink" title="浏览器console控制台误关了编译错误/警告（不显示了）"></a>浏览器console控制台误关了编译错误/警告（不显示了）</h2><a id="more"></a><p>浏览器正常显示报错应该是这样的<br><img data-src="/images/loading.gif" data-original="/images/控制台报错.jpeg" alt="控制台报错"></p><p>但是我一不小心右键给Hide message from…了，红色报错字体就没了，解决方法如下：</p><p><img data-src="/images/loading.gif" data-original="/images/控制台报错解决方法.jpeg" alt="控制台报错解决方法"></p><p>直接将红色框内的内容叉掉，恢复成filter就OK了</p>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;浏览器console控制台误关了编译错误-警告（不显示了）&quot;&gt;&lt;a href=&quot;#浏览器console控制台误关了编译错误-警告（不显示了）&quot; class=&quot;headerlink&quot; title=&quot;浏览器console控制台误关了编译错误/警告（不显示了）&quot;&gt;&lt;/a&gt;浏览器console控制台误关了编译错误/警告（不显示了）&lt;/h2&gt;</summary>
+    
+    
+    
+    <category term="JavaScript" scheme="https://lf2021.github.io/categories/JavaScript/"/>
+    
+    
+    <category term="JavaScript" scheme="https://lf2021.github.io/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
     <title>解决Github上md文件[toc]无法创建目录的问题</title>
     <link href="https://lf2021.github.io/2020/07/04/github%E7%9B%AE%E5%BD%95%E9%97%AE%E9%A2%98/"/>
     <id>https://lf2021.github.io/2020/07/04/github%E7%9B%AE%E5%BD%95%E9%97%AE%E9%A2%98/</id>
@@ -446,30 +468,6 @@
     
     
     <category term="GitHub" scheme="https://lf2021.github.io/tags/GitHub/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mac配置多个SSH账号</title>
-    <link href="https://lf2021.github.io/2020/06/23/MAC%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AASSH/"/>
-    <id>https://lf2021.github.io/2020/06/23/MAC%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AASSH/</id>
-    <published>2020-06-22T16:00:00.000Z</published>
-    <updated>2020-06-22T16:00:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="MAC配置SSH密钥"><a href="#MAC配置SSH密钥" class="headerlink" title="MAC配置SSH密钥"></a>MAC配置SSH密钥</h2><p>众所周知，我们可以将代码托管到线上很多平台，gitee / github / gitlab 等等。<br>在企业中我们可能会遇到这种情况：</p><blockquote><p>企业的项目是放在gitlab上托管的，我需要为gitlab配置一个SSH密钥，但是我自己的项目是放到github上的，我需要为github也配置一个SSH密钥，这就涉及到了管理多个SSH密钥的问题，下面我分别介绍了配置单个和多个SSH密钥的方式。</p></blockquote><a id="more"></a><h3 id="一、配置单个SSH密钥"><a href="#一、配置单个SSH密钥" class="headerlink" title="一、配置单个SSH密钥"></a>一、配置单个SSH密钥</h3><p>例如：为企业gitlab配置SSH密钥<br>在终端中依次输入如下命令：</p><ol><li><p>注意这里邮箱是你公司的地址，敲完一路回车就好</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"yourmail@gmail.com"</span></span><br></pre></td></tr></table></figure></li><li><p>切换到.ssh目录下，查看一下目录下的文件</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> .ssh</span><br><span class="line">ls</span><br></pre></td></tr></table></figure></li><li><p>查看公钥（id_rsa.pub），复制下来，打开gitlab的Settings里的SSH Keys将复制的添加进去，会自动生成Title为你的邮箱。</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat id_rsa.pub</span><br></pre></td></tr></table></figure></li><li><p>将私钥（id_rsa）添加到SSH-agent</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SSH-add ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure></li></ol><h3 id="二、配置多个SSH密钥"><a href="#二、配置多个SSH密钥" class="headerlink" title="二、配置多个SSH密钥"></a>二、配置多个SSH密钥</h3><p>在这里我需要再为github配置一下SSH，如果重复上面的步骤，会出现密钥覆盖的情况，所以我们需要为新的密钥文件设置新的名字，步骤如下：</p><ol><li><p>这里邮箱是你注册github的邮箱，<strong>注意第一次回车之后需要为生成的密钥自定义名字</strong>，输入一个id_rsa_github，输入完之后一路回车</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"yourmail@gmail.com"</span></span><br></pre></td></tr></table></figure></li><li><p>查看一下自己生成的SSH</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> .ssh</span><br><span class="line">ls</span><br></pre></td></tr></table></figure><p> 目录下的文件应该有这些：</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id_rsa.pub        id_rsa_github.pub        id_rsa            id_rsa_github     known_hosts</span><br></pre></td></tr></table></figure><p> 这里id_rsa和id_rsa.pub是我的gitlab的私钥和公钥，id_rsa_github和id_rsa_github.pub是我的github的私钥和公钥。</p></li><li><p>查看公钥（id_rsa_github.pub）,打开github的Settings里的SSH and GPG keys，New SSH key，将公钥复制进去，设置Title为你的邮箱名。</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat id_rsa_github.pub</span><br></pre></td></tr></table></figure></li><li><p>添加私钥</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-add ~/.ssh/id_rsa_github</span><br></pre></td></tr></table></figure></li><li><p>添加配置文件</p></li></ol><ul><li><p>在.ssh/下创建config文件</p>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch config</span><br></pre></td></tr></table></figure></li><li><p>用vim编辑器打开config，输入i切换到插入模式进行修改</p>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim config</span><br></pre></td></tr></table></figure><p>  在config中输入一下内容</p><blockquote><p>注意：如果Gitlab是用的公司的服务器，需要在HostName中指定公司的域名。</p></blockquote>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#gitlab</span></span><br><span class="line">Host gitlab.com</span><br><span class="line">HostName gitlab.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/id_rsa</span><br><span class="line"><span class="comment">#github</span></span><br><span class="line">Host github.com</span><br><span class="line">HostName github.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/id_rsa_github</span><br></pre></td></tr></table></figure></li></ul><h3 id="三、至此大功告成"><a href="#三、至此大功告成" class="headerlink" title="三、至此大功告成"></a>三、至此大功告成</h3>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;MAC配置SSH密钥&quot;&gt;&lt;a href=&quot;#MAC配置SSH密钥&quot; class=&quot;headerlink&quot; title=&quot;MAC配置SSH密钥&quot;&gt;&lt;/a&gt;MAC配置SSH密钥&lt;/h2&gt;&lt;p&gt;众所周知，我们可以将代码托管到线上很多平台，gitee / github / gitlab 等等。&lt;br&gt;在企业中我们可能会遇到这种情况：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;企业的项目是放在gitlab上托管的，我需要为gitlab配置一个SSH密钥，但是我自己的项目是放到github上的，我需要为github也配置一个SSH密钥，这就涉及到了管理多个SSH密钥的问题，下面我分别介绍了配置单个和多个SSH密钥的方式。&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="Git" scheme="https://lf2021.github.io/categories/Git/"/>
-    
-    
-    <category term="Git" scheme="https://lf2021.github.io/tags/Git/"/>
     
   </entry>
   
