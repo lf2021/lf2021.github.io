@@ -6,7 +6,7 @@
   <link href="https://lf2021.github.io/atom.xml" rel="self"/>
   
   <link href="https://lf2021.github.io/"/>
-  <updated>2021-01-25T16:00:00.000Z</updated>
+  <updated>2021-01-27T16:00:00.000Z</updated>
   <id>https://lf2021.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>leetcode每日一题2020.1.28</title>
+    <link href="https://lf2021.github.io/2021/01/28/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.28/"/>
+    <id>https://lf2021.github.io/2021/01/28/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.28/</id>
+    <published>2021-01-27T16:00:00.000Z</published>
+    <updated>2021-01-27T16:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="724-寻找数组的中心索引"><a href="#724-寻找数组的中心索引" class="headerlink" title="724. 寻找数组的中心索引"></a><a href="https://leetcode-cn.com/problems/find-pivot-index/" target="_blank" rel="noopener">724. 寻找数组的中心索引</a></h2><h3 id="一、题目"><a href="#一、题目" class="headerlink" title="一、题目"></a>一、题目</h3><p>给定一个整数类型的数组 <code>nums</code>，请编写一个能够返回数组 “<strong>中心索引</strong>” 的方法。</p><p>我们是这样定义数组 <strong>中心索引</strong> 的：数组中心索引的左侧所有元素相加的和等于右侧所有元素相加的和。</p><p>如果数组不存在中心索引，那么我们应该返回 -1。如果数组有多个中心索引，那么我们应该返回最靠近左边的那一个。<br><a id="more"></a></p><p><strong>示例1：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入：</span><br><span class="line">nums &#x3D; [1, 7, 3, 6, 5, 6]</span><br><span class="line">输出：3</span><br><span class="line">解释：</span><br><span class="line">索引 3 (nums[3] &#x3D; 6) 的左侧数之和 (1 + 7 + 3 &#x3D; 11)，与右侧数之和 (5 + 6 &#x3D; 11) 相等。</span><br><span class="line">同时, 3 也是第一个符合要求的中心索引。</span><br></pre></td></tr></table></figure><p><strong>示例2：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：</span><br><span class="line">nums &#x3D; [1, 2, 3]</span><br><span class="line">输出：-1</span><br><span class="line">解释：</span><br><span class="line">数组中不存在满足此条件的中心索引。</span><br></pre></td></tr></table></figure><p><strong>提示：</strong></p><ul><li>nums 的长度范围为 <code>[0, 10000]</code>。</li><li>任何一个 <code>nums[i]</code> 将会是一个范围在 <code>[-1000, 1000]</code> 的整数。</li></ul><h3 id="二、题解"><a href="#二、题解" class="headerlink" title="二、题解"></a>二、题解</h3><h4 id="前缀和"><a href="#前缀和" class="headerlink" title="前缀和"></a>前缀和</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">计算所有数字的和为 total，记录左侧元素的和 sum，每次判断 2 * sum 加上当前元素是不是等于 total</span><br><span class="line"></span><br><span class="line">    是就直接返回当前索引</span><br><span class="line">    </span><br><span class="line">    否则遍历结束都没有就返回 -1</span><br></pre></td></tr></table></figure><ul><li>时间复杂度：O(n)，n 为数组 nums 的长度。</li><li>空间复杂度：O(1)</li></ul><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> pivotIndex = <span class="function"><span class="keyword">function</span> (<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> total = nums.reduce(<span class="function">(<span class="params">t, v</span>) =&gt;</span> t + v, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">let</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="number">2</span> * sum + nums[i] === total) &#123;</span><br><span class="line">            <span class="keyword">return</span> i</span><br><span class="line">        &#125;</span><br><span class="line">        sum += nums[i]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;724-寻找数组的中心索引&quot;&gt;&lt;a href=&quot;#724-寻找数组的中心索引&quot; class=&quot;headerlink&quot; title=&quot;724. 寻找数组的中心索引&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/find-pivot-index/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;724. 寻找数组的中心索引&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&quot;一、题目&quot;&gt;&lt;a href=&quot;#一、题目&quot; class=&quot;headerlink&quot; title=&quot;一、题目&quot;&gt;&lt;/a&gt;一、题目&lt;/h3&gt;&lt;p&gt;给定一个整数类型的数组 &lt;code&gt;nums&lt;/code&gt;，请编写一个能够返回数组 “&lt;strong&gt;中心索引&lt;/strong&gt;” 的方法。&lt;/p&gt;
+&lt;p&gt;我们是这样定义数组 &lt;strong&gt;中心索引&lt;/strong&gt; 的：数组中心索引的左侧所有元素相加的和等于右侧所有元素相加的和。&lt;/p&gt;
+&lt;p&gt;如果数组不存在中心索引，那么我们应该返回 -1。如果数组有多个中心索引，那么我们应该返回最靠近左边的那一个。&lt;br&gt;</summary>
+    
+    
+    
+    <category term="leetcode" scheme="https://lf2021.github.io/categories/leetcode/"/>
+    
+    
+    <category term="leetcode每日一题" scheme="https://lf2021.github.io/tags/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"/>
+    
+  </entry>
   
   <entry>
     <title>leetcode每日一题2020.1.26</title>
@@ -384,28 +407,6 @@
   </entry>
   
   <entry>
-    <title>webpack打包之后index.html缺少引号的问题</title>
-    <link href="https://lf2021.github.io/2020/07/06/webpack%E6%89%93%E5%8C%85%E7%BC%BA%E5%B0%91%E5%BC%95%E5%8F%B7/"/>
-    <id>https://lf2021.github.io/2020/07/06/webpack%E6%89%93%E5%8C%85%E7%BC%BA%E5%B0%91%E5%BC%95%E5%8F%B7/</id>
-    <published>2020-07-05T16:00:00.000Z</published>
-    <updated>2020-07-05T16:00:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="webpack打包之后index-html缺少引号的问题"><a href="#webpack打包之后index-html缺少引号的问题" class="headerlink" title="webpack打包之后index.html缺少引号的问题"></a>webpack打包之后index.html缺少引号的问题</h2><p>下面是通过webpack <code>npm run build</code>打包之后生成的index.html文件，可以看到缺少引号</p><p><img data-src="/images/loading.gif" data-original="/images/出错.png" alt="报错问题"></p><a id="more"></a><h2 id="这里给出解决方案，亲测有效"><a href="#这里给出解决方案，亲测有效" class="headerlink" title="这里给出解决方案，亲测有效"></a>这里给出解决方案，亲测有效</h2><ol><li><p>找到<code>webpack.prod.conf.js</code>，在<code>webpack.prod.conf.js</code>找到minify（可以ctrl+F搜索minify），直接将整块(也就是以下这块儿)删除</p> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">minify: &#123;</span><br><span class="line">    removeComments: <span class="literal">true</span>,</span><br><span class="line">    collapseWhitespace: <span class="literal">true</span>,</span><br><span class="line">    removeAttributeQuotes: <span class="literal">true</span></span><br><span class="line">    <span class="comment">// more options:</span></span><br><span class="line">    <span class="comment">// https://github.com/kangax/html-minifier#options-quick-reference</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></li><li><p>重新打包<code>npm run build</code> 即解决问题，重新打包的index.html文件如下</p><p> <img data-src="/images/loading.gif" data-original="/images/解决方法.png" alt="效果图"></p></li></ol>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;webpack打包之后index-html缺少引号的问题&quot;&gt;&lt;a href=&quot;#webpack打包之后index-html缺少引号的问题&quot; class=&quot;headerlink&quot; title=&quot;webpack打包之后index.html缺少引号的问题&quot;&gt;&lt;/a&gt;webpack打包之后index.html缺少引号的问题&lt;/h2&gt;&lt;p&gt;下面是通过webpack &lt;code&gt;npm run build&lt;/code&gt;打包之后生成的index.html文件，可以看到缺少引号&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&quot;/images/loading.gif&quot; data-original=&quot;/images/出错.png&quot; alt=&quot;报错问题&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Webpack" scheme="https://lf2021.github.io/categories/Webpack/"/>
-    
-    
-    <category term="Webpack" scheme="https://lf2021.github.io/tags/Webpack/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Hexo 搭建博客填坑</title>
     <link href="https://lf2021.github.io/2020/07/06/Hexo%20%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%A1%AB%E5%9D%91/"/>
     <id>https://lf2021.github.io/2020/07/06/Hexo%20%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%A1%AB%E5%9D%91/</id>
@@ -452,23 +453,24 @@
   </entry>
   
   <entry>
-    <title>浏览器console控制台不显示编译错误/警告</title>
-    <link href="https://lf2021.github.io/2020/07/06/%E6%8E%A7%E5%88%B6%E5%8F%B0%E4%B8%8D%E6%98%BE%E7%A4%BA%E8%AD%A6%E5%91%8A/"/>
-    <id>https://lf2021.github.io/2020/07/06/%E6%8E%A7%E5%88%B6%E5%8F%B0%E4%B8%8D%E6%98%BE%E7%A4%BA%E8%AD%A6%E5%91%8A/</id>
+    <title>webpack打包之后index.html缺少引号的问题</title>
+    <link href="https://lf2021.github.io/2020/07/06/webpack%E6%89%93%E5%8C%85%E7%BC%BA%E5%B0%91%E5%BC%95%E5%8F%B7/"/>
+    <id>https://lf2021.github.io/2020/07/06/webpack%E6%89%93%E5%8C%85%E7%BC%BA%E5%B0%91%E5%BC%95%E5%8F%B7/</id>
     <published>2020-07-05T16:00:00.000Z</published>
     <updated>2020-07-05T16:00:00.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="浏览器console控制台误关了编译错误-警告（不显示了）"><a href="#浏览器console控制台误关了编译错误-警告（不显示了）" class="headerlink" title="浏览器console控制台误关了编译错误/警告（不显示了）"></a>浏览器console控制台误关了编译错误/警告（不显示了）</h2><a id="more"></a><p>浏览器正常显示报错应该是这样的<br><img data-src="/images/loading.gif" data-original="/images/控制台报错.jpeg" alt="控制台报错"></p><p>但是我一不小心右键给Hide message from…了，红色报错字体就没了，解决方法如下：</p><p><img data-src="/images/loading.gif" data-original="/images/控制台报错解决方法.jpeg" alt="控制台报错解决方法"></p><p>直接将红色框内的内容叉掉，恢复成filter就OK了</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="webpack打包之后index-html缺少引号的问题"><a href="#webpack打包之后index-html缺少引号的问题" class="headerlink" title="webpack打包之后index.html缺少引号的问题"></a>webpack打包之后index.html缺少引号的问题</h2><p>下面是通过webpack <code>npm run build</code>打包之后生成的index.html文件，可以看到缺少引号</p><p><img data-src="/images/loading.gif" data-original="/images/出错.png" alt="报错问题"></p><a id="more"></a><h2 id="这里给出解决方案，亲测有效"><a href="#这里给出解决方案，亲测有效" class="headerlink" title="这里给出解决方案，亲测有效"></a>这里给出解决方案，亲测有效</h2><ol><li><p>找到<code>webpack.prod.conf.js</code>，在<code>webpack.prod.conf.js</code>找到minify（可以ctrl+F搜索minify），直接将整块(也就是以下这块儿)删除</p> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">minify: &#123;</span><br><span class="line">    removeComments: <span class="literal">true</span>,</span><br><span class="line">    collapseWhitespace: <span class="literal">true</span>,</span><br><span class="line">    removeAttributeQuotes: <span class="literal">true</span></span><br><span class="line">    <span class="comment">// more options:</span></span><br><span class="line">    <span class="comment">// https://github.com/kangax/html-minifier#options-quick-reference</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></li><li><p>重新打包<code>npm run build</code> 即解决问题，重新打包的index.html文件如下</p><p> <img data-src="/images/loading.gif" data-original="/images/解决方法.png" alt="效果图"></p></li></ol>]]></content>
     
     
-    <summary type="html">&lt;h2 id=&quot;浏览器console控制台误关了编译错误-警告（不显示了）&quot;&gt;&lt;a href=&quot;#浏览器console控制台误关了编译错误-警告（不显示了）&quot; class=&quot;headerlink&quot; title=&quot;浏览器console控制台误关了编译错误/警告（不显示了）&quot;&gt;&lt;/a&gt;浏览器console控制台误关了编译错误/警告（不显示了）&lt;/h2&gt;</summary>
+    <summary type="html">&lt;h2 id=&quot;webpack打包之后index-html缺少引号的问题&quot;&gt;&lt;a href=&quot;#webpack打包之后index-html缺少引号的问题&quot; class=&quot;headerlink&quot; title=&quot;webpack打包之后index.html缺少引号的问题&quot;&gt;&lt;/a&gt;webpack打包之后index.html缺少引号的问题&lt;/h2&gt;&lt;p&gt;下面是通过webpack &lt;code&gt;npm run build&lt;/code&gt;打包之后生成的index.html文件，可以看到缺少引号&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&quot;/images/loading.gif&quot; data-original=&quot;/images/出错.png&quot; alt=&quot;报错问题&quot;&gt;&lt;/p&gt;</summary>
     
     
     
-    <category term="JavaScript" scheme="https://lf2021.github.io/categories/JavaScript/"/>
+    <category term="Webpack" scheme="https://lf2021.github.io/categories/Webpack/"/>
     
     
-    <category term="JavaScript" scheme="https://lf2021.github.io/tags/JavaScript/"/>
+    <category term="Webpack" scheme="https://lf2021.github.io/tags/Webpack/"/>
     
   </entry>
   
