@@ -20,21 +20,19 @@
     var CONFIG = {"hostname":"lf2021.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":18,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideLeftBigIn","post_body":"slideRightBigIn","coll_header":"slideLeftIn","sidebar":"slideLeftBigIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="399. 除法求值一、题目给你一个变量对数组 equations 和一个实数值数组 values 作为已知条件，其中 equations[i] &#x3D; [Ai, Bi] 和 values[i] 共同表示等式 Ai &#x2F; Bi &#x3D; values[i] 。每个 Ai 或 Bi 是一个表示单个变量的字符串。 另有一些以数组 queries 表示的问题，其中 queries[j] &#x3D; [Cj, Dj] 表示第">
+  <meta name="description" content="888. 公平的糖果棒交换一、题目爱丽丝和鲍勃有不同大小的糖果棒：A[i] 是爱丽丝拥有的第 i 根糖果棒的大小，B[j] 是鲍勃拥有的第 j 根糖果棒的大小。 因为他们是朋友，所以他们想交换一根糖果棒，这样交换后，他们都有相同的糖果总量。（一个人拥有的糖果总量是他们拥有的糖果棒大小的总和。） 返回一个整数数组 ans，其中 ans[0] 是爱丽丝必须交换的糖果棒的大小，ans[1] 是 Bob">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode每日一题2020.1.6">
-<meta property="og:url" content="https://lf2021.github.io/2021/01/06/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.6/index.html">
+<meta property="og:title" content="leetcode每日一题2020.2.1">
+<meta property="og:url" content="https://lf2021.github.io/2021/02/01/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.2.1/index.html">
 <meta property="og:site_name" content="Lee の 博客">
-<meta property="og:description" content="399. 除法求值一、题目给你一个变量对数组 equations 和一个实数值数组 values 作为已知条件，其中 equations[i] &#x3D; [Ai, Bi] 和 values[i] 共同表示等式 Ai &#x2F; Bi &#x3D; values[i] 。每个 Ai 或 Bi 是一个表示单个变量的字符串。 另有一些以数组 queries 表示的问题，其中 queries[j] &#x3D; [Cj, Dj] 表示第">
-<meta property="og:image" content="https://lf2021.github.io/images/loading.gif">
-<meta property="article:published_time" content="2021-01-05T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-01-05T16:00:00.000Z">
+<meta property="og:description" content="888. 公平的糖果棒交换一、题目爱丽丝和鲍勃有不同大小的糖果棒：A[i] 是爱丽丝拥有的第 i 根糖果棒的大小，B[j] 是鲍勃拥有的第 j 根糖果棒的大小。 因为他们是朋友，所以他们想交换一根糖果棒，这样交换后，他们都有相同的糖果总量。（一个人拥有的糖果总量是他们拥有的糖果棒大小的总和。） 返回一个整数数组 ans，其中 ans[0] 是爱丽丝必须交换的糖果棒的大小，ans[1] 是 Bob">
+<meta property="article:published_time" content="2021-01-31T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-01-31T16:00:00.000Z">
 <meta property="article:author" content="Lee">
 <meta property="article:tag" content="leetcode每日一题">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://lf2021.github.io/images/loading.gif">
 
-<link rel="canonical" href="https://lf2021.github.io/2021/01/06/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.6/">
+<link rel="canonical" href="https://lf2021.github.io/2021/02/01/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.2.1/">
 
 
 <script id="page-configurations">
@@ -47,7 +45,7 @@
   };
 </script>
 
-  <title>leetcode每日一题2020.1.6 | Lee の 博客</title>
+  <title>leetcode每日一题2020.2.1 | Lee の 博客</title>
   
 
 
@@ -209,7 +207,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://lf2021.github.io/2021/01/06/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.6/">
+    <link itemprop="mainEntityOfPage" href="https://lf2021.github.io/2021/02/01/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.2.1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -222,7 +220,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          leetcode每日一题2020.1.6
+          leetcode每日一题2020.2.1
         </h1>
 
         <div class="post-meta">
@@ -232,7 +230,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-01-06 00:00:00" itemprop="dateCreated datePublished" datetime="2021-01-06T00:00:00+08:00">2021-01-06</time>
+              <time title="创建时间：2021-02-01 00:00:00" itemprop="dateCreated datePublished" datetime="2021-02-01T00:00:00+08:00">2021-02-01</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -260,8 +258,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/01/06/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.6/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/06/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.6/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/02/01/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.2.1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/02/01/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.2.1/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -271,14 +269,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.5k</span>
+              <span>1.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -290,36 +288,40 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="399-除法求值"><a href="#399-除法求值" class="headerlink" title="399. 除法求值"></a><a href="https://leetcode-cn.com/problems/evaluate-division/" target="_blank" rel="noopener">399. 除法求值</a></h2><h3 id="一、题目"><a href="#一、题目" class="headerlink" title="一、题目"></a>一、题目</h3><p>给你一个变量对数组 <code>equations</code> 和一个实数值数组 <code>values</code> 作为已知条件，其中 <code>equations[i] = [Ai, Bi]</code> 和 <code>values[i]</code> 共同表示等式 <code>Ai / Bi = values[i]</code> 。每个 <code>Ai</code> 或 <code>Bi</code> 是一个表示单个变量的字符串。</p>
-<p>另有一些以数组 <code>queries</code> 表示的问题，其中 <code>queries[j] = [Cj, Dj]</code> 表示第 <code>j</code> 个问题，请你根据已知条件找出 <code>Cj / Dj = ?</code> 的结果作为答案。</p>
-<p>返回 所有问题的答案 。如果存在某个无法确定的答案，则用 <code>-1.0</code> 替代这个答案。</p>
-<p><strong>注意：</strong><br>输入总是有效的。你可以假设除法运算中不会出现除数为 0 的情况，且不存在任何矛盾的结果。</p>
-<a id="more"></a>
+        <h2 id="888-公平的糖果棒交换"><a href="#888-公平的糖果棒交换" class="headerlink" title="888. 公平的糖果棒交换"></a><a href="https://leetcode-cn.com/problems/fair-candy-swap/" target="_blank" rel="noopener">888. 公平的糖果棒交换</a></h2><h3 id="一、题目"><a href="#一、题目" class="headerlink" title="一、题目"></a>一、题目</h3><p>爱丽丝和鲍勃有不同大小的糖果棒：<code>A[i]</code> 是爱丽丝拥有的第 <code>i</code> 根糖果棒的大小，<code>B[j]</code> 是鲍勃拥有的第 <code>j</code> 根糖果棒的大小。</p>
+<p>因为他们是朋友，所以他们想交换一根糖果棒，这样交换后，他们都有相同的糖果总量。<em>（一个人拥有的糖果总量是他们拥有的糖果棒大小的总和。）</em></p>
+<p>返回一个整数数组 <code>ans</code>，其中 <code>ans[0]</code> 是爱丽丝必须交换的糖果棒的大小，<code>ans[1]</code> 是 Bob 必须交换的糖果棒的大小。</p>
+<p>如果有多个答案，你可以返回其中任何一个。保证答案存在。<br><a id="more"></a></p>
 <p><strong>示例1：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入：equations &#x3D; [[&quot;a&quot;,&quot;b&quot;],[&quot;b&quot;,&quot;c&quot;]], values &#x3D; [2.0,3.0], queries &#x3D; [[&quot;a&quot;,&quot;c&quot;],[&quot;b&quot;,&quot;a&quot;],[&quot;a&quot;,&quot;e&quot;],[&quot;a&quot;,&quot;a&quot;],[&quot;x&quot;,&quot;x&quot;]]</span><br><span class="line">输出：[6.00000,0.50000,-1.00000,1.00000,-1.00000]</span><br><span class="line">解释：</span><br><span class="line">条件：a &#x2F; b &#x3D; 2.0, b &#x2F; c &#x3D; 3.0</span><br><span class="line">问题：a &#x2F; c &#x3D; ?, b &#x2F; a &#x3D; ?, a &#x2F; e &#x3D; ?, a &#x2F; a &#x3D; ?, x &#x2F; x &#x3D; ?</span><br><span class="line">结果：[6.0, 0.5, -1.0, 1.0, -1.0 ]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：A &#x3D; [1,1], B &#x3D; [2,2]</span><br><span class="line">输出：[1,2]</span><br></pre></td></tr></table></figure>
 <p><strong>示例2：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：equations &#x3D; [[&quot;a&quot;,&quot;b&quot;],[&quot;b&quot;,&quot;c&quot;],[&quot;bc&quot;,&quot;cd&quot;]], values &#x3D; [1.5,2.5,5.0], queries &#x3D; [[&quot;a&quot;,&quot;c&quot;],[&quot;c&quot;,&quot;b&quot;],[&quot;bc&quot;,&quot;cd&quot;],[&quot;cd&quot;,&quot;bc&quot;]]</span><br><span class="line">输出：[3.75000,0.40000,5.00000,0.20000]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：A &#x3D; [1,2], B &#x3D; [2,3]</span><br><span class="line">输出：[1,2]</span><br></pre></td></tr></table></figure>
 <p><strong>示例3：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：equations &#x3D; [[&quot;a&quot;,&quot;b&quot;]], values &#x3D; [0.5], queries &#x3D; [[&quot;a&quot;,&quot;b&quot;],[&quot;b&quot;,&quot;a&quot;],[&quot;a&quot;,&quot;c&quot;],[&quot;x&quot;,&quot;y&quot;]]</span><br><span class="line">输出：[0.50000,2.00000,-1.00000,-1.00000]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：A &#x3D; [2], B &#x3D; [1,3]</span><br><span class="line">输出：[2,3]</span><br></pre></td></tr></table></figure>
+<p><strong>示例4：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：A &#x3D; [1,2,5], B &#x3D; [2,4]</span><br><span class="line">输出：[5,4]</span><br></pre></td></tr></table></figure>
 <p><strong>提示：</strong></p>
 <ul>
-<li><code>1 ≤ equations.length ≤ 20</code></li>
-<li><code>equations[i].length = 2</code></li>
-<li><code>1 ≤ Ai.length, Bi.length ≤ 5</code></li>
-<li><code>values.length = equations.length</code></li>
-<li><code>0.0 &lt; values[i] ≤ 20.0</code></li>
-<li><code>1 ≤ queries.length ≤ 20</code></li>
-<li><code>queries[i].length = 2</code></li>
-<li><code>1 ≤ Cj.length, Dj.length ≤ 5</code></li>
-<li><code>Ai, Bi, Cj, Dj 由小写英文字母与数字组成</code></li>
+<li><code>1 ≤ A.length ≤ 10000</code></li>
+<li><code>1 ≤ B.length ≤ 10000</code></li>
+<li><code>1 ≤ A[i] ≤ 100000</code></li>
+<li><code>1 ≤ B[i] ≤ 100000</code></li>
+<li>保证爱丽丝与鲍勃的糖果总量不同。</li>
+<li>答案肯定存在。</li>
 </ul>
-<h3 id="二、题解"><a href="#二、题解" class="headerlink" title="二、题解"></a>二、题解</h3><h4 id="邻接表"><a href="#邻接表" class="headerlink" title="邻接表"></a>邻接表</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">题解</span><br><span class="line"></span><br><span class="line">我们将这种关系表示为存储为邻接表</span><br><span class="line"></span><br><span class="line">如下图这种关系我们将其保存为如下邻接表格式：</span><br><span class="line"></span><br><span class="line">map &#x3D; &#123;</span><br><span class="line">    a: &#123; b: 2 &#125;,</span><br><span class="line">    b: &#123; a: 1&#x2F;2, c: 3 &#125;,</span><br><span class="line">    c: &#123; b: 1&#x2F;3 &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">然后我们再扩展出所有可能的情况，例如 a&#x2F;b 和 b&#x2F;c 可以扩展到 a&#x2F;c</span><br><span class="line"></span><br><span class="line">最后只要对 queries 数组遍历得到结果即可</span><br></pre></td></tr></table></figure>
-<p><img data-src="/images/loading.gif" data-original="/images/leetcode2021.1.6.png" alt="关系图"></p>
+<h3 id="二、题解"><a href="#二、题解" class="headerlink" title="二、题解"></a>二、题解</h3><h4 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h4><p>思路如下：</p>
+<hr>
+<p>这是一个纯数学问题，我们来把它数学化：</p>
+<p>假设我们最后得结果是 $[a, b]$，也就是 $a$ 是 $A$ 要交换得，$b$ 是 $B$ 要交换的</p>
+<p>我们可以计算分别得到 $A$ 和 $B$ 的和为 $aSum$ 和 $bSum$，那我们会有如下关系：</p>
+<script type="math/tex; mode=display">aSum - a + b = bSum - b + a</script><p>转化一下可以得到：</p>
+<script type="math/tex; mode=display">a = b + \frac{aSum - bSum}{2}</script><p>其实问题就是：对于 $B$ 中的任一数 $b$，在 $A$ 中存在一个数 $a$，满足上述关系式。</p>
+<hr>
 <ul>
-<li>时间复杂度：O($n^3$)，n 是所有可能的字符的个数。</li>
-<li>空间复杂度：O($n$)</li>
+<li>时间复杂度：$O(n+m)$，$n$ 和 $m$ 分别为 $A$ 和 $B$ 的长度。</li>
+<li>空间复杂度：$O(n)$。</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> calcEquation = <span class="function"><span class="keyword">function</span> (<span class="params">equations, values, queries</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> map = &#123;&#125;;</span><br><span class="line">    <span class="comment">// 定义一个对象，map[x][y] 表示 x/y 的值</span></span><br><span class="line">    equations.forEach(<span class="function">(<span class="params">e, i</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (!map[e[<span class="number">0</span>]]) map[e[<span class="number">0</span>]] = &#123;&#125;;</span><br><span class="line">        <span class="keyword">if</span> (!map[e[<span class="number">1</span>]]) map[e[<span class="number">1</span>]] = &#123;&#125;;</span><br><span class="line">        map[e[<span class="number">0</span>]][e[<span class="number">1</span>]] = values[i]</span><br><span class="line">        map[e[<span class="number">1</span>]][e[<span class="number">0</span>]] = <span class="number">1</span> / values[i]</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">const</span> keys = <span class="built_in">Object</span>.keys(map);</span><br><span class="line">    keys.forEach(<span class="function"><span class="params">x</span> =&gt;</span> &#123;</span><br><span class="line">        keys.forEach(<span class="function"><span class="params">y</span> =&gt;</span> &#123;</span><br><span class="line">            map[x][y] &amp;&amp; keys.forEach(<span class="function"><span class="params">z</span> =&gt;</span> &#123; <span class="comment">// 如果 x/y 有值 y/z 也有值，则 x/z 的值也可以求出</span></span><br><span class="line">                <span class="keyword">if</span> (map[y][z]) &#123;</span><br><span class="line">                    map[x][z] = map[x][y] * map[y][z]</span><br><span class="line">                    map[z][x] = <span class="number">1</span> / map[x][z] <span class="comment">// 这行不加会有一个测试案例通过不了</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> queries.map(<span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> map[e[<span class="number">0</span>]] &amp;&amp; map[e[<span class="number">0</span>]][e[<span class="number">1</span>]] ? map[e[<span class="number">0</span>]][e[<span class="number">1</span>]] : <span class="number">-1</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fairCandySwap = <span class="function"><span class="keyword">function</span> (<span class="params">A, B</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> aSum = A.reduce(<span class="function">(<span class="params">preValue, curValue</span>) =&gt;</span> preValue + curValue);</span><br><span class="line">    <span class="keyword">let</span> bSum = B.reduce(<span class="function">(<span class="params">preValue, curValue</span>) =&gt;</span> preValue + curValue);</span><br><span class="line">    <span class="keyword">let</span> diff = (aSum - bSum) / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">set</span> = new Set(A);</span><br><span class="line">    let res = [];</span><br><span class="line">    for (const y of B) &#123;</span><br><span class="line">        <span class="keyword">let</span> x = y + diff;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">set</span>.has(x)) &#123;</span><br><span class="line">            res = [x, y]</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -353,13 +355,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/01/05/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.5/" rel="prev" title="leetcode每日一题2020.1.5">
-      <i class="fa fa-chevron-left"></i> leetcode每日一题2020.1.5
+    <a href="/2021/01/28/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.28/" rel="prev" title="leetcode每日一题2020.1.28">
+      <i class="fa fa-chevron-left"></i> leetcode每日一题2020.1.28
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/01/07/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021.1.7/" rel="next" title="leetcode每日一题2020.1.7">
-      leetcode每日一题2020.1.7 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -419,7 +418,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#399-除法求值"><span class="nav-text">399. 除法求值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、题目"><span class="nav-text">一、题目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、题解"><span class="nav-text">二、题解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#邻接表"><span class="nav-text">邻接表</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#888-公平的糖果棒交换"><span class="nav-text">888. 公平的糖果棒交换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、题目"><span class="nav-text">一、题目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、题解"><span class="nav-text">二、题解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#哈希表"><span class="nav-text">哈希表</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
