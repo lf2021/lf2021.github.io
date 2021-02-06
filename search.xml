@@ -922,7 +922,7 @@
 </ul>
 <h3 id="二、题解"><a href="#二、题解" class="headerlink" title="二、题解"></a>二、题解</h3><h4 id="滑动窗口"><a href="#滑动窗口" class="headerlink" title="滑动窗口"></a>滑动窗口</h4><p>思路如下：</p>
 <hr>
-<p>题目要求限制我们只能从开头或结尾拿数字，那么最后剩下的数字一定是连续的，滑动窗口长度为数组的长度减去我们要拿的卡牌数</p>
+<p>题目限制我们只能从开头或结尾拿数字，那么最后剩下的数字一定是连续的</p>
 <p>这样我们可以换一种思维，我们找到连续数字和最小的这个滑动窗口即可</p>
 <p>滑动窗口的长度:</p>
 <script type="math/tex; mode=display">windowSize = cardPoints.length - k</script><hr>
