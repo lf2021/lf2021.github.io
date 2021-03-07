@@ -20,17 +20,19 @@
     var CONFIG = {"hostname":"lf2021.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":18,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideLeftBigIn","post_body":"slideRightBigIn","coll_header":"slideLeftIn","sidebar":"slideLeftBigIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Everything will be ok!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Lee の 博客">
-<meta property="og:url" content="https://lf2021.github.io/tags/React/index.html">
+  <meta name="description" content="1018. 可被 5 整除的二进制前缀一、题目给定由若干 0 和 1 组成的数组 A。我们定义 N_i：从 A[0] 到 A[i] 的第 i 个子数组被解释为一个二进制数（从最高有效位到最低有效位）。 返回布尔值列表 answer，只有当 N_i 可以被 5 整除时，答案 answer[i] 为 true，否则为 false。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode每日一题2020.1.14">
+<meta property="og:url" content="https://lf2021.github.io/2021/01/14/lc2021.1.14/index.html">
 <meta property="og:site_name" content="Lee の 博客">
-<meta property="og:description" content="Everything will be ok!">
+<meta property="og:description" content="1018. 可被 5 整除的二进制前缀一、题目给定由若干 0 和 1 组成的数组 A。我们定义 N_i：从 A[0] 到 A[i] 的第 i 个子数组被解释为一个二进制数（从最高有效位到最低有效位）。 返回布尔值列表 answer，只有当 N_i 可以被 5 整除时，答案 answer[i] 为 true，否则为 false。">
+<meta property="article:published_time" content="2021-01-13T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-01-13T16:00:00.000Z">
 <meta property="article:author" content="Lee">
-<meta property="article:tag" content="while true { code() }">
+<meta property="article:tag" content="leetcode每日一题">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://lf2021.github.io/tags/React/">
+<link rel="canonical" href="https://lf2021.github.io/2021/01/14/lc2021.1.14/">
 
 
 <script id="page-configurations">
@@ -38,12 +40,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-Hans'
   };
 </script>
 
-  <title>标签: React | Lee の 博客</title>
+  <title>leetcode每日一题2020.1.14 | Lee の 博客</title>
   
 
 
@@ -198,57 +200,169 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://lf2021.github.io/2021/01/14/lc2021.1.14/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lee">
+      <meta itemprop="description" content="Everything will be ok!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lee の 博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          leetcode每日一题2020.1.14
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-01-14 00:00:00" itemprop="dateCreated datePublished" datetime="2021-01-14T00:00:00+08:00">2021-01-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">React
-          <small>标签</small>
-        </h2>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/01/14/lc2021.1.14/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/14/lc2021.1.14/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>926</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
+        <h2 id="1018-可被-5-整除的二进制前缀"><a href="#1018-可被-5-整除的二进制前缀" class="headerlink" title="1018. 可被 5 整除的二进制前缀"></a><a href="https://leetcode-cn.com/problems/binary-prefix-divisible-by-5/" target="_blank" rel="noopener">1018. 可被 5 整除的二进制前缀</a></h2><h3 id="一、题目"><a href="#一、题目" class="headerlink" title="一、题目"></a>一、题目</h3><p>给定由若干 <code>0</code> 和 <code>1</code> 组成的数组 <code>A</code>。我们定义 <code>N_i</code>：从 <code>A[0]</code> 到 <code>A[i]</code> 的第 <code>i</code> 个子数组被解释为一个二进制数（从最高有效位到最低有效位）。</p>
+<p>返回布尔值列表 <code>answer</code>，只有当 <code>N_i</code> 可以被 <code>5</code> 整除时，答案 <code>answer[i]</code> 为 <code>true</code>，否则为 <code>false</code>。</p>
+<a id="more"></a>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：[0,1,1]</span><br><span class="line">输出：[true,false,false]</span><br><span class="line">解释：</span><br><span class="line">输入数字为 0, 01, 011；也就是十进制中的 0, 1, 3 。只有第一个数可以被 5 整除，因此 answer[0] 为真。</span><br></pre></td></tr></table></figure>
+<p><strong>示例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：[1,1,1]</span><br><span class="line">输出：[false,false,false]</span><br></pre></td></tr></table></figure>
+<p><strong>示例3：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：[0,1,1,1,1,1]</span><br><span class="line">输出：[true,false,false,false,true,false]</span><br></pre></td></tr></table></figure>
+<p><strong>示例4：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：[1,1,1,0,1]</span><br><span class="line">输出：[false,false,false,false,false]</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ol>
+<li><code>1 ≤ A.length ≤ 30000</code></li>
+<li><code>A[i]</code> 为 <code>0</code> 或 <code>1</code></li>
+</ol>
+<h3 id="二、题解"><a href="#二、题解" class="headerlink" title="二、题解"></a>二、题解</h3><h4 id="模拟法"><a href="#模拟法" class="headerlink" title="模拟法"></a>模拟法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">题解：</span><br><span class="line"></span><br><span class="line">对数组 [A[0], A[1], A[2]] 模拟一下这个过程： </span><br><span class="line"></span><br><span class="line">    第一个数N1：A[0]，然后对 5 去余判断是否为0</span><br><span class="line">    第二个数N2：A[0] * 2 + A[1]，然后对 5 去余判断是否为0</span><br><span class="line">    第三个数N3：A[0] * 4 + A[1] * 2 + A[2]，然后对 5 去余判断是否为0</span><br><span class="line"></span><br><span class="line">我们可以发现 N(i) &#x3D; N(i-1) * 2 + A[i-1]</span><br><span class="line"></span><br><span class="line">考虑到数组 A 可能很长，如果每次都保留 N(i) 的值，则可能导致溢出。</span><br><span class="line"></span><br><span class="line">但是因为只需要知道 N(i) 是否可以被 5 整除，因而我们可以每一轮只更新 N(i) % 5，结果不会影响，即</span><br><span class="line"></span><br><span class="line">N(i) &#x3D; (N(i-1) * 2 + A[i-1]) % 5</span><br></pre></td></tr></table></figure>
+<ul>
+<li>时间复杂度：O($n$)，其中 n 是数组 A 的长度。</li>
+<li>空间复杂度：O(1)</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> prefixesDivBy5 = <span class="function"><span class="keyword">function</span>(<span class="params">A</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> ret = [];</span><br><span class="line">    <span class="keyword">let</span> len = A.length;</span><br><span class="line">    <span class="keyword">let</span> prefix = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;len; i++) &#123;</span><br><span class="line">        prefix = (prefix * <span class="number">2</span> + A[i]) % <span class="number">5</span>;</span><br><span class="line">        ret.push(prefix === <span class="number">0</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-03-07T00:00:00+08:00"
-              content="2021-03-07">
-          03-07
-        </time>
+    
+    
+    
+        <div class="reward-container">
+  <div>万一真有土豪呢</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/loading.gif" data-original="/images/wechatpay.jpg" alt="Lee 微信支付">
+        <p>微信支付</p>
       </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/03/07/2021.3.7React%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/" itemprop="url">
-            <span itemprop="name">React自定义主题配置</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-    </div>
   </div>
-  
-  
-  
+</div>
 
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" rel="tag"># leetcode每日一题</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/01/13/lc2021.1.13/" rel="prev" title="leetcode每日一题2020.1.13">
+      <i class="fa fa-chevron-left"></i> leetcode每日一题2020.1.13
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/01/20/lc2021.1.20/" rel="next" title="leetcode每日一题2020.1.20">
+      leetcode每日一题2020.1.20 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -295,6 +409,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1018-可被-5-整除的二进制前缀"><span class="nav-text">1018. 可被 5 整除的二进制前缀</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、题目"><span class="nav-text">一、题目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、题解"><span class="nav-text">二、题解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#模拟法"><span class="nav-text">模拟法</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -463,6 +578,59 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
