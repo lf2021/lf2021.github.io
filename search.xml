@@ -48,41 +48,67 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo 搭建博客填坑</title>
-    <url>/2020/07/06/Hexo%20%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%A1%AB%E5%9D%91/</url>
-    <content><![CDATA[<h2 id="切换-Next-主题"><a href="#切换-Next-主题" class="headerlink" title="切换 Next 主题"></a>切换 Next 主题</h2><ol>
-<li>找到这个 next 主题的 <a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noopener">GitHub 网站</a></li>
-<li><p>进入你的博客本地路径，例如我的是放在 D 盘下，然后将主题 clone 到本地</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd D:\myblog\blog</span><br><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-theme-next themes&#x2F;next</span><br></pre></td></tr></table></figure>
- <a id="more"></a></li>
-<li><p>修改配置文件<br>打开根目录下的·<code>_config.yml</code> 的站点配置文件，找到themes的配置项，修改为next</p>
- <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>调试、发布</p>
-<p> 输入调试指令，在浏览器中输入localhost:4000查看</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo server --debug</span><br></pre></td></tr></table></figure>
-<p> 在本地查看无误之后，输入生成和发布命令,就可已将新主题发布到自己的博客网站上了。</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
-<p> 如出现缓存引起的异常，可以在生成命令前执行清除缓存命令</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<hr>
-<h2 id="Hexo-部署-Next-主题网页字体不生效"><a href="#Hexo-部署-Next-主题网页字体不生效" class="headerlink" title="Hexo 部署 Next 主题网页字体不生效"></a>Hexo 部署 Next 主题网页字体不生效</h2><p>说明：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">hexo 下的 _config.yml 称为站点配置文件</span><br><span class="line">themes/next 中的_config.yml 称为主题配置文件</span><br></pre></td></tr></table></figure>
+    <title>Mac配置多个SSH账号</title>
+    <url>/2020/06/23/MAC%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AASSH/</url>
+    <content><![CDATA[<h2 id="MAC配置SSH密钥"><a href="#MAC配置SSH密钥" class="headerlink" title="MAC配置SSH密钥"></a>MAC配置SSH密钥</h2><p>众所周知，我们可以将代码托管到线上很多平台，gitee / github / gitlab 等等。<br>在企业中我们可能会遇到这种情况：</p>
+<blockquote>
+<p>企业的项目是放在gitlab上托管的，我需要为gitlab配置一个SSH密钥，但是我自己的项目是放到github上的，我需要为github也配置一个SSH密钥，这就涉及到了管理多个SSH密钥的问题，下面我分别介绍了配置单个和多个SSH密钥的方式。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="一、配置单个SSH密钥"><a href="#一、配置单个SSH密钥" class="headerlink" title="一、配置单个SSH密钥"></a>一、配置单个SSH密钥</h3><p>例如：为企业gitlab配置SSH密钥<br>在终端中依次输入如下命令：</p>
 <ol>
-<li><p>按照hexo 的官方文档，在站点配置文件设置语言（第7行）</p>
- <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Lee</span> <span class="string">的个人博客</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">'进击的技术客'</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">'Everything will be ok!'</span></span><br><span class="line"><span class="attr">keywords:</span> <span class="string">'努力一片天'</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">Lee</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">zh-Hans</span></span><br><span class="line"><span class="attr">timezone:</span> <span class="string">''</span></span><br></pre></td></tr></table></figure>
+<li><p>注意这里邮箱是你公司的地址，敲完一路回车就好</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"yourmail@gmail.com"</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>这样还是不起作用的话,请查看 <code>theme/next/languages/</code> 目录下是否有 <code>zh-Hans.yml</code> 文件.一般是有 <code>zh-CN.yml</code> ，所以要把 <code>zh-CN.yml</code> 文件改成名字为 <code>zh-Hans.yml</code> 就可以了</p>
+<li><p>切换到.ssh目录下，查看一下目录下的文件</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> .ssh</span><br><span class="line">ls</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看公钥（id_rsa.pub），复制下来，打开gitlab的Settings里的SSH Keys将复制的添加进去，会自动生成Title为你的邮箱。</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat id_rsa.pub</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将私钥（id_rsa）添加到SSH-agent</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">SSH-add ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-]]></content>
+<h3 id="二、配置多个SSH密钥"><a href="#二、配置多个SSH密钥" class="headerlink" title="二、配置多个SSH密钥"></a>二、配置多个SSH密钥</h3><p>在这里我需要再为github配置一下SSH，如果重复上面的步骤，会出现密钥覆盖的情况，所以我们需要为新的密钥文件设置新的名字，步骤如下：</p>
+<ol>
+<li><p>这里邮箱是你注册github的邮箱，<strong>注意第一次回车之后需要为生成的密钥自定义名字</strong>，输入一个id_rsa_github，输入完之后一路回车</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"yourmail@gmail.com"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看一下自己生成的SSH</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> .ssh</span><br><span class="line">ls</span><br></pre></td></tr></table></figure>
+<p> 目录下的文件应该有这些：</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">id_rsa.pub        id_rsa_github.pub        id_rsa            id_rsa_github     known_hosts</span><br></pre></td></tr></table></figure>
+<p> 这里id_rsa和id_rsa.pub是我的gitlab的私钥和公钥，id_rsa_github和id_rsa_github.pub是我的github的私钥和公钥。</p>
+</li>
+<li><p>查看公钥（id_rsa_github.pub）,打开github的Settings里的SSH and GPG keys，New SSH key，将公钥复制进去，设置Title为你的邮箱名。</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat id_rsa_github.pub</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加私钥</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-add ~/.ssh/id_rsa_github</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加配置文件</p>
+</li>
+</ol>
+<ul>
+<li><p>在.ssh/下创建config文件</p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">touch config</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>用vim编辑器打开config，输入i切换到插入模式进行修改</p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim config</span><br></pre></td></tr></table></figure>
+<p>  在config中输入一下内容</p>
+<blockquote>
+<p>注意：如果Gitlab是用的公司的服务器，需要在HostName中指定公司的域名。</p>
+</blockquote>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#gitlab</span></span><br><span class="line">Host gitlab.com</span><br><span class="line">HostName gitlab.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/id_rsa</span><br><span class="line"><span class="comment">#github</span></span><br><span class="line">Host github.com</span><br><span class="line">HostName github.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/id_rsa_github</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="三、至此大功告成"><a href="#三、至此大功告成" class="headerlink" title="三、至此大功告成"></a>三、至此大功告成</h3>]]></content>
       <categories>
-        <category>Hexo</category>
+        <category>Git</category>
       </categories>
       <tags>
-        <tag>Hexo爬坑</tag>
+        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -124,6 +150,44 @@
       </categories>
       <tags>
         <tag>React</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo 搭建博客填坑</title>
+    <url>/2020/07/06/Hexo%20%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%A1%AB%E5%9D%91/</url>
+    <content><![CDATA[<h2 id="切换-Next-主题"><a href="#切换-Next-主题" class="headerlink" title="切换 Next 主题"></a>切换 Next 主题</h2><ol>
+<li>找到这个 next 主题的 <a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noopener">GitHub 网站</a></li>
+<li><p>进入你的博客本地路径，例如我的是放在 D 盘下，然后将主题 clone 到本地</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd D:\myblog\blog</span><br><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-theme-next themes&#x2F;next</span><br></pre></td></tr></table></figure>
+ <a id="more"></a></li>
+<li><p>修改配置文件<br>打开根目录下的·<code>_config.yml</code> 的站点配置文件，找到themes的配置项，修改为next</p>
+ <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>调试、发布</p>
+<p> 输入调试指令，在浏览器中输入localhost:4000查看</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo server --debug</span><br></pre></td></tr></table></figure>
+<p> 在本地查看无误之后，输入生成和发布命令,就可已将新主题发布到自己的博客网站上了。</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+<p> 如出现缓存引起的异常，可以在生成命令前执行清除缓存命令</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+<h2 id="Hexo-部署-Next-主题网页字体不生效"><a href="#Hexo-部署-Next-主题网页字体不生效" class="headerlink" title="Hexo 部署 Next 主题网页字体不生效"></a>Hexo 部署 Next 主题网页字体不生效</h2><p>说明：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">hexo 下的 _config.yml 称为站点配置文件</span><br><span class="line">themes/next 中的_config.yml 称为主题配置文件</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>按照hexo 的官方文档，在站点配置文件设置语言（第7行）</p>
+ <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Lee</span> <span class="string">的个人博客</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">'进击的技术客'</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">'Everything will be ok!'</span></span><br><span class="line"><span class="attr">keywords:</span> <span class="string">'努力一片天'</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">Lee</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">zh-Hans</span></span><br><span class="line"><span class="attr">timezone:</span> <span class="string">''</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>这样还是不起作用的话,请查看 <code>theme/next/languages/</code> 目录下是否有 <code>zh-Hans.yml</code> 文件.一般是有 <code>zh-CN.yml</code> ，所以要把 <code>zh-CN.yml</code> 文件改成名字为 <code>zh-Hans.yml</code> 就可以了</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo爬坑</tag>
       </tags>
   </entry>
   <entry>
@@ -206,67 +270,34 @@
       </tags>
   </entry>
   <entry>
-    <title>Mac配置多个SSH账号</title>
-    <url>/2020/06/23/MAC%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AASSH/</url>
-    <content><![CDATA[<h2 id="MAC配置SSH密钥"><a href="#MAC配置SSH密钥" class="headerlink" title="MAC配置SSH密钥"></a>MAC配置SSH密钥</h2><p>众所周知，我们可以将代码托管到线上很多平台，gitee / github / gitlab 等等。<br>在企业中我们可能会遇到这种情况：</p>
-<blockquote>
-<p>企业的项目是放在gitlab上托管的，我需要为gitlab配置一个SSH密钥，但是我自己的项目是放到github上的，我需要为github也配置一个SSH密钥，这就涉及到了管理多个SSH密钥的问题，下面我分别介绍了配置单个和多个SSH密钥的方式。</p>
-</blockquote>
+    <title>leetcode每日一题2020.1.13</title>
+    <url>/2021/01/13/lc2021.1.13/</url>
+    <content><![CDATA[<h2 id="684-冗余连接"><a href="#684-冗余连接" class="headerlink" title="684. 冗余连接"></a><a href="https://leetcode-cn.com/problems/redundant-connection/" target="_blank" rel="noopener">684. 冗余连接</a></h2><h3 id="一、题目"><a href="#一、题目" class="headerlink" title="一、题目"></a>一、题目</h3><p>在本问题中, 树指的是一个连通且无环的无向图。</p>
+<p>输入一个图，该图由一个有着N个节点 (节点值不重复<code>1, 2, ..., N</code>) 的树及一条附加的边构成。附加的边的两个顶点包含在1到N中间，这条附加的边不属于树中已存在的边。</p>
+<p>结果图是一个以边组成的二维数组。每一个边的元素是一对 <code>[u, v]</code> ，满足 <code>u &lt; v</code>，表示连接顶点 <code>u</code> 和 <code>v</code>的无向图的边。</p>
+<p>返回一条可以删去的边，使得结果图是一个有着<code>N</code>个节点的树。如果有多个答案，则返回二维数组中最后出现的边。答案边 <code>[u, v]</code> 应满足相同的格式 <code>u &lt; v</code>。</p>
 <a id="more"></a>
-<h3 id="一、配置单个SSH密钥"><a href="#一、配置单个SSH密钥" class="headerlink" title="一、配置单个SSH密钥"></a>一、配置单个SSH密钥</h3><p>例如：为企业gitlab配置SSH密钥<br>在终端中依次输入如下命令：</p>
-<ol>
-<li><p>注意这里邮箱是你公司的地址，敲完一路回车就好</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"yourmail@gmail.com"</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>切换到.ssh目录下，查看一下目录下的文件</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> .ssh</span><br><span class="line">ls</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看公钥（id_rsa.pub），复制下来，打开gitlab的Settings里的SSH Keys将复制的添加进去，会自动生成Title为你的邮箱。</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat id_rsa.pub</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>将私钥（id_rsa）添加到SSH-agent</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">SSH-add ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="二、配置多个SSH密钥"><a href="#二、配置多个SSH密钥" class="headerlink" title="二、配置多个SSH密钥"></a>二、配置多个SSH密钥</h3><p>在这里我需要再为github配置一下SSH，如果重复上面的步骤，会出现密钥覆盖的情况，所以我们需要为新的密钥文件设置新的名字，步骤如下：</p>
-<ol>
-<li><p>这里邮箱是你注册github的邮箱，<strong>注意第一次回车之后需要为生成的密钥自定义名字</strong>，输入一个id_rsa_github，输入完之后一路回车</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"yourmail@gmail.com"</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看一下自己生成的SSH</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> .ssh</span><br><span class="line">ls</span><br></pre></td></tr></table></figure>
-<p> 目录下的文件应该有这些：</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">id_rsa.pub        id_rsa_github.pub        id_rsa            id_rsa_github     known_hosts</span><br></pre></td></tr></table></figure>
-<p> 这里id_rsa和id_rsa.pub是我的gitlab的私钥和公钥，id_rsa_github和id_rsa_github.pub是我的github的私钥和公钥。</p>
-</li>
-<li><p>查看公钥（id_rsa_github.pub）,打开github的Settings里的SSH and GPG keys，New SSH key，将公钥复制进去，设置Title为你的邮箱名。</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat id_rsa_github.pub</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>添加私钥</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-add ~/.ssh/id_rsa_github</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>添加配置文件</p>
-</li>
-</ol>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: [[1,2], [1,3], [2,3]]</span><br><span class="line">输出: [2,3]</span><br><span class="line">解释: 给定的无向图为:</span><br><span class="line">  1</span><br><span class="line"> &#x2F; \</span><br><span class="line">2 - 3</span><br></pre></td></tr></table></figure>
+<p><strong>示例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: [[1,2], [2,3], [3,4], [1,4], [1,5]]</span><br><span class="line">输出: [1,4]</span><br><span class="line">解释: 给定的无向图为:</span><br><span class="line">5 - 1 - 2</span><br><span class="line">    |   |</span><br><span class="line">    4 - 3</span><br></pre></td></tr></table></figure>
+<p><strong>注意：</strong></p>
 <ul>
-<li><p>在.ssh/下创建config文件</p>
-  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">touch config</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>用vim编辑器打开config，输入i切换到插入模式进行修改</p>
-  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim config</span><br></pre></td></tr></table></figure>
-<p>  在config中输入一下内容</p>
-<blockquote>
-<p>注意：如果Gitlab是用的公司的服务器，需要在HostName中指定公司的域名。</p>
-</blockquote>
-  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#gitlab</span></span><br><span class="line">Host gitlab.com</span><br><span class="line">HostName gitlab.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/id_rsa</span><br><span class="line"><span class="comment">#github</span></span><br><span class="line">Host github.com</span><br><span class="line">HostName github.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/id_rsa_github</span><br></pre></td></tr></table></figure>
-</li>
+<li>输入的二维数组大小在 3 到 1000。</li>
+<li>二维数组中的整数在1到N之间，其中N是输入数组的大小。</li>
 </ul>
-<h3 id="三、至此大功告成"><a href="#三、至此大功告成" class="headerlink" title="三、至此大功告成"></a>三、至此大功告成</h3>]]></content>
+<h3 id="二、题解"><a href="#二、题解" class="headerlink" title="二、题解"></a>二、题解</h3><h4 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">题解：</span><br><span class="line"></span><br><span class="line">在一棵树中，边的数量比节点的数量少 1。如果一棵树有 N 个节点，则这棵树有 N−1 条边。这道题中的图在树的基础上多了一条附加的边，因此边的数量也是 N。</span><br><span class="line"></span><br><span class="line">树是一个连通且无环的无向图，在树中多了一条附加的边之后就会出现环，因此附加的边即为导致环出现的边。</span><br><span class="line"></span><br><span class="line">可以通过并查集寻找附加的边。初始时，每个节点都属于不同的连通分量。遍历每一条边，判断这条边连接的两个顶点是否属于相同的连通分量。</span><br><span class="line"></span><br><span class="line">    • 如果两个顶点属于不同的连通分量，则说明在遍历到当前的边之前，这两个顶点之间不连通，因此当前的边不会导致环出现，合并这两个顶点的连通分量。</span><br><span class="line"></span><br><span class="line">    • 如果两个顶点属于相同的连通分量，则说明在遍历到当前的边之前，这两个顶点之间已经连通，因此当前的边导致环出现，为附加的边，将当前的边作为答案返回。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>时间复杂度：O(NlogN)，其中 N 是图中的节点个数。</li>
+<li>空间复杂度：O(N)</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> findRedundantConnection = <span class="function"><span class="keyword">function</span> (<span class="params">edges</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> nodesCount = edges.length;</span><br><span class="line">    <span class="keyword">const</span> parent = <span class="keyword">new</span> <span class="built_in">Array</span>(nodesCount + <span class="number">1</span>).fill(<span class="number">0</span>).map(<span class="function">(<span class="params">value, index</span>) =&gt;</span> index);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; nodesCount; i++) &#123;</span><br><span class="line">        <span class="keyword">const</span> [node1, node2] = edges[i];</span><br><span class="line">        <span class="keyword">if</span> (find(parent, node1) != find(parent, node2)) &#123;</span><br><span class="line">            union(parent, node1, node2);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> edges[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> [<span class="number">0</span>];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> union = <span class="function">(<span class="params">parent, index1, index2</span>) =&gt;</span> &#123;</span><br><span class="line">    parent[find(parent, index1)] = find(parent, index2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> find = <span class="function">(<span class="params">parent, index</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (parent[index] !== index) &#123;</span><br><span class="line">        parent[index] = find(parent, parent[index]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> parent[index];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
       <categories>
-        <category>Git</category>
+        <category>leetcode</category>
       </categories>
       <tags>
-        <tag>Git</tag>
+        <tag>leetcode每日一题</tag>
       </tags>
   </entry>
   <entry>
@@ -312,37 +343,6 @@
       </tags>
   </entry>
   <entry>
-    <title>leetcode每日一题2020.1.13</title>
-    <url>/2021/01/13/lc2021.1.13/</url>
-    <content><![CDATA[<h2 id="684-冗余连接"><a href="#684-冗余连接" class="headerlink" title="684. 冗余连接"></a><a href="https://leetcode-cn.com/problems/redundant-connection/" target="_blank" rel="noopener">684. 冗余连接</a></h2><h3 id="一、题目"><a href="#一、题目" class="headerlink" title="一、题目"></a>一、题目</h3><p>在本问题中, 树指的是一个连通且无环的无向图。</p>
-<p>输入一个图，该图由一个有着N个节点 (节点值不重复<code>1, 2, ..., N</code>) 的树及一条附加的边构成。附加的边的两个顶点包含在1到N中间，这条附加的边不属于树中已存在的边。</p>
-<p>结果图是一个以边组成的二维数组。每一个边的元素是一对 <code>[u, v]</code> ，满足 <code>u &lt; v</code>，表示连接顶点 <code>u</code> 和 <code>v</code>的无向图的边。</p>
-<p>返回一条可以删去的边，使得结果图是一个有着<code>N</code>个节点的树。如果有多个答案，则返回二维数组中最后出现的边。答案边 <code>[u, v]</code> 应满足相同的格式 <code>u &lt; v</code>。</p>
-<a id="more"></a>
-<p><strong>示例1：</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: [[1,2], [1,3], [2,3]]</span><br><span class="line">输出: [2,3]</span><br><span class="line">解释: 给定的无向图为:</span><br><span class="line">  1</span><br><span class="line"> &#x2F; \</span><br><span class="line">2 - 3</span><br></pre></td></tr></table></figure>
-<p><strong>示例2：</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: [[1,2], [2,3], [3,4], [1,4], [1,5]]</span><br><span class="line">输出: [1,4]</span><br><span class="line">解释: 给定的无向图为:</span><br><span class="line">5 - 1 - 2</span><br><span class="line">    |   |</span><br><span class="line">    4 - 3</span><br></pre></td></tr></table></figure>
-<p><strong>注意：</strong></p>
-<ul>
-<li>输入的二维数组大小在 3 到 1000。</li>
-<li>二维数组中的整数在1到N之间，其中N是输入数组的大小。</li>
-</ul>
-<h3 id="二、题解"><a href="#二、题解" class="headerlink" title="二、题解"></a>二、题解</h3><h4 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">题解：</span><br><span class="line"></span><br><span class="line">在一棵树中，边的数量比节点的数量少 1。如果一棵树有 N 个节点，则这棵树有 N−1 条边。这道题中的图在树的基础上多了一条附加的边，因此边的数量也是 N。</span><br><span class="line"></span><br><span class="line">树是一个连通且无环的无向图，在树中多了一条附加的边之后就会出现环，因此附加的边即为导致环出现的边。</span><br><span class="line"></span><br><span class="line">可以通过并查集寻找附加的边。初始时，每个节点都属于不同的连通分量。遍历每一条边，判断这条边连接的两个顶点是否属于相同的连通分量。</span><br><span class="line"></span><br><span class="line">    • 如果两个顶点属于不同的连通分量，则说明在遍历到当前的边之前，这两个顶点之间不连通，因此当前的边不会导致环出现，合并这两个顶点的连通分量。</span><br><span class="line"></span><br><span class="line">    • 如果两个顶点属于相同的连通分量，则说明在遍历到当前的边之前，这两个顶点之间已经连通，因此当前的边导致环出现，为附加的边，将当前的边作为答案返回。</span><br></pre></td></tr></table></figure>
-<ul>
-<li>时间复杂度：O(NlogN)，其中 N 是图中的节点个数。</li>
-<li>空间复杂度：O(N)</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> findRedundantConnection = <span class="function"><span class="keyword">function</span> (<span class="params">edges</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> nodesCount = edges.length;</span><br><span class="line">    <span class="keyword">const</span> parent = <span class="keyword">new</span> <span class="built_in">Array</span>(nodesCount + <span class="number">1</span>).fill(<span class="number">0</span>).map(<span class="function">(<span class="params">value, index</span>) =&gt;</span> index);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; nodesCount; i++) &#123;</span><br><span class="line">        <span class="keyword">const</span> [node1, node2] = edges[i];</span><br><span class="line">        <span class="keyword">if</span> (find(parent, node1) != find(parent, node2)) &#123;</span><br><span class="line">            union(parent, node1, node2);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> edges[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> [<span class="number">0</span>];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> union = <span class="function">(<span class="params">parent, index1, index2</span>) =&gt;</span> &#123;</span><br><span class="line">    parent[find(parent, index1)] = find(parent, index2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> find = <span class="function">(<span class="params">parent, index</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (parent[index] !== index) &#123;</span><br><span class="line">        parent[index] = find(parent, parent[index]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> parent[index];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>leetcode每日一题</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>leetcode每日一题2020.1.14</title>
     <url>/2021/01/14/lc2021.1.14/</url>
     <content><![CDATA[<h2 id="1018-可被-5-整除的二进制前缀"><a href="#1018-可被-5-整除的二进制前缀" class="headerlink" title="1018. 可被 5 整除的二进制前缀"></a><a href="https://leetcode-cn.com/problems/binary-prefix-divisible-by-5/" target="_blank" rel="noopener">1018. 可被 5 整除的二进制前缀</a></h2><h3 id="一、题目"><a href="#一、题目" class="headerlink" title="一、题目"></a>一、题目</h3><p>给定由若干 <code>0</code> 和 <code>1</code> 组成的数组 <code>A</code>。我们定义 <code>N_i</code>：从 <code>A[0]</code> 到 <code>A[i]</code> 的第 <code>i</code> 个子数组被解释为一个二进制数（从最高有效位到最低有效位）。</p>
@@ -367,6 +367,41 @@
 <li>空间复杂度：O(1)</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> prefixesDivBy5 = <span class="function"><span class="keyword">function</span>(<span class="params">A</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> ret = [];</span><br><span class="line">    <span class="keyword">let</span> len = A.length;</span><br><span class="line">    <span class="keyword">let</span> prefix = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;len; i++) &#123;</span><br><span class="line">        prefix = (prefix * <span class="number">2</span> + A[i]) % <span class="number">5</span>;</span><br><span class="line">        ret.push(prefix === <span class="number">0</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode每日一题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>leetcode每日一题2020.1.22</title>
+    <url>/2021/01/22/lc2021.1.22/</url>
+    <content><![CDATA[<h2 id="989-数组形式的整数加法"><a href="#989-数组形式的整数加法" class="headerlink" title="989. 数组形式的整数加法"></a><a href="https://leetcode-cn.com/problems/add-to-array-form-of-integer/" target="_blank" rel="noopener">989. 数组形式的整数加法</a></h2><h3 id="一、题目"><a href="#一、题目" class="headerlink" title="一、题目"></a>一、题目</h3><p>对于非负整数 <code>X</code> 而言，<code>X</code> 的数组形式是每位数字按从左到右的顺序形成的数组。例如，如果 <code>X = 1231</code>，那么其数组形式为 <code>[1,2,3,1]</code>。</p>
+<p>给定非负整数 <code>X</code> 的数组形式 <code>A</code>，返回整数 <code>X+K</code> 的数组形式。</p>
+<a id="more"></a>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：A &#x3D; [1,2,0,0], K &#x3D; 34</span><br><span class="line">输出：[1,2,3,4]</span><br><span class="line">解释：1200 + 34 &#x3D; 1234</span><br></pre></td></tr></table></figure>
+<p><strong>示例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：A &#x3D; [2,7,4], K &#x3D; 181</span><br><span class="line">输出：[4,5,5]</span><br><span class="line">解释：274 + 181 &#x3D; 455</span><br></pre></td></tr></table></figure>
+<p><strong>示例 3：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：A &#x3D; [2,1,5], K &#x3D; 806</span><br><span class="line">输出：[1,0,2,1]</span><br><span class="line">解释：215 + 806 &#x3D; 1021</span><br></pre></td></tr></table></figure>
+<p><strong>示例 4：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：A &#x3D; [9,9,9,9,9,9,9,9,9,9], K &#x3D; 1</span><br><span class="line">输出：[1,0,0,0,0,0,0,0,0,0,0]</span><br><span class="line">解释：9999999999 + 1 &#x3D; 10000000000</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ol>
+<li><code>1 ≤ A.length ≤ 10000</code></li>
+<li><code>0 ≤ A[i] ≤ 9</code></li>
+<li><code>0 ≤ K ≤ 10000</code></li>
+<li><code>如果 A.length &gt; 1，那么 A[0] ≠ 0</code></li>
+</ol>
+<h3 id="二、题解"><a href="#二、题解" class="headerlink" title="二、题解"></a>二、题解</h3><h4 id="倒序逐位相加"><a href="#倒序逐位相加" class="headerlink" title="倒序逐位相加"></a>倒序逐位相加</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">题解：</span><br><span class="line"></span><br><span class="line">对数组 A 倒序遍历，每轮遍历的时候加上 K 对 10 取的余数，将和判断是否大于 10 后加入 ret 数组中，并对 K 进行更新。</span><br><span class="line"></span><br><span class="line">遍历完再对 K 做一个遍历直到 K &#x3D; 0 为止。</span><br><span class="line"></span><br><span class="line">例如：A &#x3D; [1, 2, 3]  K &#x3D; 912</span><br><span class="line">第一轮遍历： 3 + 2 &#x3D; 5，此时 K &#x3D; 91，ret &#x3D; [5]</span><br><span class="line">第二轮遍历： 2 + 1 &#x3D; 3，此时 K &#x3D; 9， ret &#x3D; [3, 5]</span><br><span class="line">第三轮遍历： 9 + 1 &#x3D; 10，此时 K &#x3D; 0 + 1 &#x3D; 1， ret &#x3D; [0, 3, 5]</span><br><span class="line">K &#x3D; 1，还要再向 ret 中加入 1，ret &#x3D; [1, 0, 3, 5]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>时间复杂度：O($max{m,n}$)，其中 m 是数组 A 的长度，n 是数字 K 的长度</li>
+<li>空间复杂度：O($max{m,n}$)。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> addToArrayForm = <span class="function"><span class="keyword">function</span> (<span class="params">A, K</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> ret = [];</span><br><span class="line">    <span class="keyword">const</span> n = A.length;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = n - <span class="number">1</span>; i &gt;= <span class="number">0</span>; --i) &#123;</span><br><span class="line">        <span class="keyword">let</span> sum = A[i] + K % <span class="number">10</span>;</span><br><span class="line">        K = <span class="built_in">Math</span>.floor(K / <span class="number">10</span>);</span><br><span class="line">        <span class="keyword">if</span> (sum &gt;= <span class="number">10</span>) &#123;</span><br><span class="line">            ret.unshift(sum % <span class="number">10</span>);</span><br><span class="line">            K++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            ret.unshift(sum)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (; K &gt; <span class="number">0</span>; K = <span class="built_in">Math</span>.floor(K / <span class="number">10</span>)) &#123;</span><br><span class="line">        ret.unshift(K % <span class="number">10</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>leetcode</category>
@@ -445,32 +480,32 @@
       </tags>
   </entry>
   <entry>
-    <title>leetcode每日一题2020.1.22</title>
-    <url>/2021/01/22/lc2021.1.22/</url>
-    <content><![CDATA[<h2 id="989-数组形式的整数加法"><a href="#989-数组形式的整数加法" class="headerlink" title="989. 数组形式的整数加法"></a><a href="https://leetcode-cn.com/problems/add-to-array-form-of-integer/" target="_blank" rel="noopener">989. 数组形式的整数加法</a></h2><h3 id="一、题目"><a href="#一、题目" class="headerlink" title="一、题目"></a>一、题目</h3><p>对于非负整数 <code>X</code> 而言，<code>X</code> 的数组形式是每位数字按从左到右的顺序形成的数组。例如，如果 <code>X = 1231</code>，那么其数组形式为 <code>[1,2,3,1]</code>。</p>
-<p>给定非负整数 <code>X</code> 的数组形式 <code>A</code>，返回整数 <code>X+K</code> 的数组形式。</p>
+    <title>leetcode每日一题2020.1.26</title>
+    <url>/2021/01/26/lc2021.1.26/</url>
+    <content><![CDATA[<h2 id="1128-等价多米诺骨牌对的数量"><a href="#1128-等价多米诺骨牌对的数量" class="headerlink" title="1128. 等价多米诺骨牌对的数量"></a><a href="https://leetcode-cn.com/problems/number-of-equivalent-domino-pairs/" target="_blank" rel="noopener">1128. 等价多米诺骨牌对的数量</a></h2><h3 id="一、题目"><a href="#一、题目" class="headerlink" title="一、题目"></a>一、题目</h3><p>给你一个由一些多米诺骨牌组成的列表 <code>dominoes</code>。</p>
+<p>如果其中某一张多米诺骨牌可以通过旋转 <code>0</code> 度或 <code>180</code> 度得到另一张多米诺骨牌，我们就认为这两张牌是等价的。</p>
+<p>形式上，<code>dominoes[i] = [a, b]</code> 和 <code>dominoes[j] = [c, d]</code> 等价的前提是 <code>a=c</code> 且 <code>b=d</code>，或是 <code>a=d</code> 且 <code>b=c</code>。</p>
+<p>在 <code>0 &lt;= i &lt; j &lt; dominoes.length</code> 的前提下，找出满足 <code>dominoes[i]</code> 和 <code>dominoes[j]</code> 等价的骨牌对 <code>(i, j)</code> 的数量。</p>
 <a id="more"></a>
 <p><strong>示例1：</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：A &#x3D; [1,2,0,0], K &#x3D; 34</span><br><span class="line">输出：[1,2,3,4]</span><br><span class="line">解释：1200 + 34 &#x3D; 1234</span><br></pre></td></tr></table></figure>
-<p><strong>示例2：</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：A &#x3D; [2,7,4], K &#x3D; 181</span><br><span class="line">输出：[4,5,5]</span><br><span class="line">解释：274 + 181 &#x3D; 455</span><br></pre></td></tr></table></figure>
-<p><strong>示例 3：</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：A &#x3D; [2,1,5], K &#x3D; 806</span><br><span class="line">输出：[1,0,2,1]</span><br><span class="line">解释：215 + 806 &#x3D; 1021</span><br></pre></td></tr></table></figure>
-<p><strong>示例 4：</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：A &#x3D; [9,9,9,9,9,9,9,9,9,9], K &#x3D; 1</span><br><span class="line">输出：[1,0,0,0,0,0,0,0,0,0,0]</span><br><span class="line">解释：9999999999 + 1 &#x3D; 10000000000</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：dominoes &#x3D; [[1,2],[2,1],[3,4],[5,6]]</span><br><span class="line">输出：1</span><br></pre></td></tr></table></figure>
 <p><strong>提示：</strong></p>
-<ol>
-<li><code>1 ≤ A.length ≤ 10000</code></li>
-<li><code>0 ≤ A[i] ≤ 9</code></li>
-<li><code>0 ≤ K ≤ 10000</code></li>
-<li><code>如果 A.length &gt; 1，那么 A[0] ≠ 0</code></li>
-</ol>
-<h3 id="二、题解"><a href="#二、题解" class="headerlink" title="二、题解"></a>二、题解</h3><h4 id="倒序逐位相加"><a href="#倒序逐位相加" class="headerlink" title="倒序逐位相加"></a>倒序逐位相加</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">题解：</span><br><span class="line"></span><br><span class="line">对数组 A 倒序遍历，每轮遍历的时候加上 K 对 10 取的余数，将和判断是否大于 10 后加入 ret 数组中，并对 K 进行更新。</span><br><span class="line"></span><br><span class="line">遍历完再对 K 做一个遍历直到 K &#x3D; 0 为止。</span><br><span class="line"></span><br><span class="line">例如：A &#x3D; [1, 2, 3]  K &#x3D; 912</span><br><span class="line">第一轮遍历： 3 + 2 &#x3D; 5，此时 K &#x3D; 91，ret &#x3D; [5]</span><br><span class="line">第二轮遍历： 2 + 1 &#x3D; 3，此时 K &#x3D; 9， ret &#x3D; [3, 5]</span><br><span class="line">第三轮遍历： 9 + 1 &#x3D; 10，此时 K &#x3D; 0 + 1 &#x3D; 1， ret &#x3D; [0, 3, 5]</span><br><span class="line">K &#x3D; 1，还要再向 ret 中加入 1，ret &#x3D; [1, 0, 3, 5]</span><br></pre></td></tr></table></figure>
 <ul>
-<li>时间复杂度：O($max{m,n}$)，其中 m 是数组 A 的长度，n 是数字 K 的长度</li>
-<li>空间复杂度：O($max{m,n}$)。</li>
+<li>1 ≤ dominoes.length ≤ 40000</li>
+<li>1 ≤ dominoes[i][j] ≤ 9</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> addToArrayForm = <span class="function"><span class="keyword">function</span> (<span class="params">A, K</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> ret = [];</span><br><span class="line">    <span class="keyword">const</span> n = A.length;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = n - <span class="number">1</span>; i &gt;= <span class="number">0</span>; --i) &#123;</span><br><span class="line">        <span class="keyword">let</span> sum = A[i] + K % <span class="number">10</span>;</span><br><span class="line">        K = <span class="built_in">Math</span>.floor(K / <span class="number">10</span>);</span><br><span class="line">        <span class="keyword">if</span> (sum &gt;= <span class="number">10</span>) &#123;</span><br><span class="line">            ret.unshift(sum % <span class="number">10</span>);</span><br><span class="line">            K++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            ret.unshift(sum)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (; K &gt; <span class="number">0</span>; K = <span class="built_in">Math</span>.floor(K / <span class="number">10</span>)) &#123;</span><br><span class="line">        ret.unshift(K % <span class="number">10</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="二、题解"><a href="#二、题解" class="headerlink" title="二、题解"></a>二、题解</h3><h4 id="方法1：排序-哈希map-计数"><a href="#方法1：排序-哈希map-计数" class="headerlink" title="方法1：排序 + 哈希map + 计数"></a>方法1：排序 + 哈希map + 计数</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">将 dominoes 数组中每一项按从小到大排个序变为字符串，然后哈希表记录下出每个字符串出现的次数，最后遍历哈希表即可得</span><br></pre></td></tr></table></figure>
+<ul>
+<li>时间复杂度：O(n)，n 是数组的长度。</li>
+<li>空间复杂度：O(n)</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> numEquivDominoPairs = <span class="function"><span class="keyword">function</span>(<span class="params">dominoes</span>) </span>&#123;</span><br><span class="line">    dominoes = dominoes.map(<span class="function"><span class="params">e</span> =&gt;</span> e[<span class="number">0</span>] &lt; e[<span class="number">1</span>] ? <span class="string">''</span> + e[<span class="number">0</span>] + e[<span class="number">1</span>] : <span class="string">''</span> + e[<span class="number">1</span>] + e[<span class="number">0</span>]);</span><br><span class="line">    <span class="keyword">let</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> dominoe <span class="keyword">of</span> dominoes) &#123;</span><br><span class="line">        <span class="keyword">if</span> (map.has(dominoe)) &#123;</span><br><span class="line">            map.set(dominoe, map.get(dominoe) + <span class="number">1</span>)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            map.set(dominoe, <span class="number">1</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> ret = <span class="number">0</span>;</span><br><span class="line">    map.forEach(<span class="function"><span class="params">value</span> =&gt;</span> &#123;</span><br><span class="line">        ret += value * (value - <span class="number">1</span>) / <span class="number">2</span></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> ret</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="方法2：二元组表示-计数"><a href="#方法2：二元组表示-计数" class="headerlink" title="方法2：二元组表示 + 计数"></a>方法2：二元组表示 + 计数</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">首先我们直接让每一个二元对都变为指定的格式，即第一维必须不大于第二维。这样两个二元对「等价」当且仅当两个二元对完全相同。</span><br><span class="line"></span><br><span class="line">其次注意到二元对中的元素均不大于 9，因此我们可以将每一个二元对拼接成一个两位的正整数，即 (x,y) -&gt; 10x+y。</span><br><span class="line">这样就无需使用哈希表统计元素数量，而直接使用长度为 100 的数组即可。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>时间复杂度：O(n)，n 是数组的长度。</li>
+<li>空间复杂度：O(1)</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> numEquivDominoPairs = <span class="function"><span class="keyword">function</span> (<span class="params">dominoes</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> arr = <span class="built_in">Array</span>(<span class="number">100</span>).fill(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">let</span> ret = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> ele <span class="keyword">of</span> dominoes) &#123;</span><br><span class="line">        <span class="keyword">let</span> val = ele[<span class="number">0</span>] &gt; ele[<span class="number">1</span>] ? <span class="number">10</span> * ele[<span class="number">1</span>] + ele[<span class="number">0</span>] : <span class="number">10</span> * ele[<span class="number">0</span>] + ele[<span class="number">1</span>];</span><br><span class="line">        arr[val]++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> n <span class="keyword">of</span> arr) &#123;</span><br><span class="line">        ret += n * (n - <span class="number">1</span>) / <span class="number">2</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>leetcode</category>
@@ -506,41 +541,6 @@
 <li>空间复杂度：O(1)</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> findLengthOfLCIS = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> start = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> ret = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;nums.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; nums[i] &lt;= nums[i<span class="number">-1</span>]) &#123;</span><br><span class="line">            start = i;</span><br><span class="line">        &#125;</span><br><span class="line">        ret = <span class="built_in">Math</span>.max(ret, i - start + <span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>leetcode每日一题</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>leetcode每日一题2020.1.26</title>
-    <url>/2021/01/26/lc2021.1.26/</url>
-    <content><![CDATA[<h2 id="1128-等价多米诺骨牌对的数量"><a href="#1128-等价多米诺骨牌对的数量" class="headerlink" title="1128. 等价多米诺骨牌对的数量"></a><a href="https://leetcode-cn.com/problems/number-of-equivalent-domino-pairs/" target="_blank" rel="noopener">1128. 等价多米诺骨牌对的数量</a></h2><h3 id="一、题目"><a href="#一、题目" class="headerlink" title="一、题目"></a>一、题目</h3><p>给你一个由一些多米诺骨牌组成的列表 <code>dominoes</code>。</p>
-<p>如果其中某一张多米诺骨牌可以通过旋转 <code>0</code> 度或 <code>180</code> 度得到另一张多米诺骨牌，我们就认为这两张牌是等价的。</p>
-<p>形式上，<code>dominoes[i] = [a, b]</code> 和 <code>dominoes[j] = [c, d]</code> 等价的前提是 <code>a=c</code> 且 <code>b=d</code>，或是 <code>a=d</code> 且 <code>b=c</code>。</p>
-<p>在 <code>0 &lt;= i &lt; j &lt; dominoes.length</code> 的前提下，找出满足 <code>dominoes[i]</code> 和 <code>dominoes[j]</code> 等价的骨牌对 <code>(i, j)</code> 的数量。</p>
-<a id="more"></a>
-<p><strong>示例1：</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：dominoes &#x3D; [[1,2],[2,1],[3,4],[5,6]]</span><br><span class="line">输出：1</span><br></pre></td></tr></table></figure>
-<p><strong>提示：</strong></p>
-<ul>
-<li>1 ≤ dominoes.length ≤ 40000</li>
-<li>1 ≤ dominoes[i][j] ≤ 9</li>
-</ul>
-<h3 id="二、题解"><a href="#二、题解" class="headerlink" title="二、题解"></a>二、题解</h3><h4 id="方法1：排序-哈希map-计数"><a href="#方法1：排序-哈希map-计数" class="headerlink" title="方法1：排序 + 哈希map + 计数"></a>方法1：排序 + 哈希map + 计数</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">将 dominoes 数组中每一项按从小到大排个序变为字符串，然后哈希表记录下出每个字符串出现的次数，最后遍历哈希表即可得</span><br></pre></td></tr></table></figure>
-<ul>
-<li>时间复杂度：O(n)，n 是数组的长度。</li>
-<li>空间复杂度：O(n)</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> numEquivDominoPairs = <span class="function"><span class="keyword">function</span>(<span class="params">dominoes</span>) </span>&#123;</span><br><span class="line">    dominoes = dominoes.map(<span class="function"><span class="params">e</span> =&gt;</span> e[<span class="number">0</span>] &lt; e[<span class="number">1</span>] ? <span class="string">''</span> + e[<span class="number">0</span>] + e[<span class="number">1</span>] : <span class="string">''</span> + e[<span class="number">1</span>] + e[<span class="number">0</span>]);</span><br><span class="line">    <span class="keyword">let</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> dominoe <span class="keyword">of</span> dominoes) &#123;</span><br><span class="line">        <span class="keyword">if</span> (map.has(dominoe)) &#123;</span><br><span class="line">            map.set(dominoe, map.get(dominoe) + <span class="number">1</span>)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            map.set(dominoe, <span class="number">1</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> ret = <span class="number">0</span>;</span><br><span class="line">    map.forEach(<span class="function"><span class="params">value</span> =&gt;</span> &#123;</span><br><span class="line">        ret += value * (value - <span class="number">1</span>) / <span class="number">2</span></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> ret</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h4 id="方法2：二元组表示-计数"><a href="#方法2：二元组表示-计数" class="headerlink" title="方法2：二元组表示 + 计数"></a>方法2：二元组表示 + 计数</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">首先我们直接让每一个二元对都变为指定的格式，即第一维必须不大于第二维。这样两个二元对「等价」当且仅当两个二元对完全相同。</span><br><span class="line"></span><br><span class="line">其次注意到二元对中的元素均不大于 9，因此我们可以将每一个二元对拼接成一个两位的正整数，即 (x,y) -&gt; 10x+y。</span><br><span class="line">这样就无需使用哈希表统计元素数量，而直接使用长度为 100 的数组即可。</span><br></pre></td></tr></table></figure>
-<ul>
-<li>时间复杂度：O(n)，n 是数组的长度。</li>
-<li>空间复杂度：O(1)</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> numEquivDominoPairs = <span class="function"><span class="keyword">function</span> (<span class="params">dominoes</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> arr = <span class="built_in">Array</span>(<span class="number">100</span>).fill(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">let</span> ret = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> ele <span class="keyword">of</span> dominoes) &#123;</span><br><span class="line">        <span class="keyword">let</span> val = ele[<span class="number">0</span>] &gt; ele[<span class="number">1</span>] ? <span class="number">10</span> * ele[<span class="number">1</span>] + ele[<span class="number">0</span>] : <span class="number">10</span> * ele[<span class="number">0</span>] + ele[<span class="number">1</span>];</span><br><span class="line">        arr[val]++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> n <span class="keyword">of</span> arr) &#123;</span><br><span class="line">        ret += n * (n - <span class="number">1</span>) / <span class="number">2</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>leetcode</category>
@@ -811,6 +811,84 @@
       </tags>
   </entry>
   <entry>
+    <title>leetcode每日一题2020.2.1</title>
+    <url>/2021/02/01/lc2021.2.1/</url>
+    <content><![CDATA[<h2 id="888-公平的糖果棒交换"><a href="#888-公平的糖果棒交换" class="headerlink" title="888. 公平的糖果棒交换"></a><a href="https://leetcode-cn.com/problems/fair-candy-swap/" target="_blank" rel="noopener">888. 公平的糖果棒交换</a></h2><h3 id="一、题目"><a href="#一、题目" class="headerlink" title="一、题目"></a>一、题目</h3><p>爱丽丝和鲍勃有不同大小的糖果棒：<code>A[i]</code> 是爱丽丝拥有的第 <code>i</code> 根糖果棒的大小，<code>B[j]</code> 是鲍勃拥有的第 <code>j</code> 根糖果棒的大小。</p>
+<p>因为他们是朋友，所以他们想交换一根糖果棒，这样交换后，他们都有相同的糖果总量。<em>（一个人拥有的糖果总量是他们拥有的糖果棒大小的总和。）</em></p>
+<p>返回一个整数数组 <code>ans</code>，其中 <code>ans[0]</code> 是爱丽丝必须交换的糖果棒的大小，<code>ans[1]</code> 是 Bob 必须交换的糖果棒的大小。</p>
+<p>如果有多个答案，你可以返回其中任何一个。保证答案存在。<br><a id="more"></a></p>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：A &#x3D; [1,1], B &#x3D; [2,2]</span><br><span class="line">输出：[1,2]</span><br></pre></td></tr></table></figure>
+<p><strong>示例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：A &#x3D; [1,2], B &#x3D; [2,3]</span><br><span class="line">输出：[1,2]</span><br></pre></td></tr></table></figure>
+<p><strong>示例3：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：A &#x3D; [2], B &#x3D; [1,3]</span><br><span class="line">输出：[2,3]</span><br></pre></td></tr></table></figure>
+<p><strong>示例4：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：A &#x3D; [1,2,5], B &#x3D; [2,4]</span><br><span class="line">输出：[5,4]</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 ≤ A.length ≤ 10000</code></li>
+<li><code>1 ≤ B.length ≤ 10000</code></li>
+<li><code>1 ≤ A[i] ≤ 100000</code></li>
+<li><code>1 ≤ B[i] ≤ 100000</code></li>
+<li>保证爱丽丝与鲍勃的糖果总量不同。</li>
+<li>答案肯定存在。</li>
+</ul>
+<h3 id="二、题解"><a href="#二、题解" class="headerlink" title="二、题解"></a>二、题解</h3><h4 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h4><p>思路如下：</p>
+<hr>
+<p>这是一个纯数学问题，我们来把它数学化：</p>
+<p>假设我们最后得结果是 $[a, b]$，也就是 $a$ 是 $A$ 要交换得，$b$ 是 $B$ 要交换的</p>
+<p>我们可以计算分别得到 $A$ 和 $B$ 的和为 $aSum$ 和 $bSum$，那我们会有如下关系：</p>
+<script type="math/tex; mode=display">aSum - a + b = bSum - b + a</script><p>转化一下可以得到：</p>
+<script type="math/tex; mode=display">a = b + \frac{aSum - bSum}{2}</script><p>其实问题就是：对于 $B$ 中的任一数 $b$，在 $A$ 中存在一个数 $a$，满足上述关系式。</p>
+<hr>
+<ul>
+<li>时间复杂度：$O(n+m)$，$n$ 和 $m$ 分别为 $A$ 和 $B$ 的长度。</li>
+<li>空间复杂度：$O(n)$。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> fairCandySwap = <span class="function"><span class="keyword">function</span> (<span class="params">A, B</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> aSum = A.reduce(<span class="function">(<span class="params">preValue, curValue</span>) =&gt;</span> preValue + curValue);</span><br><span class="line">    <span class="keyword">let</span> bSum = B.reduce(<span class="function">(<span class="params">preValue, curValue</span>) =&gt;</span> preValue + curValue);</span><br><span class="line">    <span class="keyword">let</span> diff = (aSum - bSum) / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">set</span> = new Set(A);</span><br><span class="line">    let res = [];</span><br><span class="line">    for (const y of B) &#123;</span><br><span class="line">        <span class="keyword">let</span> x = y + diff;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">set</span>.has(x)) &#123;</span><br><span class="line">            res = [x, y]</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode每日一题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>leetcode每日一题2020.2.25</title>
+    <url>/2021/02/25/lc2021.2.25/</url>
+    <content><![CDATA[<h2 id="867-转置矩阵"><a href="#867-转置矩阵" class="headerlink" title="867. 转置矩阵"></a><a href="https://leetcode-cn.com/problems/transpose-matrix/" target="_blank" rel="noopener">867. 转置矩阵</a></h2><h3 id="一、题目"><a href="#一、题目" class="headerlink" title="一、题目"></a>一、题目</h3><p>给你一个二维整数数组 <code>matrix</code>， 返回 <code>matrix</code> 的 <strong>转置矩阵</strong> 。</p>
+<p>矩阵的 <strong>转置</strong> 是指将矩阵的主对角线翻转，交换矩阵的行索引与列索引。</p>
+<p><img data-src="/images/loading.gif" data-original="/images/20210225.png" alt="20210225"></p>
+<a id="more"></a>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：matrix &#x3D; [[1,2,3],[4,5,6],[7,8,9]]</span><br><span class="line">输出：[[1,4,7],[2,5,8],[3,6,9]]</span><br></pre></td></tr></table></figure>
+<p><strong>示例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：matrix &#x3D; [[1,2,3],[4,5,6]]</span><br><span class="line">输出：[[1,4],[2,5],[3,6]]</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li>$m = matrix.length$</li>
+<li>$n = matrix[i].length$</li>
+<li>$1 \le m, n \le 1000$</li>
+<li>$1 \le m * n \le 10^{5}$</li>
+<li>$-10^{9} ≤ matrix[i][j] ≤ 10^{9}$</li>
+</ul>
+<h3 id="二、题解"><a href="#二、题解" class="headerlink" title="二、题解"></a>二、题解</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">横纵坐标对换位置即可，很简单。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>时间复杂度：$O(m * n)$，其中 $m$ 为矩阵的行数，$n$ 为矩阵的列数。</li>
+<li>空间复杂度：$O(1)$。除了返回值以外，额外使用的空间为常数。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> transpose = <span class="function"><span class="keyword">function</span> (<span class="params">matrix</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> row = matrix.length;</span><br><span class="line">    <span class="keyword">const</span> col = matrix[<span class="number">0</span>].length;</span><br><span class="line">    <span class="keyword">const</span> res = <span class="built_in">Array</span>(col).fill(<span class="number">0</span>).map(<span class="function"><span class="params">e</span> =&gt;</span> <span class="built_in">Array</span>(row).fill(<span class="number">0</span>));</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; row; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; col; j++) &#123;</span><br><span class="line">            res[j][i] = matrix[i][j]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode每日一题</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>leetcode每日一题2020.1.9</title>
     <url>/2021/01/09/lc2021.1.9/</url>
     <content><![CDATA[<h2 id="123-买卖股票的最佳时机-III"><a href="#123-买卖股票的最佳时机-III" class="headerlink" title="123. 买卖股票的最佳时机 III"></a><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/" target="_blank" rel="noopener">123. 买卖股票的最佳时机 III</a></h2><h3 id="一、题目"><a href="#一、题目" class="headerlink" title="一、题目"></a>一、题目</h3><p>给定一个数组，它的第 <code>i</code> 个元素是一支给定的股票在第 <code>i</code> 天的价格。</p>
@@ -882,51 +960,6 @@
       </tags>
   </entry>
   <entry>
-    <title>leetcode每日一题2020.2.1</title>
-    <url>/2021/02/01/lc2021.2.1/</url>
-    <content><![CDATA[<h2 id="888-公平的糖果棒交换"><a href="#888-公平的糖果棒交换" class="headerlink" title="888. 公平的糖果棒交换"></a><a href="https://leetcode-cn.com/problems/fair-candy-swap/" target="_blank" rel="noopener">888. 公平的糖果棒交换</a></h2><h3 id="一、题目"><a href="#一、题目" class="headerlink" title="一、题目"></a>一、题目</h3><p>爱丽丝和鲍勃有不同大小的糖果棒：<code>A[i]</code> 是爱丽丝拥有的第 <code>i</code> 根糖果棒的大小，<code>B[j]</code> 是鲍勃拥有的第 <code>j</code> 根糖果棒的大小。</p>
-<p>因为他们是朋友，所以他们想交换一根糖果棒，这样交换后，他们都有相同的糖果总量。<em>（一个人拥有的糖果总量是他们拥有的糖果棒大小的总和。）</em></p>
-<p>返回一个整数数组 <code>ans</code>，其中 <code>ans[0]</code> 是爱丽丝必须交换的糖果棒的大小，<code>ans[1]</code> 是 Bob 必须交换的糖果棒的大小。</p>
-<p>如果有多个答案，你可以返回其中任何一个。保证答案存在。<br><a id="more"></a></p>
-<p><strong>示例1：</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：A &#x3D; [1,1], B &#x3D; [2,2]</span><br><span class="line">输出：[1,2]</span><br></pre></td></tr></table></figure>
-<p><strong>示例2：</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：A &#x3D; [1,2], B &#x3D; [2,3]</span><br><span class="line">输出：[1,2]</span><br></pre></td></tr></table></figure>
-<p><strong>示例3：</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：A &#x3D; [2], B &#x3D; [1,3]</span><br><span class="line">输出：[2,3]</span><br></pre></td></tr></table></figure>
-<p><strong>示例4：</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：A &#x3D; [1,2,5], B &#x3D; [2,4]</span><br><span class="line">输出：[5,4]</span><br></pre></td></tr></table></figure>
-<p><strong>提示：</strong></p>
-<ul>
-<li><code>1 ≤ A.length ≤ 10000</code></li>
-<li><code>1 ≤ B.length ≤ 10000</code></li>
-<li><code>1 ≤ A[i] ≤ 100000</code></li>
-<li><code>1 ≤ B[i] ≤ 100000</code></li>
-<li>保证爱丽丝与鲍勃的糖果总量不同。</li>
-<li>答案肯定存在。</li>
-</ul>
-<h3 id="二、题解"><a href="#二、题解" class="headerlink" title="二、题解"></a>二、题解</h3><h4 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h4><p>思路如下：</p>
-<hr>
-<p>这是一个纯数学问题，我们来把它数学化：</p>
-<p>假设我们最后得结果是 $[a, b]$，也就是 $a$ 是 $A$ 要交换得，$b$ 是 $B$ 要交换的</p>
-<p>我们可以计算分别得到 $A$ 和 $B$ 的和为 $aSum$ 和 $bSum$，那我们会有如下关系：</p>
-<script type="math/tex; mode=display">aSum - a + b = bSum - b + a</script><p>转化一下可以得到：</p>
-<script type="math/tex; mode=display">a = b + \frac{aSum - bSum}{2}</script><p>其实问题就是：对于 $B$ 中的任一数 $b$，在 $A$ 中存在一个数 $a$，满足上述关系式。</p>
-<hr>
-<ul>
-<li>时间复杂度：$O(n+m)$，$n$ 和 $m$ 分别为 $A$ 和 $B$ 的长度。</li>
-<li>空间复杂度：$O(n)$。</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> fairCandySwap = <span class="function"><span class="keyword">function</span> (<span class="params">A, B</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> aSum = A.reduce(<span class="function">(<span class="params">preValue, curValue</span>) =&gt;</span> preValue + curValue);</span><br><span class="line">    <span class="keyword">let</span> bSum = B.reduce(<span class="function">(<span class="params">preValue, curValue</span>) =&gt;</span> preValue + curValue);</span><br><span class="line">    <span class="keyword">let</span> diff = (aSum - bSum) / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">set</span> = new Set(A);</span><br><span class="line">    let res = [];</span><br><span class="line">    for (const y of B) &#123;</span><br><span class="line">        <span class="keyword">let</span> x = y + diff;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">set</span>.has(x)) &#123;</span><br><span class="line">            res = [x, y]</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>leetcode每日一题</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>leetcode每日一题2020.2.22</title>
     <url>/2021/02/22/lc2021.2.22/</url>
     <content><![CDATA[<h2 id="766-托普利茨矩阵"><a href="#766-托普利茨矩阵" class="headerlink" title="766. 托普利茨矩阵"></a><a href="https://leetcode-cn.com/problems/toeplitz-matrix/" target="_blank" rel="noopener">766. 托普利茨矩阵</a></h2><h3 id="一、题目"><a href="#一、题目" class="headerlink" title="一、题目"></a>一、题目</h3><p>给你一个 <code>m x n</code> 的矩阵 <code>matrix</code> 。如果这个矩阵是托普利茨矩阵，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
@@ -951,39 +984,6 @@
 <li>空间复杂度：$O(1)$</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> isToeplitzMatrix = <span class="function"><span class="keyword">function</span>(<span class="params">matrix</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> m = matrix.length;</span><br><span class="line">    <span class="keyword">const</span> n = matrix[<span class="number">0</span>].length;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">1</span>; i&lt;m; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j=<span class="number">1</span>; j&lt;n; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (matrix[i][j] !== matrix[i<span class="number">-1</span>][j<span class="number">-1</span>]) <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>leetcode每日一题</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>leetcode每日一题2020.2.25</title>
-    <url>/2021/02/25/lc2021.2.25/</url>
-    <content><![CDATA[<h2 id="867-转置矩阵"><a href="#867-转置矩阵" class="headerlink" title="867. 转置矩阵"></a><a href="https://leetcode-cn.com/problems/transpose-matrix/" target="_blank" rel="noopener">867. 转置矩阵</a></h2><h3 id="一、题目"><a href="#一、题目" class="headerlink" title="一、题目"></a>一、题目</h3><p>给你一个二维整数数组 <code>matrix</code>， 返回 <code>matrix</code> 的 <strong>转置矩阵</strong> 。</p>
-<p>矩阵的 <strong>转置</strong> 是指将矩阵的主对角线翻转，交换矩阵的行索引与列索引。</p>
-<p><img data-src="/images/loading.gif" data-original="/images/20210225.png" alt="20210225"></p>
-<a id="more"></a>
-<p><strong>示例1：</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：matrix &#x3D; [[1,2,3],[4,5,6],[7,8,9]]</span><br><span class="line">输出：[[1,4,7],[2,5,8],[3,6,9]]</span><br></pre></td></tr></table></figure>
-<p><strong>示例2：</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：matrix &#x3D; [[1,2,3],[4,5,6]]</span><br><span class="line">输出：[[1,4],[2,5],[3,6]]</span><br></pre></td></tr></table></figure>
-<p><strong>提示：</strong></p>
-<ul>
-<li>$m = matrix.length$</li>
-<li>$n = matrix[i].length$</li>
-<li>$1 \le m, n \le 1000$</li>
-<li>$1 \le m * n \le 10^{5}$</li>
-<li>$-10^{9} ≤ matrix[i][j] ≤ 10^{9}$</li>
-</ul>
-<h3 id="二、题解"><a href="#二、题解" class="headerlink" title="二、题解"></a>二、题解</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">横纵坐标对换位置即可，很简单。</span><br></pre></td></tr></table></figure>
-<ul>
-<li>时间复杂度：$O(m * n)$，其中 $m$ 为矩阵的行数，$n$ 为矩阵的列数。</li>
-<li>空间复杂度：$O(1)$。除了返回值以外，额外使用的空间为常数。</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> transpose = <span class="function"><span class="keyword">function</span> (<span class="params">matrix</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> row = matrix.length;</span><br><span class="line">    <span class="keyword">const</span> col = matrix[<span class="number">0</span>].length;</span><br><span class="line">    <span class="keyword">const</span> res = <span class="built_in">Array</span>(col).fill(<span class="number">0</span>).map(<span class="function"><span class="params">e</span> =&gt;</span> <span class="built_in">Array</span>(row).fill(<span class="number">0</span>));</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; row; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; col; j++) &#123;</span><br><span class="line">            res[j][i] = matrix[i][j]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>leetcode</category>
@@ -1035,27 +1035,6 @@
       </tags>
   </entry>
   <entry>
-    <title>webpack安装node-sass出现问题</title>
-    <url>/2020/07/06/webpack%E5%AE%89%E8%A3%85node-sass%E5%87%BA%E7%8E%B0%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="webpack安装node-sass出现问题"><a href="#webpack安装node-sass出现问题" class="headerlink" title="webpack安装node-sass出现问题"></a>webpack安装node-sass出现问题</h2><p>我的问题反馈是这样的：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Downloading binary <span class="keyword">from</span> https:<span class="comment">//github.com/sass/node-sass/releases/download/v4.14.1/win32-x64-72_binding.node</span></span><br><span class="line">Cannot download <span class="string">"https://github.com/sass/node-sass/releases/download/v4.14.1/win32-x64-72_binding.node"</span>:</span><br><span class="line"></span><br><span class="line">ESOCKETTIMEDOUT</span><br><span class="line"></span><br><span class="line">Hint: If github.com is not accessible <span class="keyword">in</span> your location</span><br><span class="line">      <span class="keyword">try</span> setting a proxy via HTTP_PROXY, e.g.</span><br><span class="line"></span><br><span class="line">      <span class="keyword">export</span> HTTP_PROXY=http:<span class="comment">//example.com:1234</span></span><br><span class="line"></span><br><span class="line">or configure npm proxy via</span><br><span class="line"></span><br><span class="line">      npm config <span class="keyword">set</span> proxy http://example.com:8080</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>原因是由于网络限制导致无法下载 .node 文件，解决方法如下：</p>
-<p>使用淘宝镜像，使用镜像前请把node_modules文件夹下原有的node-sass有关的文件全删了</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">npm install -g cnpm --registry = http:<span class="comment">//registry.npm.taobao.org</span></span><br><span class="line"></span><br><span class="line">cnpm install node-sass</span><br></pre></td></tr></table></figure>
-<h2 id="上述第2步运行可能会碰到如下问题"><a href="#上述第2步运行可能会碰到如下问题" class="headerlink" title="上述第2步运行可能会碰到如下问题"></a>上述第2步运行可能会碰到如下问题</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">cnpm : 无法加载文件 D:\Softwares\nodejs\node_global\cnpm.ps1，因为在此系统上禁止运行脚本。有关详细信息，请参阅 https:<span class="regexp">/go.microsoft.com/</span>fwlink/?LinkID=<span class="number">135170</span> 中的 about_Execution_Po</span><br><span class="line">licies。</span><br><span class="line">所在位置 行:<span class="number">1</span> 字符: <span class="number">1</span></span><br><span class="line">+ cnpm install node-sass</span><br><span class="line">+ ~~~~</span><br><span class="line">    + CategoryInfo          : SecurityError: (:) []，PSSecurityException</span><br><span class="line">    + FullyQualifiedErrorId : UnauthorizedAccess</span><br></pre></td></tr></table></figure>
-<p>这是说是没有权限，需要用管理员身份进行运行并授权<br>解决方法：</p>
-<p>打开本地的 Windows PowerShell，以管理员身份运行：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span>-ExecutionPolicy RemoteSigned</span><br><span class="line"></span><br><span class="line">再输入 Y 即可</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Webpack</category>
-      </categories>
-      <tags>
-        <tag>Webpack</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>webpack打包之后index.html缺少引号的问题</title>
     <url>/2020/07/06/webpack%E6%89%93%E5%8C%85%E7%BC%BA%E5%B0%91%E5%BC%95%E5%8F%B7/</url>
     <content><![CDATA[<h2 id="webpack打包之后index-html缺少引号的问题"><a href="#webpack打包之后index-html缺少引号的问题" class="headerlink" title="webpack打包之后index.html缺少引号的问题"></a>webpack打包之后index.html缺少引号的问题</h2><p>下面是通过webpack <code>npm run build</code>打包之后生成的index.html文件，可以看到缺少引号</p>
@@ -1069,6 +1048,27 @@
 <p> <img data-src="/images/loading.gif" data-original="/images/解决方法.png" alt="效果图"></p>
 </li>
 </ol>
+]]></content>
+      <categories>
+        <category>Webpack</category>
+      </categories>
+      <tags>
+        <tag>Webpack</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>webpack安装node-sass出现问题</title>
+    <url>/2020/07/06/webpack%E5%AE%89%E8%A3%85node-sass%E5%87%BA%E7%8E%B0%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="webpack安装node-sass出现问题"><a href="#webpack安装node-sass出现问题" class="headerlink" title="webpack安装node-sass出现问题"></a>webpack安装node-sass出现问题</h2><p>我的问题反馈是这样的：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Downloading binary <span class="keyword">from</span> https:<span class="comment">//github.com/sass/node-sass/releases/download/v4.14.1/win32-x64-72_binding.node</span></span><br><span class="line">Cannot download <span class="string">"https://github.com/sass/node-sass/releases/download/v4.14.1/win32-x64-72_binding.node"</span>:</span><br><span class="line"></span><br><span class="line">ESOCKETTIMEDOUT</span><br><span class="line"></span><br><span class="line">Hint: If github.com is not accessible <span class="keyword">in</span> your location</span><br><span class="line">      <span class="keyword">try</span> setting a proxy via HTTP_PROXY, e.g.</span><br><span class="line"></span><br><span class="line">      <span class="keyword">export</span> HTTP_PROXY=http:<span class="comment">//example.com:1234</span></span><br><span class="line"></span><br><span class="line">or configure npm proxy via</span><br><span class="line"></span><br><span class="line">      npm config <span class="keyword">set</span> proxy http://example.com:8080</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>原因是由于网络限制导致无法下载 .node 文件，解决方法如下：</p>
+<p>使用淘宝镜像，使用镜像前请把node_modules文件夹下原有的node-sass有关的文件全删了</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">npm install -g cnpm --registry = http:<span class="comment">//registry.npm.taobao.org</span></span><br><span class="line"></span><br><span class="line">cnpm install node-sass</span><br></pre></td></tr></table></figure>
+<h2 id="上述第2步运行可能会碰到如下问题"><a href="#上述第2步运行可能会碰到如下问题" class="headerlink" title="上述第2步运行可能会碰到如下问题"></a>上述第2步运行可能会碰到如下问题</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">cnpm : 无法加载文件 D:\Softwares\nodejs\node_global\cnpm.ps1，因为在此系统上禁止运行脚本。有关详细信息，请参阅 https:<span class="regexp">/go.microsoft.com/</span>fwlink/?LinkID=<span class="number">135170</span> 中的 about_Execution_Po</span><br><span class="line">licies。</span><br><span class="line">所在位置 行:<span class="number">1</span> 字符: <span class="number">1</span></span><br><span class="line">+ cnpm install node-sass</span><br><span class="line">+ ~~~~</span><br><span class="line">    + CategoryInfo          : SecurityError: (:) []，PSSecurityException</span><br><span class="line">    + FullyQualifiedErrorId : UnauthorizedAccess</span><br></pre></td></tr></table></figure>
+<p>这是说是没有权限，需要用管理员身份进行运行并授权<br>解决方法：</p>
+<p>打开本地的 Windows PowerShell，以管理员身份运行：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span>-ExecutionPolicy RemoteSigned</span><br><span class="line"></span><br><span class="line">再输入 Y 即可</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Webpack</category>
